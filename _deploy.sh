@@ -1,6 +1,5 @@
-#!/bin/sh
-
-git add --all
-git commit -m "Added/updated content"
-git push origin master
-
+#!/bin/bash -e
+commit_message="$1"
+git add . -A
+git commit -m "$commit_message"
+git push
