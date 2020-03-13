@@ -1,0 +1,27 @@
+--- 
+title: "R for Research"
+author: "Enayetur Raheem"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: raheems/r4res
+description: "A book on R software for doing clinical and translationation research."
+---
+
+# What you get{-}
+
+There are many books on R in the market. Yet, this is another book that is being written. You wonder, why. Here's what I think about this book.
+
+- This book is specifically about using R for research in medical and clinical fields. Therefore, the examples in this book will be mostly if not all from the medical field.
+
+- This book is straignt to the point and very specific without too much going into the nitty grity of the technicality.
+
+- This book focuses on data analysis and report generation. As such, this book is particularly suitable for researchers in all fields, particularly in medical field.
+
+- Tools used in this book are the most modern and up to date. The old-style programming (base R style of coding has a steep learning curve whereas the new `tidyverse` suite of libraries have made this much easier and provies flexible framework for quick data anlysis and producing publiccation quality graphics and tables. 
+
+
