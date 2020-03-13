@@ -17,8 +17,19 @@ description: "A book on R software for data analysis for research in social and 
 
 ## Work in progress
 
-Before you begin, I would like to point out that this book is being actively written. That means, the organization of the contents is not finalized. As such, bookmarks would not be stable at this point. I would adivse not to bookmark any chapter or section. Instead, bookmark the website of the book which is http://r4res.eraheem.com. More importantly, bookmark the Issue queue 
-- https://github.com/raheems/r4res/issues. If you have any questions or suggestions or feature requests, you can submit a request there. 
+Before you begin, I would like to point out that this book is being actively written. That means, the organization of the contents is not finalized. As such, bookmarks would not be stable at this point. I would adivse not to bookmark any chapter or section. Instead, bookmark the website of the book which is http://r4res.eraheem.com. 
+
+## Have questions?
+
+Thank you for reading this book. I hope this will be beneficial for you. Take a look at the contents and browse theough the book. If you feel anything important is missing or you would like me to cover additional topics, please feel free to let me know by submitting a feature request at the Issue queue located at https://github.com/raheems/r4res/issues
+
+To submit a question to the github issue queue, you need an account at https://www.Github.com, which is absolutely free. if you are not familiar with github, it is used by millions of developers worldwide. That may sound scary to you. But I can assure you that no technical knowledge is needed to submit a request or raise a question or report an error using the Issue queue. 
+
+Just vist the Github website and sign up with your email if you do not have an account there. And submit your request. This way, I will be able to manage all the requests, and respond to your queries. This tools helps me to respond to you in an organized way. 
+
+This is also the fastest way to get a response from me if you have any question or suggestion about this book. 
+
+
 
 
 ## Features {#features}
@@ -46,11 +57,4 @@ You might be thinking how writing code can beneficial when point and click is so
 - Youre results are sharable with potential collaborators and also with the journals where you would submit your manuscript for publiccation. These days many journals ask for computer program to ensure reproduciblity.
 
 Lets dive in to the wonderful tool to power your research!
-
-## Before you begin
-
-Firstly, thank you for reading this book. I hope this will be beneficial for you. Skim throgh the book and take a look at the contents. If you see anything is missing or you want me to cover additional topics, please feel free to let me know by emailing to raheem at gmail dot com. You can also request features at the issue queue located at https://github.com/raheems/r4res/issues
-
-You would need to have an account at Github.com, which is absolutely free. Just sign up and submit a request there. This way, I will be able to manage the feature requests as well provide updates in an organized way.
-
 
