@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: raheems/r4res
-description: "A book on R software for data analysis for research in social and medical science"
+description: "A book on R statistical software for research data analysis in social and medical sciences."
 ---
 
 
