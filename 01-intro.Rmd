@@ -1,32 +1,24 @@
-# Getting Started {#intro}
+# Getting Started {#getting_started}
 
-We need two pieces of software to get ready for doing research with R. First and foremoest, the R statistical software. Secondly, the graphical user interface software, RStudio. Althogh it has a graphical intereface, much of the actions will still need you to write R codes. And that is a good thing. We will not be using point and click features except on rare ocasions. 
+We need two pieces of software to get started with R for research. 
 
-Working with R should start with installing R in your computer. If you have already R installed and the RStudio installed, then you can skip this chapter. 
+- First and foremoest, the R statistical software. 
+- Secondly, the graphical user interface software, RStudio. 
 
-For those who do not have R and R studio installed, please follow along. This should not be too long. Installation is easy these days. 
+R iteself has a graphical interface. However, RStudio has some nice features added to it that provies an improved R experience. RStudio is an integrated development environment (IDE). Althogh RStudio has a graphical intereface, for much of the actions,  you will need to write R codes. And that is a good thing. There are point and click menues for doing certain things such as configuring the R environment, and the RStudio itself. However, for most of our works, we will be writing codes using the build in editor in RStudio. 
 
-## Components to Installation
+## Download R and RStudio
 
-We would need to pieces of software to install. The main R engine, and a graphical frontend, RStudio.
+R is freely available open source software that is free to use, modify, distribute under the GNU licence. This simply means you can use R for anything--hobby projects, funded projects, or comercial works. Absolutely free.
 
+To download R, go to https://cloud.r-project.org/ and download the latest version for your operating system. R is available for Windows, Mac OSX, and of course, Linux systems.
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+RStudio is a free software under AGPL license. This is developed and maintained by RStudio which is a software company who develops and sells R-based software for enterprise use. 
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+To download RStudio, go to https://rstudio.com/products/rstudio/download/ and click on the Download button for RStudio Desktop. The website will automatically detect your operating system and give you the link to download. 
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+## Installatiom
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+After downloading the software, first, install R and then install RStudio. I don't think it matters, but since RStrudio uses R as a backend engine, I think the logical sequence should be to install R first and then RStudio.
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
-
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+After its installed, you are good to get your hands dirty! 

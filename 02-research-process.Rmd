@@ -1,0 +1,26 @@
+# Organizing your project
+
+In this chapter, we provide a brief overview of research process. A big picture overview always helps to contextualize the role data analysis play in research. In addition, we will provide an outline and template for organizing and quickly producing the results of any analysis. Thus it is important that you do not skip this chapter. 
+
+## Research process
+
+In a nutshell, most quantitative social and medical research has the following steps--
+
+1. Idea/research question
+2. Literature review 
+3. Study design
+4. Data collection and data management
+5. Statistical analysis
+6. Report/manuscript writing
+7. Publication
+
+```{r}
+set.seed(19)
+x = rnorm(100)
+hist(x)
+```
+
+
+## Analytic process
+
+
