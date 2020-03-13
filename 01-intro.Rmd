@@ -1,4 +1,15 @@
-# Introduction {#intro}
+# Getting Started {#intro}
+
+We need two pieces of software to get ready for doing research with R. First and foremoest, the R statistical software. Secondly, the graphical user interface software, RStudio. Althogh it has a graphical intereface, much of the actions will still need you to write R codes. And that is a good thing. We will not be using point and click features except on rare ocasions. 
+
+Working with R should start with installing R in your computer. If you have already R installed and the RStudio installed, then you can skip this chapter. 
+
+For those who do not have R and R studio installed, please follow along. This should not be too long. Installation is easy these days. 
+
+## Components to Installation
+
+We would need to pieces of software to install. The main R engine, and a graphical frontend, RStudio.
+
 
 You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
 

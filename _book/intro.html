@@ -4,24 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introduction | R for Research</title>
-  <meta name="description" content="A book on R software for doing clinical and translationation research." />
+  <title>Chapter 2 Getting Started | R for Research</title>
+  <meta name="description" content="A book on R software for data analysis for research in social and medical science" />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introduction | R for Research" />
+  <meta property="og:title" content="Chapter 2 Getting Started | R for Research" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="A book on R software for doing clinical and translationation research." />
+  <meta property="og:description" content="A book on R software for data analysis for research in social and medical science" />
   <meta name="github-repo" content="raheems/r4res" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introduction | R for Research" />
+  <meta name="twitter:title" content="Chapter 2 Getting Started | R for Research" />
   
-  <meta name="twitter:description" content="A book on R software for doing clinical and translationation research." />
+  <meta name="twitter:description" content="A book on R software for data analysis for research in social and medical science" />
   
 
-<meta name="author" content="Enayet Raheem" />
+<meta name="author" content="Enayetur Raheem" />
 
 
 <meta name="date" content="2020-03-12" />
@@ -103,11 +103,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">R for Research</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Why this book</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#work-in-progress"><i class="fa fa-check"></i><b>1.1</b> Work in progress</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#features"><i class="fa fa-check"></i><b>1.2</b> Features</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why_coding"><i class="fa fa-check"></i><b>1.3</b> Benefits of coding</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#before-you-begin"><i class="fa fa-check"></i><b>1.4</b> Before you begin</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Getting Started</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#components-to-installation"><i class="fa fa-check"></i><b>2.1</b> Components to Installation</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
 <li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
 <li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
@@ -117,7 +124,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/raheems/r4res" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -137,13 +144,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
+<h1><span class="header-section-number">Chapter 2</span> Getting Started</h1>
+<p>We need two pieces of software to get ready for doing research with R. First and foremoest, the R statistical software. Secondly, the graphical user interface software, RStudio. Althogh it has a graphical intereface, much of the actions will still need you to write R codes. And that is a good thing. We will not be using point and click features except on rare ocasions.</p>
+<p>Working with R should start with installing R in your computer. If you have already R installed and the RStudio installed, then you can skip this chapter.</p>
+<p>For those who do not have R and R studio installed, please follow along. This should not be too long. Installation is easy these days.</p>
+<div id="components-to-installation" class="section level2">
+<h2><span class="header-section-number">2.1</span> Components to Installation</h2>
+<p>We would need to pieces of software to install. The main R engine, and a graphical frontend, RStudio.</p>
 <p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">2</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">4</a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
-<img src="bookdown-demo_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
+<img src="r4research_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
 <p class="caption">
 Figure 2.1: Here is a nice figure!
 </p>
@@ -310,6 +323,7 @@ Figure 2.1: Here is a nice figure!
 <p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2020</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
 
 </div>
+</div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-xie2015">
@@ -367,7 +381,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["r4research.pdf", "r4research.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -375,20 +389,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
