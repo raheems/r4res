@@ -1,0 +1,16 @@
+why-this-book
+work-in-progress
+have-questions
+features
+why_coding
+getting_started
+download-r-and-rstudio
+installatiom
+organizing-your-project
+research-process
+analytic-process
+analytic-process-1
+applications
+clinical-example
+social-science-example
+recipes
