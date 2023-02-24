@@ -50,7 +50,7 @@ The step by step instructions are as follows.
 
 ![](images/ch1-download-r-windows.png)
 
-Go to this page and [Download R and install by executing it according to your operating system](https://cran.r-project.org/bin/windows/base/) from https://cran.r-project.org/bin/windows/base/
+Go to [this page](https://cran.r-project.org/bin/windows/base/) and download R. Then install it.
 
 
 ### Step 2: Download and Install RTools
@@ -58,11 +58,13 @@ Go to this page and [Download R and install by executing it according to your op
 ![](images/ch1-rtools.png)
 
 
-[Download RTools](https://cran.r-project.org/bin/windows/Rtools/). Some packages in R need additional tools (to create the necessary development environment) to install packages. 
+[Download RTools](https://cran.r-project.org/bin/windows/Rtools/). This tool is needed because some packages in R need additional tools (to create the necessary development environment). 
 
 ![](images/ch1-rtools-download.png)
 
-Download the version appropriate for your R version. Usually the the latest version, for example at the time or writing this document, Rtools 4.3, would be needed. On this page you will find a link `Rtools43 installer` (the link will be something like: https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe). It is highly recommend that you download this file from the Rtools download page and NOT using the direct executable link.
+Download the version appropriate for your R version. If you installing the newest version of R then you should normally choose the latest version of RTools. 
+
+At the time or writing this document, Rtools 4.3 should be selected. On this page you will find a link `Rtools43 installer` (the link will be something like: https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe). It is highly recommend that you download this file from the Rtools download page and NOT using the direct executable link.
 
 ### Step 3: Download and Install Rstudio
 
@@ -70,6 +72,6 @@ Download the version appropriate for your R version. Usually the the latest vers
 
 [Download Rstudio](https://posit.co/download/rstudio-desktop/). Once you are on this page, the website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later.
 
-The double click the executable file you just downloaded to install it. If you have difficulty installing a file or do not know how to do it, please search on Youtube for tutorials.
+The double click the executable file you just downloaded to install it. If you have difficulty installing a file or do not know how to do it, please search on YouTube for tutorials.
 
 You are done!
