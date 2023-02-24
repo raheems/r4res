@@ -1,0 +1,104 @@
+# R Fundamentals
+
+Here we begin..
+
+Below is a tentative outline, which will be updated as I complete the sections. Please check back often for updates.
+
+## Setting up the Expectations
+
+Learning a new program can be challenging and intimidating. If you have never programmed before, you may or may not feel it. However, if you have programmed in another language, you may feel a little uncomfortable at time because how R process certain aspects. 
+
+Whatever may be your background, let keep the following principle in mind
+
+- You will face challenges as many things will go wrong
+- Have patience. Things will turn in your favor. It's only a matter of time
+- Its a journey, and not a sprint. You have to pursue for a long time to achieve mastery or even a general understanding of the language. And this is true for any language. Think of who taught you your mother tongue? And exactly how long did it take to learn?
+
+## What is R?
+
+R is a language and programming environment, predominantly used by researchers, academicians, students in quantitative disciplines, and pharmaceutical companies. Note, I did not mention software engineers. Because they generally do not use R in their workflow. 
+
+### Who should learn R?
+
+Anyone involved in research activity where statistical analysis is necessary. R is best in this regard, hands down. With R, you can create a reproducible workflow producing the best possible outputs in a publication-ready format. As of writing this book, no other system can provide as much functionality off-the-shelf.
+
+### Should data scientists learn R?
+
+It depends on how you define data scientist. If 'science' part of data science is important to you, then R would be the first choice. On the other hand, if machine learning or algorithms primarily developed for prediction purposes, my personal recommendation would be to use Python based solutions.
+
+To summarize, a language should be chosen based on the deliverable. Be language agnostic, use the tool that does the job best. However, sometimes you may have to use one or the other because the organization and their IT setup supports one particular language.
+
+## R Language Basics
+
+- Data types
+- Math operations
+- Matrix, list
+  - Commonly used functions 
+    - `apply`, `lapply` family of functions
+ 
+### Interacting with R
+
+Once R is installed in your system, you can directly execute programs and computations by 'submitting' them to the R engine.
+
+In this book, we will use Rstudio (which will be renamed to POSIT at sometime in the future) to interact with R. That is, we won't submit code to R ourselves but we will use the RStudio IDE to do that for us. We will instead focus or coding and keeping things organized in a nicer way.
+
+#### Mathematical operations
+
+To get started with R, what better way to introduce to R but to start using it. And we use it as what we are most familiar with-- as a calculator. 
+
+On the R console, type `1 + 1` and it will print the result of adding 1 and 1. Let's see it in action.
+
+```{r}
+1 + 2
+```
+
+Similarly, for subtraction, multiplication, and division
+
+```{r}
+# Showing a subtraction operation
+ 10 - 2
+
+# Showing a multiplication operation
+10 * 2
+
+# Demonstrating division operation
+10 / 2
+
+# Exponentiation
+exp(2)
+
+# Log operation (natural logarithm or ln)
+log(exp(2))
+
+# Log operation (10 base)
+log10(10)
+
+```
+
+#### Exercise
+
+1. What would be output of the following operation?
+
+```{r, eval=FALSE}
+(10 + 20) * 2.5 / (exp(1))
+
+paste("The sum of ", 1, ' and ', 2, ' is ', 1+2)
+```
+
+2. 
+
+## R for Data Analysis
+
+Introduce `tidyverse` ecosystem for data analysis 
+
+## Data Visualization
+
+- ggplot
+
+- simplevis
+
+### Data generation and simulation
+
+
+
+

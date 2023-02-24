@@ -1,0 +1,88 @@
+
+# Working with Dates
+
+In all practical problems, we have to manipulate or otherwise work with
+date data types. So, in this chapter we will build the basic
+understanding of date data-types from ground up and then learn how to
+work with them. Finally, we will have many exercises to practice what we
+learn in this chapter. Let's go.
+
+First let us connect to our Postgres SQL instance in R. If you are
+working with DBeaver or IDE that directly connects to the PostgreSQL
+server, then you can ignore the connection settings below. This
+arrangement is to faciliate writing this book using Quarto tools.
+
+```{r}
+#| output: false
+#| echo: false
+# library(RPostgres)
+# con <- dbConnect(RPostgres::Postgres(), user="postgres", password="dataskool",dbname="postgres")
+```
+
+
+```{r}
+#| output: false
+#| echo: false
+library(RPostgreSQL)
+con <- dbConnect(PostgreSQL(), user="postgres", password="dataskool",dbname="postgres")
+```
+
+Once connected, we list the available tables in the database. Of them,
+we will be using the covid19 tables
+
+```{sql}
+#| connection: con
+#| 
+select * from covid19.us_states limit 10
+```
+
+# Explore Employee table
+
+```{sql}
+#| connection: con
+select * from employee limit 3
+```
+
+## Practical Challenge {#sec-covid19}
+
+Use the COVID dataset to answer the following questions. 
+
+### Create a new column to the existing table to show the daily deaths for each state {#sec-covid19-1}
+
+```{sql}
+#| connection: con
+select *, 
+  deaths - lag(deaths) over(partition by state order by date) as daily_deaths 
+  from covid19.us_states limit 3
+```
+
+### Create a table showing the highest deaths on a single day and the
+corresponding date for that state 
+
+### Calculate the number of days it took to reach the highest daily deaths for each state 
+
+### Rank the states based
+on the time it took to reach the highest deaths on a single day for each
+state Create a table that shows three columns: state name, date of first
+death (or more), date of 1000th death (or more) Calculate the time it
+took to reach the 1000th death for each state Rank the states from
+severest to the least severe in terms of the days it took to reach the
+1000th death. Show all states if applicable Bring population data in
+each state from external sources. Population data would include at
+least, the total population in the state, and other relevant data
+Calculate per capita death rates (total deaths divided by total
+population) per state per month Calculate the overall per capita death
+rate for each state Rank the states according to the overall per capita
+death rates (the highest one at the top)
+
+
+## Learning objective
+
+In Practical Challenge [-@sec-covid19], we practiced several problems to test our understanding and skills to manipulate tables in a relational data base systems. Is the cross-referencing working as expected?
+
+Reference for [-@sec-covid19-1]
+
+```{r}
+dbDisconnect(con)
+
+```

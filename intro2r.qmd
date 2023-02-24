@@ -1,0 +1,21 @@
+# R Fundamentals
+
+Here we begin..
+
+Below is a tentative outline, which will be updated as I complete the sections. Please check back often for updates.
+
+## Setting up the Expectations
+
+Learning a new program can be challenging and intimidating. If you have never programmed before, you may or may not feel it. However, if you have programmed in another language, you may feel a little uncomfortable at time because how R process certain aspects. 
+
+Whatever may be your background, let keep the following principle in mind
+
+- You will face challenges as many things will go wrong
+- Have patience. Things will turn in your favor. It's only a matter of time
+- Its a journey, and not a sprint. You have to pursue for a long time to achieve mastery or even a general understanding of the language. And this is true for any language. Think of who taught you your mother tongue? And exactly how long did it take to learn?
+
+## What is R?
+
+R is a language and programming environment, predominantly used by researchers, academicians, students in quantitative disciplines, and pharmaceutical companies. Note, I did not mention software engineers. Because they generally do not use R in their workflow.
+
+

@@ -1,0 +1,27 @@
+project:
+  type: book
+
+book:
+  title: "R for Reproducible Research"
+  subtitle: "A companion for Researchers"
+  author: "Enayetur Raheem"
+  date:  "2023/02/21"
+  chapters:
+    - index.qmd
+    - introduction.qmd
+    - r.qmd
+    - research-process.qmd
+    - analytic-process.qmd
+    - applications.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

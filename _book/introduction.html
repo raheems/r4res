@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./research-process.html" rel="next">
+<link href="./r.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -100,22 +100,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
+  <a href="./r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Fundamentals</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
+  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></a>
+  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -139,7 +144,13 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need"><span class="toc-section-number">3.1.1</span>  What you need</a></li>
   </ul></li>
-  <li><a href="#setting-up-r-in-windows" id="toc-setting-up-r-in-windows" class="nav-link" data-scroll-target="#setting-up-r-in-windows"><span class="toc-section-number">3.2</span>  Setting up R in Windows</a></li>
+  <li><a href="#setting-up-r-in-windows" id="toc-setting-up-r-in-windows" class="nav-link" data-scroll-target="#setting-up-r-in-windows"><span class="toc-section-number">3.2</span>  Setting up R in Windows</a>
+  <ul class="collapse">
+  <li><a href="#what-you-need-1" id="toc-what-you-need-1" class="nav-link" data-scroll-target="#what-you-need-1"><span class="toc-section-number">3.2.1</span>  What you need</a></li>
+  <li><a href="#step-1-download-and-install-r-for-windows" id="toc-step-1-download-and-install-r-for-windows" class="nav-link" data-scroll-target="#step-1-download-and-install-r-for-windows"><span class="toc-section-number">3.2.2</span>  Step 1: Download and Install R for Windows</a></li>
+  <li><a href="#step-2-download-and-install-rtools" id="toc-step-2-download-and-install-rtools" class="nav-link" data-scroll-target="#step-2-download-and-install-rtools"><span class="toc-section-number">3.2.3</span>  Step 2: Download and Install RTools</a></li>
+  <li><a href="#step-3-download-and-install-rstudio" id="toc-step-3-download-and-install-rstudio" class="nav-link" data-scroll-target="#step-3-download-and-install-rstudio"><span class="toc-section-number">3.2.4</span>  Step 3: Download and Install Rstudio</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,15 +182,14 @@ ul.task-list li input[type="checkbox"] {
 <li><p>First, the R statistical software, which is the engine that we will not see from outside. All computations and instructions that we pass will be through this engine</p></li>
 <li><p>Second, the graphical user interface (GUI), RStudio. This is where we will write code, organize files and get our output generated. Rstudio interacts with the R in the back-end and we only use this as an interface that communicates back and forth with R.</p></li>
 </ul>
-<p>R itself has a graphical interface. However, RStudio has some nice features added to it that provides an improved R experience. RStudio is an integrated development environment (IDE). Although RStudio has a graphical interface, for much of the actions, you will need to write R codes. And that is a good thing. There are point and click menus for doing certain things such as configuring the R environment, and the RStudio itself. However, for most of our works, we will be writing codes using the build in editor in RStudio.</p>
+<p>R itself has a graphical interface. However, RStudio has some nice features added to it that provides an improved R experience. RStudio is an integrated development environment (IDE). Although RStudio has a graphical interface, for much of the actions, you will need to write R codes. And that is a good thing. There are point and click menus for doing certain things such as configuring the R environment, and the RStudio itself. However, for most of our works, we will be writing codes using the built in editor in RStudio.</p>
 </section>
 <section id="installation" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Installation</h1>
-<p>R can be installed both in Windows and Mac operating systems. Installation is straight forward like any other software you install in your operating system. In the following I am outlining the steps both for Windowes and Mac OS.</p>
-<p>R is freely available open source software that is free to use, modify, distribute under the GNU licence. This simply means you can use R for anything–hobby projects, funded projects, or comercial works. Absolutely free.</p>
+<p>R can be installed both in Windows and Mac operating systems. Installation is straight forward like any other software you install in your operating system. In the following I am outlining the steps both for Windows and Mac OS.</p>
+<p>R is freely available open source software that is free to use, modify, distribute under the GNU licence. This simply means you can use R for anything–hobby projects, funded projects, or commercial works. Absolutely free.</p>
 <p>To download R, go to https://cloud.r-project.org/ and download the latest version for your operating system. R is available for Windows, Mac OSX, and of course, Linux systems.</p>
 <p>RStudio is a free software under AGPL license. This is developed and maintained by RStudio which is a software company who develops and sells R-based software for enterprise use.</p>
-<p>To download RStudio, go to https://rstudio.com/products/rstudio/download/ and click on the Download button for RStudio Desktop. The website will automatically detect your operating system and give you the link to download.</p>
 <section id="setting-up-r-in-mac" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="setting-up-r-in-mac"><span class="header-section-number">3.1</span> Setting up R in Mac</h2>
 <section id="what-you-need" class="level3" data-number="3.1.1">
@@ -187,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="https://cran.r-project.org/bin/macosx/">Download R for MacOS</a>. Note that R is available for both Intel-based Mac and the newer Apple silicon-based Macs. Please read carefully on the download page for the correct version.</p></li>
 <li><p><a href="http://xquartz.macosforge.org/">Download and install XQuartz</a> from this page or directly from xquartz.org website. Download and install the version as recommended on the R for MacOSx download page.</p></li>
-<li><p><a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a>. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16</p></li>
+<li><p><a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a>. The website will automatically recognize that you are using a Mac operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -199,37 +209,36 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="setting-up-r-in-windows" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="setting-up-r-in-windows"><span class="header-section-number">3.2</span> Setting up R in Windows</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-download-r-windows.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 1 Download R for Windows</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://cran.r-project.org/bin/windows/base/">Download R</a> from https://cran.r-project.org/bin/windows/base/</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-rtools.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 2 Download Rtools</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://cran.r-project.org/bin/windows/Rtools/">Download Rtools</a>. Some packages in R need additional tools (to create the necessary development environment) to install packages.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-rtools-download.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 3 Download Rtools</figcaption><p></p>
-</figure>
-</div>
-<p>Download the version appropriate for your R version. Usually the the latest version, for example at the time or writing this document, Rtools 4.3, would be needed. On this page you will find a link <code>Rtools43 installer</code> (the link will be something like: https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe). It is highly recommend that you download this file from the Rtools download page and NOT using the direct link above.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-download-rstudio-mac.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 4 Download Rstudio</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a>. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later.</p>
+<section id="what-you-need-1" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="what-you-need-1"><span class="header-section-number">3.2.1</span> What you need</h3>
+<ul>
+<li><p><a href="https://cran.r-project.org/bin/windows/base/">Download R for Windows</a>. Most newer PCs are 64 bit. So download the version appropriate for your operating system.</p></li>
+<li><p><a href="https://cran.r-project.org/bin/windows/Rtools/">Download and install RTools</a> by visiting this page and following the instructions therein. The download link is available on this page. So please read and find the link and then download.</p></li>
+<li><p><a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a>. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16.</p></li>
+</ul>
+<p>The step by step instructions are as follows.</p>
+</section>
+<section id="step-1-download-and-install-r-for-windows" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="step-1-download-and-install-r-for-windows"><span class="header-section-number">3.2.2</span> Step 1: Download and Install R for Windows</h3>
+<p><img src="images/ch1-download-r-windows.png" class="img-fluid"></p>
+<p>Go to this page and <a href="https://cran.r-project.org/bin/windows/base/">Download R and install by executing it according to your operating system</a> from https://cran.r-project.org/bin/windows/base/</p>
+</section>
+<section id="step-2-download-and-install-rtools" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="step-2-download-and-install-rtools"><span class="header-section-number">3.2.3</span> Step 2: Download and Install RTools</h3>
+<p><img src="images/ch1-rtools.png" class="img-fluid"></p>
+<p><a href="https://cran.r-project.org/bin/windows/Rtools/">Download RTools</a>. Some packages in R need additional tools (to create the necessary development environment) to install packages.</p>
+<p><img src="images/ch1-rtools-download.png" class="img-fluid"></p>
+<p>Download the version appropriate for your R version. Usually the the latest version, for example at the time or writing this document, Rtools 4.3, would be needed. On this page you will find a link <code>Rtools43 installer</code> (the link will be something like: https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe). It is highly recommend that you download this file from the Rtools download page and NOT using the direct executable link.</p>
+</section>
+<section id="step-3-download-and-install-rstudio" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="step-3-download-and-install-rstudio"><span class="header-section-number">3.2.4</span> Step 3: Download and Install Rstudio</h3>
+<p><img src="images/ch1-download-rstudio-mac.png" class="img-fluid"></p>
+<p><a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a>. Once you are on this page, the website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later.</p>
+<p>The double click the executable file you just downloaded to install it. If you have difficulty installing a file or do not know how to do it, please search on Youtube for tutorials.</p>
 <p>You are done!</p>
 
 
+</section>
 </section>
 </section>
 
@@ -374,8 +383,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./research-process.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Organizing your project</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./r.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Fundamentals</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

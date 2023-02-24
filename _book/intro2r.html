@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Research - 1&nbsp; Introduction</title>
+<title>R for Research - 2&nbsp; R Fundamentals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./research-process.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./introduction.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Fundamentals</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -100,22 +100,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
+  <a href="./intro2r.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Fundamentals</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
+  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></a>
+  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,15 +137,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting_started" id="toc-getting_started" class="nav-link active" data-scroll-target="#getting_started"><span class="toc-section-number">2</span>  Getting Started</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation"><span class="toc-section-number">3</span>  Installation</a>
-  <ul class="collapse">
-  <li><a href="#setting-up-r-in-mac" id="toc-setting-up-r-in-mac" class="nav-link" data-scroll-target="#setting-up-r-in-mac"><span class="toc-section-number">3.1</span>  Setting up R in Mac</a>
-  <ul class="collapse">
-  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need"><span class="toc-section-number">3.1.1</span>  What you need</a></li>
-  </ul></li>
-  <li><a href="#setting-up-r-in-windows" id="toc-setting-up-r-in-windows" class="nav-link" data-scroll-target="#setting-up-r-in-windows"><span class="toc-section-number">3.2</span>  Setting up R in Windows</a></li>
-  </ul></li>
+  <li><a href="#setting-up-the-expectations" id="toc-setting-up-the-expectations" class="nav-link active" data-scroll-target="#setting-up-the-expectations"><span class="toc-section-number">2.1</span>  Setting up the Expectations</a></li>
+  <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link" data-scroll-target="#what-is-r"><span class="toc-section-number">2.2</span>  What is R?</a></li>
   </ul>
 </nav>
     </div>
@@ -149,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Fundamentals</span></h1>
 </div>
 
 
@@ -164,73 +162,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="getting_started" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Getting Started</h1>
-<p>We need two pieces of software to get started with R for research.</p>
+<p>Here we begin..</p>
+<p>Below is a tentative outline, which will be updated as I complete the sections. Please check back often for updates.</p>
+<section id="setting-up-the-expectations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="setting-up-the-expectations"><span class="header-section-number">2.1</span> Setting up the Expectations</h2>
+<p>Learning a new program can be challenging and intimidating. If you have never programmed before, you may or may not feel it. However, if you have programmed in another language, you may feel a little uncomfortable at time because how R process certain aspects.</p>
+<p>Whatever may be your background, let keep the following principle in mind</p>
 <ul>
-<li><p>First, the R statistical software, which is the engine that we will not see from outside. All computations and instructions that we pass will be through this engine</p></li>
-<li><p>Second, the graphical user interface (GUI), RStudio. This is where we will write code, organize files and get our output generated. Rstudio interacts with the R in the back-end and we only use this as an interface that communicates back and forth with R.</p></li>
+<li>You will face challenges as many things will go wrong</li>
+<li>Have patience. Things will turn in your favor. It’s only a matter of time</li>
+<li>Its a journey, and not a sprint. You have to pursue for a long time to achieve mastery or even a general understanding of the language. And this is true for any language. Think of who taught you your mother tongue? And exactly how long did it take to learn?</li>
 </ul>
-<p>R itself has a graphical interface. However, RStudio has some nice features added to it that provides an improved R experience. RStudio is an integrated development environment (IDE). Although RStudio has a graphical interface, for much of the actions, you will need to write R codes. And that is a good thing. There are point and click menus for doing certain things such as configuring the R environment, and the RStudio itself. However, for most of our works, we will be writing codes using the build in editor in RStudio.</p>
 </section>
-<section id="installation" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Installation</h1>
-<p>R can be installed both in Windows and Mac operating systems. Installation is straight forward like any other software you install in your operating system. In the following I am outlining the steps both for Windowes and Mac OS.</p>
-<p>R is freely available open source software that is free to use, modify, distribute under the GNU licence. This simply means you can use R for anything–hobby projects, funded projects, or comercial works. Absolutely free.</p>
-<p>To download R, go to https://cloud.r-project.org/ and download the latest version for your operating system. R is available for Windows, Mac OSX, and of course, Linux systems.</p>
-<p>RStudio is a free software under AGPL license. This is developed and maintained by RStudio which is a software company who develops and sells R-based software for enterprise use.</p>
-<p>To download RStudio, go to https://rstudio.com/products/rstudio/download/ and click on the Download button for RStudio Desktop. The website will automatically detect your operating system and give you the link to download.</p>
-<section id="setting-up-r-in-mac" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="setting-up-r-in-mac"><span class="header-section-number">3.1</span> Setting up R in Mac</h2>
-<section id="what-you-need" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="what-you-need"><span class="header-section-number">3.1.1</span> What you need</h3>
-<ul>
-<li><p><a href="https://cran.r-project.org/bin/macosx/">Download R for MacOS</a>. Note that R is available for both Intel-based Mac and the newer Apple silicon-based Macs. Please read carefully on the download page for the correct version.</p></li>
-<li><p><a href="http://xquartz.macosforge.org/">Download and install XQuartz</a> from this page or directly from xquartz.org website. Download and install the version as recommended on the R for MacOSx download page.</p></li>
-<li><p><a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a>. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16</p></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-rstudio-download-mac.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<p></p><figcaption class="figure-caption">Screenhot of Rstudio Download page as of 2023-02-16</figcaption><p></p>
-</figure>
-</div>
-</section>
-</section>
-<section id="setting-up-r-in-windows" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="setting-up-r-in-windows"><span class="header-section-number">3.2</span> Setting up R in Windows</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-download-r-windows.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 1 Download R for Windows</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://cran.r-project.org/bin/windows/base/">Download R</a> from https://cran.r-project.org/bin/windows/base/</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-rtools.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 2 Download Rtools</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://cran.r-project.org/bin/windows/Rtools/">Download Rtools</a>. Some packages in R need additional tools (to create the necessary development environment) to install packages.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-rtools-download.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 3 Download Rtools</figcaption><p></p>
-</figure>
-</div>
-<p>Download the version appropriate for your R version. Usually the the latest version, for example at the time or writing this document, Rtools 4.3, would be needed. On this page you will find a link <code>Rtools43 installer</code> (the link will be something like: https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe). It is highly recommend that you download this file from the Rtools download page and NOT using the direct link above.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ch1-download-rstudio-mac.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Step 4 Download Rstudio</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a>. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later.</p>
-<p>You are done!</p>
+<section id="what-is-r" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="what-is-r"><span class="header-section-number">2.2</span> What is R?</h2>
+<p>R is a language and programming environment, predominantly used by researchers, academicians, students in quantitative disciplines, and pharmaceutical companies. Note, I did not mention software engineers. Because they generally do not use R in their workflow.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -369,13 +317,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./introduction.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./research-process.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Organizing your project</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Organizing your project</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

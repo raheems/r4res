@@ -1,0 +1,282 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R for Reproducible Research",
+    "section": "",
+    "text": "Preface"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "2 Getting Started\nWe need two pieces of software to get started with R for research.\nR itself has a graphical interface. However, RStudio has some nice features added to it that provides an improved R experience. RStudio is an integrated development environment (IDE). Although RStudio has a graphical interface, for much of the actions, you will need to write R codes. And that is a good thing. There are point and click menus for doing certain things such as configuring the R environment, and the RStudio itself. However, for most of our works, we will be writing codes using the build in editor in RStudio.\nR can be installed both in Windows and Mac operating systems. Installation is straight forward like any other software you install in your operating system. In the following I am outlining the steps both for Windowes and Mac OS.\nR is freely available open source software that is free to use, modify, distribute under the GNU licence. This simply means you can use R for anything–hobby projects, funded projects, or comercial works. Absolutely free.\nTo download R, go to https://cloud.r-project.org/ and download the latest version for your operating system. R is available for Windows, Mac OSX, and of course, Linux systems.\nRStudio is a free software under AGPL license. This is developed and maintained by RStudio which is a software company who develops and sells R-based software for enterprise use.\nTo download RStudio, go to https://rstudio.com/products/rstudio/download/ and click on the Download button for RStudio Desktop. The website will automatically detect your operating system and give you the link to download."
+  },
+  {
+    "objectID": "working-with-dates.html",
+    "href": "working-with-dates.html",
+    "title": "2  Working with Dates",
+    "section": "",
+    "text": "3 Explore Employee table"
+  },
+  {
+    "objectID": "working-with-dates.html#sec-covid19",
+    "href": "working-with-dates.html#sec-covid19",
+    "title": "2  Working with Dates",
+    "section": "3.1 Practical Challenge",
+    "text": "3.1 Practical Challenge\nUse the COVID dataset to answer the following questions.\n\n3.1.1 Create a new column to the existing table to show the daily deaths for each state\n\nselect *, \n  deaths - lag(deaths) over(partition by state order by date) as daily_deaths \n  from covid19.us_states limit 3\n\n\n3 records\n\n\ndate\nstate\nfips\ncases\ndeaths\ndaily_deaths\n\n\n\n\n2020-03-13\nAlabama\n1\n6\n0\nNA\n\n\n2020-03-14\nAlabama\n1\n12\n0\n0\n\n\n2020-03-15\nAlabama\n1\n23\n0\n0\n\n\n\n\n\n\n\n3.1.2 Create a table showing the highest deaths on a single day and the\ncorresponding date for that state\n\n\n3.1.3 Calculate the number of days it took to reach the highest daily deaths for each state\n\n\n3.1.4 Rank the states based\non the time it took to reach the highest deaths on a single day for each state Create a table that shows three columns: state name, date of first death (or more), date of 1000th death (or more) Calculate the time it took to reach the 1000th death for each state Rank the states from severest to the least severe in terms of the days it took to reach the 1000th death. Show all states if applicable Bring population data in each state from external sources. Population data would include at least, the total population in the state, and other relevant data Calculate per capita death rates (total deaths divided by total population) per state per month Calculate the overall per capita death rate for each state Rank the states according to the overall per capita death rates (the highest one at the top)"
+  },
+  {
+    "objectID": "working-with-dates.html#learning-objective",
+    "href": "working-with-dates.html#learning-objective",
+    "title": "2  Working with Dates",
+    "section": "3.2 Learning objective",
+    "text": "3.2 Learning objective\nIn Practical Challenge 3.1, we practiced several problems to test our understanding and skills to manipulate tables in a relational data base systems. Is the cross-referencing working as expected?\nReference for 3.1.1\n\ndbDisconnect(con)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "3  Summary",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "index.html#work-in-progress",
+    "href": "index.html#work-in-progress",
+    "title": "R for Reproducible Research",
+    "section": "Work in progress",
+    "text": "Work in progress\nBefore you begin, I would like to point out that this book is being actively written. That means, the organization of the contents is not finalized. As such, bookmarks would not be stable at this point. I would adcvse not to bookmark any chapter or section. Instead, bookmark the website of the book which is http://r4res.eraheem.com."
+  },
+  {
+    "objectID": "index.html#have-questions",
+    "href": "index.html#have-questions",
+    "title": "R for Reproducible Research",
+    "section": "Have questions?",
+    "text": "Have questions?\nThank you for reading this book. I hope this will be beneficial for you. Take a look at the contents and browse through the book. If you feel anything important is missing or you would like me to cover additional topics, please feel free to let me know by submitting a feature request at the Issue queue located at https://github.com/raheems/r4res/issues\nTo submit a question to the github issue queue, you need an account at https://www.Github.com, which is absolutely free. if you are not familiar with github, it is used by millions of developers worldwide. That may sound scary to you. But I can assure you that no technical knowledge is needed to submit a request or raise a question or report an error using the Issue queue.\nJust vist the Github website and sign up with your email if you do not have an account there. And submit your request. This way, I will be able to manage all the requests, and respond to your queries. This tools helps me to respond to you in an organized way.\nThis is also the fastest way to get a response from me if you have any question or suggestion about this book."
+  },
+  {
+    "objectID": "index.html#features",
+    "href": "index.html#features",
+    "title": "R for Reproducible Research",
+    "section": "Features",
+    "text": "Features\nThere are many books on R in the market. Yet, this is another book that is being written. You wonder, why. Here’s what I think about this book.\n\nThis book is specifically about using R for research in medical and clinical fields. Therefore, the examples in this book will be mostly if not all from the medical field.\nThis book is straight to the point and very specific without too much going into the nitty gritty of the technicality.\nThis book focuses on data analysis and report generation. As such, this book is particularly suitable for researchers in all fields, particularly in medical field.\nTools used in this book are the most modern and up to date. The old-style programming (base R style of coding has a steep learning curve whereas the new tidyverse suite of libraries have made this much easier and provides flexible framework for quick data analysis and producing publication quality graphics and tables."
+  },
+  {
+    "objectID": "index.html#why_coding",
+    "href": "index.html#why_coding",
+    "title": "R for Reproducible Research",
+    "section": "Benefits of coding",
+    "text": "Benefits of coding\nIn this book, I will be teaching how to do research using R and particularly by writing R codes. There will be no point and click interface like you see in some statistical software packages such as the SPSS. We will be writing codes all along and I will show you how easy it is and how beneficial it is to write codes instead of using point and click interface.\nYou might be thinking how writing code can beneficial when point and click is so easy.\n\nThe biggest benefit of wiring code, which is also the greated limitation of point and click facility is that what you do is completely reproducible.\nBy writing codes, you can easily try different things as data analysis involves a lot of trial and error and explorations. With a point and click facility, you cannot go one step back of your process if you make a mistake. Instead, you have to start from the beginning.\nYoure results are sharable with potential collaborators and also with the journals where you would submit your manuscript for publiccation. These days many journals ask for computer program to ensure reproduciblity.\n\nLets dive in to the wonderful tool to power your research!"
+  },
+  {
+    "objectID": "intro.html#work-in-progress",
+    "href": "intro.html#work-in-progress",
+    "title": "1  Introduction",
+    "section": "1.1 Work in progress",
+    "text": "1.1 Work in progress\nBefore you begin, I would like to point out that this book is being actively written. That means, the organization of the contents is not finalized. As such, bookmarks would not be stable at this point. I would adivse not to bookmark any chapter or section. Instead, bookmark the website of the book which is http://r4res.eraheem.com."
+  },
+  {
+    "objectID": "intro.html#have-questions",
+    "href": "intro.html#have-questions",
+    "title": "1  Introduction",
+    "section": "1.2 Have questions?",
+    "text": "1.2 Have questions?\nThank you for reading this book. I hope this will be beneficial for you. Take a look at the contents and browse theough the book. If you feel anything important is missing or you would like me to cover additional topics, please feel free to let me know by submitting a feature request at the Issue queue located at https://github.com/raheems/r4res/issues\nTo submit a question to the github issue queue, you need an account at https://www.Github.com, which is absolutely free. if you are not familiar with github, it is used by millions of developers worldwide. That may sound scary to you. But I can assure you that no technical knowledge is needed to submit a request or raise a question or report an error using the Issue queue.\nJust vist the Github website and sign up with your email if you do not have an account there. And submit your request. This way, I will be able to manage all the requests, and respond to your queries. This tools helps me to respond to you in an organized way.\nThis is also the fastest way to get a response from me if you have any question or suggestion about this book."
+  },
+  {
+    "objectID": "intro.html#features",
+    "href": "intro.html#features",
+    "title": "1  Introduction",
+    "section": "1.3 Features",
+    "text": "1.3 Features\nThere are many books on R in the market. Yet, this is another book that is being written. You wonder, why. Here’s what I think about this book.\n\nThis book is specifically about using R for research in medical and clinical fields. Therefore, the examples in this book will be mostly if not all from the medical field.\nThis book is straignt to the point and very specific without too much going into the nitty grity of the technicality.\nThis book focuses on data analysis and report generation. As such, this book is particularly suitable for researchers in all fields, particularly in medical field.\nTools used in this book are the most modern and up to date. The old-style programming (base R style of coding has a steep learning curve whereas the new tidyverse suite of libraries have made this much easier and provies flexible framework for quick data anlysis and producing publiccation quality graphics and tables."
+  },
+  {
+    "objectID": "intro.html#why_coding",
+    "href": "intro.html#why_coding",
+    "title": "1  Introduction",
+    "section": "1.4 Benefits of coding",
+    "text": "1.4 Benefits of coding\nIn this book, I will be teaching how to do research using R and particularly by writing R codes. There will be no point and click interface like you see in some statistical software packages such as the SPSS. We will be writing codes all along and I will show you how easy it is and how beneficial it is to write codes instead of using point and click interface.\nYou might be thinking how writing code can beneficial when point and click is so easy.\n\nThe biggest benefit of wiring code, which is also the greated limitation of point and click facility is that what you do is completely reproducible.\nBy writing codes, you can easily try different things as data analysis involves a lot of trial and error and explorations. With a point and click facility, you cannot go one step back of your process if you make a mistake. Instead, you have to start from the beginning.\nYoure results are sharable with potential collaborators and also with the journals where you would submit your manuscript for publiccation. These days many journals ask for computer program to ensure reproduciblity.\n\nLets dive in to the wonderful tool to power your research!"
+  },
+  {
+    "objectID": "intro.html#download-r-and-rstudio",
+    "href": "intro.html#download-r-and-rstudio",
+    "title": "1  Introduction",
+    "section": "2.1 Download R and RStudio",
+    "text": "2.1 Download R and RStudio\nR is freely available open source software that is free to use, modify, distribute under the GNU licence. This simply means you can use R for anything–hobby projects, funded projects, or comercial works. Absolutely free.\nTo download R, go to https://cloud.r-project.org/ and download the latest version for your operating system. R is available for Windows, Mac OSX, and of course, Linux systems.\nRStudio is a free software under AGPL license. This is developed and maintained by RStudio which is a software company who develops and sells R-based software for enterprise use.\nTo download RStudio, go to https://rstudio.com/products/rstudio/download/ and click on the Download button for RStudio Desktop. The website will automatically detect your operating system and give you the link to download."
+  },
+  {
+    "objectID": "intro.html#installatiom",
+    "href": "intro.html#installatiom",
+    "title": "1  Introduction",
+    "section": "3.3 Installatiom",
+    "text": "3.3 Installatiom\nAfter downloading the software, first, install R and then install RStudio. I don’t think it matters, but since RStrudio uses R as a backend engine, I think the logical sequence should be to install R first and then RStudio.\nAfter its installed, you are good to get your hands dirty!"
+  },
+  {
+    "objectID": "intro.html#setting-up-r-environment-in-mac",
+    "href": "intro.html#setting-up-r-environment-in-mac",
+    "title": "1  Introduction",
+    "section": "3.1 Setting up R environment in Mac",
+    "text": "3.1 Setting up R environment in Mac\n\n3.1.1 What you need\n\nDownload R for MacOS. Note that R is available for both Intel-based Mac and the newer Apple silicon-based Macs. Please read carefully on the download page for the correct version.\nDownload and install XQuartz from this page or directly from xquartz.org website. Download and install the version as recommended on the R for MacOSx download page.\nDownload Rstudio. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16\n\n\n\n\nScreenhot of Rstudio Download page as of 2023-02-16"
+  },
+  {
+    "objectID": "intro.html#what-you-need",
+    "href": "intro.html#what-you-need",
+    "title": "1  Introduction",
+    "section": "3.2 ### What you need",
+    "text": "3.2 ### What you need"
+  },
+  {
+    "objectID": "intro.html#setting-up-r-environment-in-windows",
+    "href": "intro.html#setting-up-r-environment-in-windows",
+    "title": "1  Introduction",
+    "section": "3.2 Setting up R environment in Windows",
+    "text": "3.2 Setting up R environment in Windows\n\nDownload R from https://cran.r-project.org/bin/windows/base/\nDownload Rstudio. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later."
+  },
+  {
+    "objectID": "intro.html#windows-installation",
+    "href": "intro.html#windows-installation",
+    "title": "1  Introduction",
+    "section": "3.3 Windows Installation",
+    "text": "3.3 Windows Installation"
+  },
+  {
+    "objectID": "research-process.html#research-process",
+    "href": "research-process.html#research-process",
+    "title": "3  Organizing your project",
+    "section": "3.1 Research process",
+    "text": "3.1 Research process\nIn a nutshell, most quantitative social and medical research has the following steps–\n\nIdea/research question\nLiterature review\nStudy design\nData collection and data management\nStatistical analysis\nReport/manuscript writing\nPublication\n\n\nset.seed(19)\nx = rnorm(100)\nhist(x)"
+  },
+  {
+    "objectID": "research-process.html#analytic-process",
+    "href": "research-process.html#analytic-process",
+    "title": "3  Organizing your project",
+    "section": "3.2 Analytic process",
+    "text": "3.2 Analytic process"
+  },
+  {
+    "objectID": "intro.html#setting-up-r-in-mac",
+    "href": "intro.html#setting-up-r-in-mac",
+    "title": "1  Introduction",
+    "section": "3.1 Setting up R in Mac",
+    "text": "3.1 Setting up R in Mac\n\n3.1.1 What you need\n\nDownload R for MacOS. Note that R is available for both Intel-based Mac and the newer Apple silicon-based Macs. Please read carefully on the download page for the correct version.\nDownload and install XQuartz from this page or directly from xquartz.org website. Download and install the version as recommended on the R for MacOSx download page.\nDownload Rstudio. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16\n\n\n\n\nScreenhot of Rstudio Download page as of 2023-02-16"
+  },
+  {
+    "objectID": "intro.html#setting-up-r-in-windows",
+    "href": "intro.html#setting-up-r-in-windows",
+    "title": "1  Introduction",
+    "section": "3.2 Setting up R in Windows",
+    "text": "3.2 Setting up R in Windows\n\n\n\nStep 1 Download R for Windows\n\n\nDownload R from https://cran.r-project.org/bin/windows/base/\n\n\n\nStep 2 Download Rtools\n\n\nDownload Rtools. Some packages in R need additional tools (to create the necessary development environment) to install packages.\n\n\n\nStep 3 Download Rtools\n\n\nDownload the version appropriate for your R version. Usually the the latest version, for example at the time or writing this document, Rtools 4.3, would be needed. On this page you will find a link Rtools43 installer (the link will be something like: https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe). It is highly recommend that you download this file from the Rtools download page and NOT using the direct link above.\n\n\n\nStep 4 Download Rstudio\n\n\nDownload Rstudio. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later.\nYou are done!"
+  },
+  {
+    "objectID": "intro.html#installation-1",
+    "href": "intro.html#installation-1",
+    "title": "1  Introduction",
+    "section": "3.3 Installation",
+    "text": "3.3 Installation\nAfter downloading the software, first, install R and then install RStudio. I don’t think it matters, but since RStudio uses R as a backend engine, perhaps logical sequence should be to install R first and then RStudio.\nYou are done!"
+  },
+  {
+    "objectID": "introduction.html",
+    "href": "introduction.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "2 Getting Started\nWe need two pieces of software to get started with R for research.\nR itself has a graphical interface. However, RStudio has some nice features added to it that provides an improved R experience. RStudio is an integrated development environment (IDE). Although RStudio has a graphical interface, for much of the actions, you will need to write R codes. And that is a good thing. There are point and click menus for doing certain things such as configuring the R environment, and the RStudio itself. However, for most of our works, we will be writing codes using the built in editor in RStudio.\nR can be installed both in Windows and Mac operating systems. Installation is straight forward like any other software you install in your operating system. In the following I am outlining the steps both for Windows and Mac OS.\nR is freely available open source software that is free to use, modify, distribute under the GNU licence. This simply means you can use R for anything–hobby projects, funded projects, or commercial works. Absolutely free.\nTo download R, go to https://cloud.r-project.org/ and download the latest version for your operating system. R is available for Windows, Mac OSX, and of course, Linux systems.\nRStudio is a free software under AGPL license. This is developed and maintained by RStudio which is a software company who develops and sells R-based software for enterprise use."
+  },
+  {
+    "objectID": "introduction.html#setting-up-r-in-mac",
+    "href": "introduction.html#setting-up-r-in-mac",
+    "title": "1  Introduction",
+    "section": "3.1 Setting up R in Mac",
+    "text": "3.1 Setting up R in Mac\n\n3.1.1 What you need\n\nDownload R for MacOS. Note that R is available for both Intel-based Mac and the newer Apple silicon-based Macs. Please read carefully on the download page for the correct version.\nDownload and install XQuartz from this page or directly from xquartz.org website. Download and install the version as recommended on the R for MacOSx download page.\nDownload Rstudio. The website will automatically recognize that you are using a Mac operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16\n\n\n\n\nScreenhot of Rstudio Download page as of 2023-02-16"
+  },
+  {
+    "objectID": "introduction.html#setting-up-r-in-windows",
+    "href": "introduction.html#setting-up-r-in-windows",
+    "title": "1  Introduction",
+    "section": "3.2 Setting up R in Windows",
+    "text": "3.2 Setting up R in Windows\n\n3.2.1 What you need\n\nDownload R for Windows. Most newer PCs are 64 bit. So download the version appropriate for your operating system.\nDownload and install RTools by visiting this page and following the instructions therein. The download link is available on this page. So please read and find the link and then download.\nDownload Rstudio. The website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later. This is how it looks like when this page was accessed on 2023-02-16.\n\nThe step by step instructions are as follows.\n\n\n3.2.2 Step 1: Download and Install R for Windows\n\nGo to this page and Download R and install by executing it according to your operating system from https://cran.r-project.org/bin/windows/base/\n\n\n3.2.3 Step 2: Download and Install RTools\n\nDownload RTools. Some packages in R need additional tools (to create the necessary development environment) to install packages.\n\nDownload the version appropriate for your R version. Usually the the latest version, for example at the time or writing this document, Rtools 4.3, would be needed. On this page you will find a link Rtools43 installer (the link will be something like: https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe). It is highly recommend that you download this file from the Rtools download page and NOT using the direct executable link.\n\n\n3.2.4 Step 3: Download and Install Rstudio\n\nDownload Rstudio. Once you are on this page, the website will automatically recognize that you are using a Windows operating system and it will present you the option to download RStudio Desktop software for your system. Click the link on that page to download. Save it in a location that you can find later.\nThe double click the executable file you just downloaded to install it. If you have difficulty installing a file or do not know how to do it, please search on Youtube for tutorials.\nYou are done!"
+  },
+  {
+    "objectID": "analytic-process.html",
+    "href": "analytic-process.html",
+    "title": "4  Analytic Process",
+    "section": "",
+    "text": "In this chapter we outline and describe the analytic process. This is the heart of our book."
+  },
+  {
+    "objectID": "applications.html#clinical-example",
+    "href": "applications.html#clinical-example",
+    "title": "5  Applications",
+    "section": "5.1 Clinical example",
+    "text": "5.1 Clinical example"
+  },
+  {
+    "objectID": "applications.html#social-science-example",
+    "href": "applications.html#social-science-example",
+    "title": "5  Applications",
+    "section": "5.2 Social science example",
+    "text": "5.2 Social science example"
+  },
+  {
+    "objectID": "intro2r.html#the-goal",
+    "href": "intro2r.html#the-goal",
+    "title": "2  R Fundamentals",
+    "section": "2.1 The goal",
+    "text": "2.1 The goal\nLearning a new program can be challenging and intimidating. If you have never programmed before, you may or may not feel it. However, if you have programmed in another language, you may feel a little uncomfortable at time because how R proceses certains aspects.\nWhatever may be your background, let keep the following principle in mind\n\nYou will face challenges as many things will go wrong\nHave patience. Things will turn in your favor. It’s only a matter of time\nIts a journey, and not a sprint. You have to pursue for a long time to achieve mastery or even a general understanding of the language. And this is true for any language. Think of who taught you your mother tougue? And exactly how long did it take to learn?"
+  },
+  {
+    "objectID": "intro2r.html#setting-up-the-expectations",
+    "href": "intro2r.html#setting-up-the-expectations",
+    "title": "2  R Fundamentals",
+    "section": "2.1 Setting up the Expectations",
+    "text": "2.1 Setting up the Expectations\nLearning a new program can be challenging and intimidating. If you have never programmed before, you may or may not feel it. However, if you have programmed in another language, you may feel a little uncomfortable at time because how R process certain aspects.\nWhatever may be your background, let keep the following principle in mind\n\nYou will face challenges as many things will go wrong\nHave patience. Things will turn in your favor. It’s only a matter of time\nIts a journey, and not a sprint. You have to pursue for a long time to achieve mastery or even a general understanding of the language. And this is true for any language. Think of who taught you your mother tongue? And exactly how long did it take to learn?"
+  },
+  {
+    "objectID": "intro2r.html#what-is-r",
+    "href": "intro2r.html#what-is-r",
+    "title": "2  R Fundamentals",
+    "section": "2.2 What is R?",
+    "text": "2.2 What is R?\nR is a language and programming environment, predominantly used by researchers, academicians, students in quantitative disciplines, and pharmaceutical companies. Note, I did not mention software engineers. Because they generally do not use R in their workflow."
+  },
+  {
+    "objectID": "r.html#setting-up-the-expectations",
+    "href": "r.html#setting-up-the-expectations",
+    "title": "2  R Fundamentals",
+    "section": "2.1 Setting up the Expectations",
+    "text": "2.1 Setting up the Expectations\nLearning a new program can be challenging and intimidating. If you have never programmed before, you may or may not feel it. However, if you have programmed in another language, you may feel a little uncomfortable at time because how R process certain aspects.\nWhatever may be your background, let keep the following principle in mind\n\nYou will face challenges as many things will go wrong\nHave patience. Things will turn in your favor. It’s only a matter of time\nIts a journey, and not a sprint. You have to pursue for a long time to achieve mastery or even a general understanding of the language. And this is true for any language. Think of who taught you your mother tongue? And exactly how long did it take to learn?"
+  },
+  {
+    "objectID": "r.html#what-is-r",
+    "href": "r.html#what-is-r",
+    "title": "2  R Fundamentals",
+    "section": "2.2 What is R?",
+    "text": "2.2 What is R?\nR is a language and programming environment, predominantly used by researchers, academicians, students in quantitative disciplines, and pharmaceutical companies. Note, I did not mention software engineers. Because they generally do not use R in their workflow.\n\n2.2.1 Who should learn R?\nAnyone involved in research activity where statistical analysis is necessary. R is best in this regard, hands down. With R, you can create a reproducible workflow producing the best possible outputs in a publication-ready format. As of writing this book, no other system can provide as much functionality off-the-shelf.\n\n\n2.2.2 Should data scientists learn R?\nIt depends on how you define data scientist. If ‘science’ part of data science is important to you, then R would be the first choice. On the other hand, if machine learning or algorithms primarily developed for prediction purposes, my personal recommendation would be to use Python based solutions.\nTo summarize, a language should be chosen based on the deliverable. Be language agnostic, use the tool that does the job best. However, sometimes you may have to use one or the other because the organization and their IT setup supports one particular language."
+  },
+  {
+    "objectID": "r.html#r-language-basics",
+    "href": "r.html#r-language-basics",
+    "title": "2  R Fundamentals",
+    "section": "2.3 R Language Basics",
+    "text": "2.3 R Language Basics\n\nData types\nMath operations\nMatrix, list\n\nCommonly used functions\n\napply, lapply family of functions\n\n\n\n\n2.3.1 Interacting with R\nOnce R is installed in your system, you can directly execute programs and computations by ‘submitting’ them to the R engine.\nIn this book, we will use Rstudio (which will be renamed to POSIT at sometime in the future) to interact with R. That is, we won’t submit code to R ourselves but we will use the RStudio IDE to do that for us. We will instead focus or coding and keeping things organized in a nicer way.\n\n2.3.1.1 Mathematical operations\nTo get started with R, what better way to introduce to R but to start using it. And we use it as what we are most familiar with– as a calculator.\nOn the R console, type 1 + 1 and it will print the result of adding 1 and 1. Let’s see it in action.\n\n1 + 2\n\n[1] 3\n\n\nSimilarly, for subtraction, multiplication, and division\n\n# Showing a subtraction operation\n 10 - 2\n\n[1] 8\n\n# Showing a multiplication operation\n10 * 2\n\n[1] 20\n\n# Demonstrating division operation\n10 / 2\n\n[1] 5\n\n# Exponentiation\nexp(2)\n\n[1] 7.389056\n\n# Log operation (natural logarithm or ln)\nlog(exp(2))\n\n[1] 2\n\n# Log operation (10 base)\nlog10(10)\n\n[1] 1\n\n\n\n\n2.3.1.2 Exercise\n\nWhat would be output of the following operation?\n\n\n(10 + 20) * 2.5 / (exp(1))\n\npaste(\"The sum of \", 1, ' and ', 2, ' is ', 1+2)"
+  },
+  {
+    "objectID": "r.html#r-for-data-analysis",
+    "href": "r.html#r-for-data-analysis",
+    "title": "2  R Fundamentals",
+    "section": "2.4 R for Data Analysis",
+    "text": "2.4 R for Data Analysis\nIntroduce tidyverse ecosystem for data analysis"
+  },
+  {
+    "objectID": "r.html#data-visualization",
+    "href": "r.html#data-visualization",
+    "title": "2  R Fundamentals",
+    "section": "2.5 Data Visualization",
+    "text": "2.5 Data Visualization\n\nggplot\nsimplevis\n\n\n2.5.1 Data generation and simulation"
+  }
+]
