@@ -1,4 +1,4 @@
-# R Fundamentals
+# Step into R
 
 Here we begin..
 
@@ -87,6 +87,194 @@ paste("The sum of ", 1, ' and ', 2, ' is ', 1+2)
 
 2. 
 
+
+## Data Types
+
+R's data types are a bit complex. To keep it simple, everything in R can be thought of as vector. Vectors are of two kinds.
+
+- Atomic vector (all elements must be of same type)
+- List (elements can be of different types)
+
+
+
+```{r, echo = FALSE}
+
+library(DiagrammeR)
+
+mermaid("
+graph LR
+  A[Atomic] -->  B[Vector]
+  C[List] --> B[Vector]
+")
+```
+Atomic vectors are of several types as shown in the diagram below.
+```{r, echo = FALSE}
+
+library(DiagrammeR)
+
+mermaid("
+graph LR
+I(Date) --> G[Double]
+H(Factor) --> F[Integer]
+F[Integer] --> A[Atomic]
+G[Double] --> A[Atomic]
+  A[Atomic] -->  B[Vector]
+  C[Logical] --> A[Atomic]
+  E[Character] --> A[Atomic]
+")
+```
+
+
+### Atomic Vector
+
+Before discussing vectors, we first need to understand the term `scalar`. A scalar is a single value or an individual value. For example, age of a single individual when collected for recording is a scalar. But age of several individuals collected together can form a vector.
+
+In most practical situations we work with a vector, which is a collection of scalars of the same type.
+
+In R, we create a collection of values into a vector by the `c()` function. The `c` in `c()` is short for *combine.*
+
+Let us create four types of atomic vectors. 
+
+```{r}
+
+logical_vec = c(TRUE, TRUE, F, T)
+double_vec = c(1, 2, 10, 5)
+integer_vec = c(1L, 2L, 10L, 5L)
+character_vec = c('Dhaka', 'New York', 'Anything')
+
+```
+
+To check the type of each vector, use the `typeof()` function.
+
+```{r}
+
+typeof(logical_vec)
+typeof(double_vec)
+typeof(integer_vec)
+typeof(character_vec)
+
+```
+
+```{r}
+
+as.integer(10L/3L)
+
+```
+
+### Matrix
+
+Matrices are atomic vectors but with attributes. For example, matrices have dimensions, which can be viewed with the `dim()` function. In the example below, an atomic vector is assinged a dimension attribute of $2 \times 2$ and we read it as two-by-two. This means there are two rows and two columns of this object.
+
+```{r}
+a = c(1, 2, 3, 4)
+dim(a) = c(2,2)
+a
+```
+
+We can also create matrix using `matrix()` function as follows
+
+```{r}
+a = matrix(1:10, nrow = 2, ncol = 5)
+a
+
+```
+
+Dimension of this matrix is `r dim(a)`, which means there are `r dim(a)[1]` rows and `r dim(a)[2]` columns.
+
+To learn more about an R function, use the question mark (?) before the function name. For example, to learn about `matrix` function, type `?matrix` on the R console. The space between `?` and `matrix` is also permitted--i.e., `? matrix` (notice the space in between) will display the documentation about `matrix`.
+
+
+### List
+
+List is also a vector but it is a collection of one or more atomic vectors. To create a list, we combine one or more atomic vectors and wrap it around the function `list()`
+
+```{r}
+
+a = list(
+  1:10,
+  c(T, F, F)
+)
+a
+
+```
+Type of a is list as shown below.
+
+```{r}
+typeof(a)
+```
+
+Elements of a list can be named.
+
+```{r}
+a = list(
+  series = 1:10,
+  series2 = c(1, 10),
+  tf = c(T, F, F)
+)
+
+a
+
+```
+
+To view the structure of an R object, use the `str()` function. 
+
+```{r}
+str(a)
+```
+
+### Exercise
+
+Put some quiz questions about the data types discussed so far. Use the list below for guidance. 
+
+- Atomic vector
+- Scalar
+- Integer, Logical, Character, Double
+- List
+- Matrix
+- Dimension of a matrix
+
+
+
+## Data Frame and Tibble
+
+Data frame is the most important concept in R. It was unique when it was introduced. Later, the idea was brought into Python via the Pandas library. Still widely used data structure, data.frame has its one issues, which is beyond the scope of this course. To overcome some of those issues, tibble was introduced by Wickham et al. [-@wickham2018dplyr].
+
+### Data Frame
+
+Data frames are created using the `data.frame()` function by supplying a list of columns. data.frames, as it is typically referred to are of list data type with one important distinction. List can have elements of unequal length. In data.frame, all the elements must have the same length to make the data.frame a true rectangular array. 
+
+```{r}
+df = data.frame(
+  x = 1:5,
+  age = c(10, 11, 20, 30, 32),
+  sex = c('M', 'F', 'F', 'M', 'M')
+)
+df
+str(df)
+```
+
+We can create data.frame from a list as well.
+
+```{r}
+df_list = list(
+  x = 1:5,
+  age = c(10, 11, 20, 30, 32), 
+  sex = c('M', 'F', 'F', 'M', 'M')
+)
+df = data.frame(df_list)
+
+df
+
+```
+
+### Tibble
+
+For the most part, we as a user of dataframes won't notice the difference. All differences are under-the-hood. For those interested to learn two important distinctions between the two, please visit this [link](https://posit.co/blog/tibble-1-0-0/).
+
+We will revisit `tibbles` shortly.
+
+Do care whether its a `tibble` or a `data.frame`? For the most part, the answer is no. But the R ecosystem is evolving and newer libraries will likely use tibble as the default replacement for data.frame.
+
 ## R for Data Analysis
 
 Introduce `tidyverse` ecosystem for data analysis 
@@ -99,6 +287,9 @@ Introduce `tidyverse` ecosystem for data analysis
 
 ### Data generation and simulation
 
+# References {.unnumbered}
 
+::: {#refs}
+:::
 
 

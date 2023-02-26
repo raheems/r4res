@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  title: "R for Reproducible Research"
-  subtitle: "A companion for Researchers"
+  title: "R for Research"
+  subtitle: "A Companion for Statistical Analysis with R for Reproducible Research"
   author: "Enayetur Raheem"
   date:  "2023/02/21"
   chapters:

@@ -27,6 +27,41 @@
             "title": "Literate programming",
             "type": "article-journal",
             "volume": "27"
+        },
+        {
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "François",
+                    "given": "Romain"
+                },
+                {
+                    "family": "Henry",
+                    "given": "Lionel"
+                },
+                {
+                    "family": "Müller",
+                    "given": "Kirill"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Computer software]. https://CRAN. R-project. org/package= dplyr",
+            "id": "wickham2018dplyr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Dplyr: A grammar of data manipulation. R package version 0.7. 6",
+            "title-short": "Dplyr",
+            "type": "article-journal"
         }
     ],
     "project_biblios": [
