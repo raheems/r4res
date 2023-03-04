@@ -1,94 +1,4 @@
-# Step into R
-
-Here we begin..
-
-Below is a tentative outline, which will be updated as I complete the sections. Please check back often for updates.
-
-## Setting up the Expectations
-
-Learning a new program can be challenging and intimidating. If you have never programmed before, you may or may not feel it. However, if you have programmed in another language, you may feel a little uncomfortable at time because how R process certain aspects. 
-
-Whatever may be your background, let keep the following principle in mind
-
-- You will face challenges as many things will go wrong
-- Have patience. Things will turn in your favor. It's only a matter of time
-- Its a journey, and not a sprint. You have to pursue for a long time to achieve mastery or even a general understanding of the language. And this is true for any language. Think of who taught you your mother tongue? And exactly how long did it take to learn?
-
-## What is R?
-
-R is a language and programming environment, predominantly used by researchers, academicians, students in quantitative disciplines, and pharmaceutical companies. Note, I did not mention software engineers. Because they generally do not use R in their workflow. 
-
-### Who should learn R?
-
-Anyone involved in research activity where statistical analysis is necessary. R is best in this regard, hands down. With R, you can create a reproducible workflow producing the best possible outputs in a publication-ready format. As of writing this book, no other system can provide as much functionality off-the-shelf.
-
-### Should data scientists learn R?
-
-It depends on how you define data scientist. If 'science' part of data science is important to you, then R would be the first choice. On the other hand, if machine learning or algorithms primarily developed for prediction purposes, my personal recommendation would be to use Python based solutions.
-
-To summarize, a language should be chosen based on the deliverable. Be language agnostic, use the tool that does the job best. However, sometimes you may have to use one or the other because the organization and their IT setup supports one particular language.
-
-## R Language Basics
-
-- Data types
-- Math operations
-- Matrix, list
-  - Commonly used functions 
-    - `apply`, `lapply` family of functions
- 
-### Interacting with R
-
-Once R is installed in your system, you can directly execute programs and computations by 'submitting' them to the R engine.
-
-In this book, we will use Rstudio (which will be renamed to POSIT at sometime in the future) to interact with R. That is, we won't submit code to R ourselves but we will use the RStudio IDE to do that for us. We will instead focus or coding and keeping things organized in a nicer way.
-
-#### Mathematical operations
-
-To get started with R, what better way to introduce to R but to start using it. And we use it as what we are most familiar with-- as a calculator. 
-
-On the R console, type `1 + 1` and it will print the result of adding 1 and 1. Let's see it in action.
-
-```{r}
-1 + 2
-```
-
-Similarly, for subtraction, multiplication, and division
-
-```{r}
-# Showing a subtraction operation
- 10 - 2
-
-# Showing a multiplication operation
-10 * 2
-
-# Demonstrating division operation
-10 / 2
-
-# Exponentiation
-exp(2)
-
-# Log operation (natural logarithm or ln)
-log(exp(2))
-
-# Log operation (10 base)
-log10(10)
-
-```
-
-#### Exercise
-
-1. What would be output of the following operation?
-
-```{r, eval=FALSE}
-(10 + 20) * 2.5 / (exp(1))
-
-paste("The sum of ", 1, ' and ', 2, ' is ', 1+2)
-```
-
-2. 
-
-
-## Data Types
+# Data Types
 
 R's data types are a bit complex. To keep it simple, everything in R can be thought of as vector. Vectors are of two kinds.
 
@@ -125,7 +35,7 @@ G[Double] --> A[Atomic]
 ```
 
 
-### Atomic Vector
+## Atomic Vector
 
 Before discussing vectors, we first need to understand the term `scalar`. A scalar is a single value or an individual value. For example, age of a single individual when collected for recording is a scalar. But age of several individuals collected together can form a vector.
 
@@ -161,7 +71,7 @@ as.integer(10L/3L)
 
 ```
 
-### Matrix
+## Matrix
 
 Matrices are atomic vectors but with attributes. For example, matrices have dimensions, which can be viewed with the `dim()` function. In the example below, an atomic vector is assinged a dimension attribute of $2 \times 2$ and we read it as two-by-two. This means there are two rows and two columns of this object.
 
@@ -183,8 +93,46 @@ Dimension of this matrix is `r dim(a)`, which means there are `r dim(a)[1]` rows
 
 To learn more about an R function, use the question mark (?) before the function name. For example, to learn about `matrix` function, type `?matrix` on the R console. The space between `?` and `matrix` is also permitted--i.e., `? matrix` (notice the space in between) will display the documentation about `matrix`.
 
+### Elements Recycling
 
-### List
+One important aspect of a matrix data type is that if the total number of elements is not the same as nrow $\times$ ncol, then the numbers will be recycled. See for example, we are creating a matrix with only 9 elements as created by `1:9`. However, the nrow = 2 and ncol = 5 indicates there should be 2 $\times$ 5 = 10 elements. Since we have 9 elements to fill 10 spaces, it will start recycling from the beginning. A warning will be printed. Note, this is just a warning, and R will not stop processing the computation because of it. 
+
+```{r}
+a = matrix(1:9, nrow = 2, ncol = 5)
+a
+
+```
+
+Try another one
+
+
+```{r}
+a = matrix(1:5, nrow = 2, ncol = 5)
+a
+
+```
+
+::: {.callout-note}
+Did you notice in what order R fills the cells of a matrix? We are filling 1:5 in the 10 cells and R is filling them column-wise. That is, it first fills the first column and all the rows therein. Then moves to second column and fills all the rows until it exhausts the elements before recycling.
+:::
+
+
+::: {.callout-tip}
+## How to fill row-wise?
+What if you wanted to fill the elements row-wise? Can you figure out how to do that? Hint: open the documentation for matrix using `? matrix` on the R console. Then look for parameter `byrow = FALSE` which is the default. Change it to `byrow = TRUE` to fill the values row-wise.
+:::
+
+Lets try that with the `byrow = TRUE` argument.
+
+```{r}
+a = matrix(1:5, nrow = 2, ncol = 5, byrow = TRUE)
+a
+
+```
+It now fills the elements row-wise. It fills the first row and all column therein. Then moves to the second row and fills all the columns in second row, and so on.
+
+
+## List
 
 List is also a vector but it is a collection of one or more atomic vectors. To create a list, we combine one or more atomic vectors and wrap it around the function `list()`
 
@@ -233,7 +181,95 @@ Put some quiz questions about the data types discussed so far. Use the list belo
 - Matrix
 - Dimension of a matrix
 
+## Factor 
 
+Factor data type is built on top of integer. Factors are also known as 'category' and 'enumerated' types. As demonstrated previously, they all belong to vector type.
+
+```{r}
+city = c('Dhaka', 'Rajshahi', 'Chottogram', 
+         'Kumilla', 'Sylhet')
+print(city)
+typeof(city)
+```
+The `city` object is of character type. You can create a factor out of the character vector by wrapping it with the function `factor()` function. 
+
+```{r}
+city_factor = factor(city)
+```
+
+You can verify that the type of `city_factor` is integer
+```{r}
+typeof(city_factor)
+```
+
+::: {.callout-tip}
+
+Factor can only contain predefined values. The values are often called levels. You can set levels even the data do not have the value. 
+:::
+
+You can assign levels to a factor variable
+
+```{r}
+# social status as a character vector
+status_char = c('High', 'Medium')
+
+# social status as a factor vector
+status_factor = factor(
+  status_char, 
+  levels = c('High', 'Medium', 'Low')
+)
+
+# print the values
+print(status_factor)
+```
+Running `table()` function displays the frequency of each element of the vector with number of times they occur. 
+
+```{r}
+table(status_char)
+```
+Do the same on the factor object, we see a slightly different result. This is because the level of the factor was explicitly assigned (predefined).
+
+```{r}
+table(status_factor)
+```
+
+How about if you assign different levels that do not exist in the data?
+```{r}
+status_factor_extra = factor(
+  status_char, 
+  levels = c('High Status', 'Medium Status', 'Low Status')
+)
+
+table(status_factor_extra)
+```
+
+If you print the `status_factor_extra` object, you see that the data are all NA because the predetermined levels do not match with the values of the vector.
+
+```{r}
+status_factor_extra
+```
+
+### Ordered factor
+
+Factors can be ordered depending on the value it holds. For example, social class is an ordinal measure. It can be 'high', 'medium', 'low'.
+
+To created an ordered factor use the `ordered()` function
+
+```{r}
+social_class = c('Medium', 'Low', 'Low', 'High')
+social_class_factor = ordered(
+  social_class,
+  levels = c('Low', 'Medium', 'High')
+)
+
+social_class_factor
+```
+
+```{r}
+table(social_class_factor)
+```
+
+Ordering of factor levels is useful and often more meaningful than unordered levels. Many statistical functions will utilize this ordering in statistical modeling and visualizations.
 
 ## Data Frame and Tibble
 
@@ -245,7 +281,6 @@ Data frames are created using the `data.frame()` function by supplying a list of
 
 ```{r}
 df = data.frame(
-  x = 1:5,
   age = c(10, 11, 20, 30, 32),
   sex = c('M', 'F', 'F', 'M', 'M')
 )
@@ -253,15 +288,15 @@ df
 str(df)
 ```
 
-We can create data.frame from a list as well.
+We can create data.frame from a list as well by wrapping the list object with the `data.frame()` function.
 
 ```{r}
-df_list = list(
-  x = 1:5,
+my_list = list(
+  serial = 1:5,
   age = c(10, 11, 20, 30, 32), 
   sex = c('M', 'F', 'F', 'M', 'M')
 )
-df = data.frame(df_list)
+df = data.frame(my_list)
 
 df
 

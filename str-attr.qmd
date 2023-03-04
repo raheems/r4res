@@ -1,0 +1,205 @@
+# Structure and Attributes
+
+One the most crucial understanding of any programming language is to understand the structure of an object and how to separate/extract the components of it. 
+
+If you are comfortable with an object's structure, even at a very high level, many things will become smooth when programming and returning the results of your computation. 
+
+Anything you create in R is an object. For example, `x = c(1, 2, 3)` is an object whose 'name' is `x`. You can print it, view it, manipulate it, use it in computation and so on. 
+
+Let us formally discuss how to understand the structure and attributes of an object.
+
+You can use `str()` function to view the structure of an object.
+Attributes cab ne viewed using the `attributes()` function.
+
+::: {.callout-tip}
+
+## Structure vs Attributes
+
+To understand their differences, think of structure being the skeleton (e.g., components of a car) whereas attributes are the behaviors or abstract concepts or constructs (e.g., comfort level of the seats, how it handles curves). 
+
+:::
+
+
+## Structure of an atomic vector
+
+Consider a vector object, `x = c(1, 2, 3)` and another vector object `y = 1:3`. Let's print them on the console
+
+```{r}
+# an object
+x = c(1, 2, 3)
+print(x)
+typeof(x)
+
+# another object
+y = 1:3
+print(y)
+typeof(y)
+
+# character vector
+z = c('Male', 'Female')
+print(z)
+typeof(z)
+```
+
+
+```{r}
+str(x)
+str(y)
+str(z)
+```
+Atomic vectors do not have attributes. `attributes(x)` will return `NULL.`
+
+```{r}
+attributes(x) # returns NULL
+```
+
+## Structure of a Matrix
+
+A matrix object has attributes. Let us create a matrix `my_mat` with the sequence of numbers from 1 to 10 arranged by two rows and 5 columns.
+
+```{r}
+my_mat = matrix(1:10, nrow = 2, ncol = 5)
+```
+Type of the `my_mat` object is integer because we've used a sequence (1:9) as its values. We will discuss more about sequence later in this book. For now, it is sufficient just to notice the data type, which is integer.
+
+```{r}
+typeof(my_mat)
+```
+
+And the structure is
+```{r}
+str(my_mat)
+```
+How about the attributes of `my_mat`?
+
+```{r}
+attributes(my_mat)
+```
+A matrix object has a `dim` attribute which represents its dimension. We rearranged an atomic vector `1:10` into a matrix object with `r dim(my_mat)[1]` rows and `r dim(my_mat)[2]` columns. 'Dimension' is the attribute of a matrix object, and it is represented by `dim.`
+
+
+
+## Structure of a List
+
+```{r}
+my_list = list(
+  serial = 1:5,
+  age = c(10, 11, 20, 30, 32), 
+  sex = c('M', 'F', 'F', 'M', 'M')
+)
+
+str(my_list)
+
+```
+And the attributes
+
+```{r}
+attributes(my_list)
+```
+
+```{r}
+names(my_list)
+```
+
+```{r}
+dim(my_list)
+```
+
+
+## Structure of a data.frame
+
+```{r}
+my_list = list(
+  serial = 1:5,
+  age = c(10, 11, 20, 30, 32), 
+  sex = c('M', 'F', 'F', 'M', 'M')
+)
+
+df = data.frame(my_list)
+
+str(df)
+```
+
+Attributes
+
+```{r}
+attributes(df)
+```
+
+
+## Structure of Data Frame
+
+Data frames are created using the `data.frame()` function by supplying a list of columns. data.frames, as it is typically referred to are of list data type with one important distinction. List can have elements of unequal length. In data.frame, all the elements must have the same length to make the data.frame a true rectangular array. 
+
+
+```{r}
+x = c(1, 2, 3)
+my_list = list(
+  serial = 1:5,
+  age = c(10, 11, 20, 30, 32), 
+  sex = c('M', 'F', 'F', 'M', 'M')
+)
+df = data.frame(my_list)
+
+df
+```
+
+If you look at the data type for `df` using `typeof(df)`, you will see its a list.
+
+```{r}
+typeof(df)
+```
+
+To view the structure of `df` object
+
+```{r}
+str(df)
+```
+
+## Attributes of Data Frame
+
+As mentioned earlier, matrix and data frame are collection of vectors but they have additional characteristics called 'attributes'. R's data frame is a named list of vectors with the following attributes:
+
+- column names (`names`)
+- row names (`row.names`)
+- class (`class`)
+
+Lets see the attributes of the `df` data frame object.
+
+```{r}
+attributes(df)
+```
+
+Because they are attributes of an object, these functions can be used to extract these attributes from these objects. Thus, to know the column names sumply use the `names()` function as follows.
+
+```{r}
+names(df)
+```
+Likewise, to get the row names, use `row.names(df)` and to get the class of the object, use `class(df)`
+
+```{r}
+row.names(df)
+class(df)
+```
+
+
+## Exercise
+
+1. Create a matrix object and explore its attributes. What difference do you see from the attribtues of a data frame?
+
+```{r, eval = FALSE}
+x = matrix(1:10, ncol=2)
+x
+attributes(x)
+```
+
+2. Create a list object and explore its attributes.
+
+3. Create a data frame object and explore its attributes.
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+

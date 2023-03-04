@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Enayetur Raheem">
-<meta name="dcterms.date" content="2023-02-21">
 
-<title>R for Research</title>
+<title>R for Research - Part I: R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./introduction.html" rel="next">
+<link href="./r.html" rel="next">
+<link href="./introduction.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">R for Research</h1>
+      <h1 class="quarto-secondary-nav-title">Part I: R</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -96,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -106,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./part1.html" class="sidebar-item-text sidebar-link">Part I: R</a>
+            <a href="./part1.html" class="sidebar-item-text sidebar-link active">Part I: R</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -129,34 +128,24 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./str-attr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Structure and Attributes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./subsetting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Subsetting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Operators in R</span></a>
+  <a href="./subsetting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Subsetting</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
+  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
+  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Applications</span></a>
+  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Applications</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -169,47 +158,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#why-this-book" id="toc-why-this-book" class="nav-link" data-scroll-target="#why-this-book">Why this book</a>
-  <ul class="collapse">
-  <li><a href="#work-in-progress" id="toc-work-in-progress" class="nav-link" data-scroll-target="#work-in-progress">Work in progress</a></li>
-  <li><a href="#have-questions" id="toc-have-questions" class="nav-link" data-scroll-target="#have-questions">Have questions?</a></li>
-  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
-  <li><a href="#why_coding" id="toc-why_coding" class="nav-link" data-scroll-target="#why_coding">Benefits of coding</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">R for Research</h1>
-<p class="subtitle lead">A Companion for Statistical Analysis with R for Reproducible Research</p>
+<h1 class="title d-none d-lg-block">Part I: R</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Enayetur Raheem </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 21, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -217,46 +180,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-</section>
-<section id="why-this-book" class="level1">
-<h1>Why this book</h1>
-<section id="work-in-progress" class="level2">
-<h2 class="anchored" data-anchor-id="work-in-progress">Work in progress</h2>
-<p>Before you begin, I would like to point out that this book is being actively written. That means, the organization of the contents is not finalized. As such, bookmarks would not be stable at this point. I would advise not to bookmark any chapter or section. Instead, bookmark the website of the book which is http://r4res.eraheem.com.</p>
-</section>
-<section id="have-questions" class="level2">
-<h2 class="anchored" data-anchor-id="have-questions">Have questions?</h2>
-<p>Thank you for reading this book. I hope this will be beneficial for you. Take a look at the contents and browse through the book. If you feel anything important is missing or you would like me to cover additional topics, please feel free to let me know by submitting a feature request at the Issue queue located at https://github.com/raheems/r4res/issues</p>
-<p>To submit a question to the github issue queue, you need an account at https://www.Github.com, which is absolutely free. if you are not familiar with github, it is used by millions of developers worldwide. That may sound scary to you. But I can assure you that no technical knowledge is needed to submit a request or raise a question or report an error using the Issue queue.</p>
-<p>Just vist the Github website and sign up with your email if you do not have an account there. And submit your request. This way, I will be able to manage all the requests, and respond to your queries. This tools helps me to respond to you in an organized way.</p>
-<p>This is also the fastest way to get a response from me if you have any question or suggestion about this book.</p>
-</section>
-<section id="features" class="level2">
-<h2 class="anchored" data-anchor-id="features">Features</h2>
-<p>There are many books on R in the market. Yet, this is another book that is being written. You wonder, why. Here’s what I think about this book.</p>
-<ul>
-<li><p>This book is specifically about using R for research in medical and clinical fields. Therefore, the examples in this book will be mostly if not all from the medical field.</p></li>
-<li><p>This book is straight to the point and very specific without too much going into the nitty gritty of the technicality.</p></li>
-<li><p>This book focuses on data analysis and report generation. As such, this book is particularly suitable for researchers in all fields, particularly in medical field.</p></li>
-<li><p>Tools used in this book are the most modern and up to date. The old-style programming (base R style of coding has a steep learning curve whereas the new <code>tidyverse</code> suite of libraries have made this much easier and provides flexible framework for quick data analysis and producing publication quality graphics and tables.</p></li>
-</ul>
-</section>
-<section id="why_coding" class="level2">
-<h2 class="anchored" data-anchor-id="why_coding">Benefits of coding</h2>
-<p>In this book, I will be teaching how to do research using R and particularly by writing R codes. There will be no point and click interface like you see in some statistical software packages such as the SPSS. We will be writing codes all along and I will show you how easy it is and how beneficial it is to write codes instead of using point and click interface.</p>
-<p>You might be thinking how writing code can beneficial when point and click is so easy.</p>
-<ul>
-<li><p>The biggest benefit of wiring code, which is also the greates limitation of point and click facility is that what you do is completely reproducible.</p></li>
-<li><p>By writing codes, you can easily try different things as data analysis involves a lot of trial and error and explorations. With a point and click facility, you cannot go one step back of your process if you make a mistake. Instead, you have to start from the beginning.</p></li>
-<li><p>Your results are shareable with potential collaborators and also with the journals where you would submit your manuscript for publiccation. These days many journals ask for computer program to ensure reproduciblity.</p></li>
-</ul>
-<p>Lets dive in to the wonderful tool to power your research!</p>
+<p>In this section we gently introduce R and how to work with it</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -394,10 +320,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./introduction.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./introduction.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./r.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Step into R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

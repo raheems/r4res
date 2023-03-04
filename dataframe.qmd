@@ -1,0 +1,89 @@
+# Working with data.frame
+
+We will refer to an R `data.frame` or `tibble` object simply as data. After all, data are the object that we will be spending most time on.
+
+## Data Frame
+
+Data frames are created using the `data.frame()` function by supplying a list of columns. data.frames, as it is typically referred to are of list data type with one important distinction. List can have elements of unequal length. In data.frame, all the elements must have the same length to make the data.frame a true rectangular array. 
+
+
+```{r}
+my_list = list(
+  serial = 1:5,
+  age = c(10, 11, 20, 30, 32), 
+  sex = c('M', 'F', 'F', 'M', 'M')
+)
+df = data.frame(my_list)
+
+df
+```
+
+If you look at the data type for `df` using `typeof(df)`, you will see its a list.
+
+```{r}
+typeof(df)
+```
+
+To view the structure of `df` object
+
+```{r}
+str(df)
+```
+
+## Attributes of Data Frame
+
+As mentioned earlier, matrix and data frame are collection of vectors but they have additional characteristics called 'attributes'. R's data frame is a named list of vectors with the following attributes:
+
+- column names (`names`)
+- row names (`row.names`)
+- class (`class`)
+
+Lets see the attributes of the `df` data frame object.
+
+```{r}
+attributes(df)
+```
+
+Because they are attributes of an object, these functions can be used to extract these attributes from these objects. Thus, to know the column names sumply use the `names()` function as follows.
+
+```{r}
+names(df)
+```
+Likewise, to get the row names, use `row.names(df)` and to get the class of the object, use `class(df)
+
+```{r}
+row.names(df)
+class(df)
+```
+::: {.callout-important}
+## `arrtibutes` are not the same as the elements of a list
+
+You might be thinking that you can extract the `names` using the `$` operator. They are not elements of the list. These are simply attributes which cannot be extracted using `df$names`
+:::
+
+```{r}
+df$names
+df$class
+df$row.names
+```
+
+### Exercise
+
+1. Create a matrix object and explore its attributes. What difference do you see from the attribtues of a data frame?
+
+```{r, eval = FALSE}
+x = matrix(1:10, ncol=2)
+x
+attributes(x)
+```
+
+2. Create a list object and explore its attributes.
+
+3. Create a data frame object and expore its attributes.
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+

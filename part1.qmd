@@ -1,0 +1,2 @@
+# Part I: R
+In this section we gently introduce R and how to work with it

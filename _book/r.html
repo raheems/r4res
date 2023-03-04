@@ -112,8 +112,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./research-process.html" rel="next">
-<link href="./introduction.html" rel="prev">
+<link href="./dataframe.html" rel="next">
+<link href="./part2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -194,24 +194,39 @@ div.csl-indent {
   <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part2.html" class="sidebar-item-text sidebar-link">Part II: R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./r.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Step into R</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with data.frame</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
+  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
+  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></a>
+  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Applications</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -249,11 +264,6 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#data-frame" id="toc-data-frame" class="nav-link" data-scroll-target="#data-frame"><span class="toc-section-number">2.5.1</span>  Data Frame</a></li>
   <li><a href="#tibble" id="toc-tibble" class="nav-link" data-scroll-target="#tibble"><span class="toc-section-number">2.5.2</span>  Tibble</a></li>
-  </ul></li>
-  <li><a href="#r-for-data-analysis" id="toc-r-for-data-analysis" class="nav-link" data-scroll-target="#r-for-data-analysis"><span class="toc-section-number">2.6</span>  R for Data Analysis</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="toc-section-number">2.7</span>  Data Visualization</a>
-  <ul class="collapse">
-  <li><a href="#data-generation-and-simulation" id="toc-data-generation-and-simulation" class="nav-link" data-scroll-target="#data-generation-and-simulation"><span class="toc-section-number">2.7.1</span>  Data generation and simulation</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -390,15 +400,15 @@ div.csl-indent {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-9478d563e318be8325d5" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9478d563e318be8325d5">{"x":{"diagram":"\ngraph LR\n  A[Atomic] -->  B[Vector]\n  C[List] --> B[Vector]\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-acf117db2b0bddfc76e1" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-acf117db2b0bddfc76e1">{"x":{"diagram":"\ngraph LR\n  A[Atomic] -->  B[Vector]\n  C[List] --> B[Vector]\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Atomic vectors are of several types as shown in the diagram below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-d6cdf7b00348ff3b542d" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d6cdf7b00348ff3b542d">{"x":{"diagram":"\ngraph LR\nI(Date) --> G[Double]\nH(Factor) --> F[Integer]\nF[Integer] --> A[Atomic]\nG[Double] --> A[Atomic]\n  A[Atomic] -->  B[Vector]\n  C[Logical] --> A[Atomic]\n  E[Character] --> A[Atomic]\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-17294ef0db8d4657c008" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-17294ef0db8d4657c008">{"x":{"diagram":"\ngraph LR\nI(Date) --> G[Double]\nH(Factor) --> F[Integer]\nF[Integer] --> A[Atomic]\nG[Double] --> A[Atomic]\n  A[Atomic] -->  B[Vector]\n  C[Logical] --> A[Atomic]\n  E[Character] --> A[Atomic]\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="atomic-vector" class="level3" data-number="2.4.1">
@@ -586,21 +596,7 @@ $tf
 <h3 data-number="2.5.2" class="anchored" data-anchor-id="tibble"><span class="header-section-number">2.5.2</span> Tibble</h3>
 <p>For the most part, we as a user of dataframes won’t notice the difference. All differences are under-the-hood. For those interested to learn two important distinctions between the two, please visit this <a href="https://posit.co/blog/tibble-1-0-0/">link</a>.</p>
 <p>We will revisit <code>tibbles</code> shortly.</p>
-<p>Do care whether its a <code>tibble</code> or a <code>data.frame</code>? For the most part, the answer is no. But the R ecosystem is evolving and newer libraries will likely use tibble as the default replacement for data.frame.</p>
-</section>
-</section>
-<section id="r-for-data-analysis" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="r-for-data-analysis"><span class="header-section-number">2.6</span> R for Data Analysis</h2>
-<p>Introduce <code>tidyverse</code> ecosystem for data analysis</p>
-</section>
-<section id="data-visualization" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="data-visualization"><span class="header-section-number">2.7</span> Data Visualization</h2>
-<ul>
-<li><p>ggplot</p></li>
-<li><p>simplevis</p></li>
-</ul>
-<section id="data-generation-and-simulation" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="data-generation-and-simulation"><span class="header-section-number">2.7.1</span> Data generation and simulation</h3>
+<p>Do we care whether it’s a <code>tibble</code> or a <code>data.frame</code>? For the most part, the answer is no. But the R ecosystem is evolving and newer libraries will likely use tibble as the default replacement for data.frame.</p>
 </section>
 </section>
 <section id="references" class="level1 unnumbered">
@@ -753,13 +749,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./introduction.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./part2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Part II: R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./research-process.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Organizing your project</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./dataframe.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with data.frame</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

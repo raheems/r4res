@@ -4,7 +4,7 @@
 
 ## Work in progress
 
-Before you begin, I would like to point out that this book is being actively written. That means, the organization of the contents is not finalized. As such, bookmarks would not be stable at this point. I would adcvse not to bookmark any chapter or section. Instead, bookmark the website of the book which is http://r4res.eraheem.com. 
+Before you begin, I would like to point out that this book is being actively written. That means, the organization of the contents is not finalized. As such, bookmarks would not be stable at this point. I would advise not to bookmark any chapter or section. Instead, bookmark the website of the book which is http://r4res.eraheem.com. 
 
 ## Have questions?
 
@@ -37,10 +37,10 @@ In this book, I will be teaching how to do research using R and particularly by 
 
 You might be thinking how writing code can beneficial when point and click is so easy. 
 
-- The biggest benefit of wiring code, which is also the greated limitation of point and click facility is that what you do is completely reproducible. 
+- The biggest benefit of wiring code, which is also the greates limitation of point and click facility is that what you do is completely reproducible. 
 
 - By writing codes, you can easily try different things as data analysis involves a lot of trial and error and explorations. With a point and click facility, you cannot go one step back of your process if you make a mistake. Instead, you have to start from the beginning.
 
-- Youre results are sharable with potential collaborators and also with the journals where you would submit your manuscript for publiccation. These days many journals ask for computer program to ensure reproduciblity.
+- Your results are shareable with potential collaborators and also with the journals where you would submit your manuscript for publiccation. These days many journals ask for computer program to ensure reproduciblity.
 
 Lets dive in to the wonderful tool to power your research!

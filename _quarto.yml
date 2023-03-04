@@ -9,7 +9,14 @@ book:
   chapters:
     - index.qmd
     - introduction.qmd
-    - r.qmd
+    - part: part1.qmd
+      chapters:
+        - r.qmd
+        - datatypes.qmd
+        - dataframe.qmd
+        - str-attr.qmd
+        - subsetting.qmd
+        - operators.qmd
     - research-process.qmd
     - analytic-process.qmd
     - applications.qmd
