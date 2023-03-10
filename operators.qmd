@@ -1,17 +1,143 @@
 # Operators in R
 
-Arithmetic, Relational and Logical operators in R
+Let us learn various operators in R.
+
+## Assignment Operators
+
+So far we have been using `=` notation to assgin values to an object. For example `age = c(10, 11, 12)` indicates we are storing the age of three individuals to an object `age` with the assignment sign `=`. R has another way to assign object to its values.
+
+| Operator | Description | Example
+|--------- |------------|----------
+| `=` | Assign the value to the object on the left | `x = 10`
+| `<-` | Assign the value to the object on the left | `x <- 10`
+| `->` | Assign the value to the object on the right | `10 -> x`
+
+: Assignment Operators in R
+
+We mostly use the `=` or the `<-` operators to assign values to ab object. It is recommended to use `<-` operator to avoid any confusion in cases such as the following.
+
+```{r}
+x = 5
+x = x == 3 # checking if the value of x is 3
+x
+```
+Much readable with `<-` operator
+
+```{r}
+x = 5
+x <- x == 3 # checking if the value of x is 3
+x
+```
 
 ## Arithmetic Operators
 
+These are the operators for performing computation with numerical data type
+
+| Operator | Description | Sample Code | Output 
+|------|------| ---------| ----------- |
+|  +     |  Addition    | `10 + 10` | `r 10 + 10` 
+| - | Subtraction | `10 - 8` | `r 10 - 8` 
+| * | Multiplication | `5 * 10` | `r 5 * 10`
+| / | Division | `50 / 10` | `r 50 / 10`
+| ^ | Exponent | `10 ^ 2` | `r 10 ^ 2`
+| %/% | Integer division | `20 %/% 3` | `r 20 %/% 3`
+| %% | Modulus (remainder) | ` 10 %% 3` | `r 10 %% 3`
+| %*% | Matrix multiplication | see below | see below
+
+: Arithmetic Operators in R
+
+Let us define the two matrices as follows
+
+```{r}
+mat_a = matrix(c(10, 20, 30, 40), nrow = 2)
+mat_b = matrix(c(1, 2, 3, 4), nrow = 2)
+
+mat_a
+mat_b
+
+# Element wise multiplication
+mat_a * mat_b
+
+# True matrix multiplication
+mat_a %*% mat_b
+```
+
 ## Relational Operators
 
+Relational operators return boolean output. 
+
+| Operator | Description | Example | Output
+| -------- | --------- | ------------ | -------
+| > | Greater than | `5 > 2` | `r 5 > 2`
+| < | Less than | `5 < 2` | `r 5 < 3`
+| >= | Greater than or equal to | `10 >= 10` | `r 10 >= 10`
+| | | `c(1, 10) >= c(-2, 20)`  | `r c(1, 10) >= c(-2, 20)`
+| <= | Less than or equal to | `100 <= 100` | `r 100 <= 100`
+| | | `c(1, 10) <= c(-2, 20)`  | `r c(1, 10) <= c(-2, 20)`
+| == | Equal to | `10 == 10` | `r 10 == 10`
+| | | `'Male' == 'M'` | `r 'Male' == 'M'`
+| | | `'Male' == ' Male'` | `r 'Male' ==' Male'`
+| | | `'Male' == 'male'` | `r 'Male' == 'male'`
+| != | Not equal to | `10 != 9` | `r 10 != 9`
+| | | `'Male' != 'male'` | `r 'Male' != 'male'`
+
+: Relational Operators in R
+
 ## Logical Operators
+
+Logical operators also return boolean values `TRUE` or `FALSE`
+
+| Operator | Description | Example | Output
+| ---------| -----------| --------- |------
+| ! | Logical NOT | |
+| & | Element-wise Logical AND | |
+| \| | Element-wise Logical OR | |
+| && | Logical AND | |
+| \|\| | Logical OR | |
+
+: Logical Operators in R
+
+For the `&&` and `||` operators, I will not discuss here. But if you are interested, read the documentation which reads.
+
+>The “short-circuit” operators && and || are often used as part of the condition in an if statement. Whereas & and | apply element-wise to vectors, && and || apply to vectors of length one, and only evaluate their second argument if necessary.
+
+The full R official documentation can be accessed [here](https://cran.r-project.org/doc/manuals/r-release/R-intro.html). 
+ 
+ 
+## Examples of logical operators
+
+
+To negate the condition, we prefix with the `!` sign. `!=` means not equal to. That is, we are negating the equality. Lets see some examples
+
+```{r}
+x = 3
+x == 3 # its TRUE
+!(x == 3) # when negated, it should be false
+x != 3 # equivalent to the previous one
+```
+
+## Element-wise Logical AND example
+
+
+## Logical AND 
+
+
+
+```{r}
+df = data.frame(
+    serial = 1:5,
+  age = c(10, 11, 20, 30, 32), 
+  sex = c('M', 'F', 'F', 'M', 'M')
+)
+
+df
+
+df$age == 10 & df$sex == 'M'
+
+```
 
 
 # References {.unnumbered}
 
 ::: {#refs}
 :::
-
-

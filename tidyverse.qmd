@@ -1,0 +1,169 @@
+# Tidy Data Analysis
+
+
+In this section we introduce the `tidy`-way of data analysis. This is different from the base-R way of subsetting and manipulating data, which haven't covered thoroughly anyway. Because much of the data analysis will be performed following the tidyver-approach, we briefly introduced the base-R way of working with data frames.
+
+## What's in tidyverse
+
+`tidyverse` is a collection of R packages for data science.
+![](images/tidyverse.png)
+You can install tidyverse with 
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+or use the Rstudio visual interface.
+
+Once installed, you can load it like any other R packages
+
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+The list of packages in this collection along with that they do is summarized below
+
+| Package | What it does
+|:--|:-----------
+| dplyr | the flagship package which provides grammar of data manipulation with a consistet set of verbs
+| ggplot2 | for creating beautiful graphics based on Grammar of Graphics
+| tidyr | for tyding your data set
+| readr | reading rectangular data
+| forcats | for working with factor data types
+| stringr | makes working with strings/characters easier
+| tibble | a modern data-frame evolved from the base `data.frame`
+| purr | enhances functional programming in R
+
+: List of Packages in tidyverse
+
+
+## Data transformation
+
+dplyr verbs
+
+
+| Verb | What it does
+|:--|:-----------
+| `filter()` | subsetting rows/observations in a data frame 
+| `select()` | selects subset of columns by their names
+| `mutate()` | creates new columns/variables off of existing columns/variables
+| `arrange()` | reorders rows by column/variable
+| `summarize()` | creates summary statistics 
+| `group_by()` | splits data by by group for processing/summarizing/manipulating
+
+: dplyr verbs for data wrangling
+
+
+## Data 
+
+```{r}
+library(tidyverse)
+mpg %>% glimpse()
+```
+
+Now, if you haven't loaded tidyverse library on the console, or interactively on the Rmd file, then `? mpg` will show an error
+> ?mpg
+No documentation for ‘mpg’ in specified packages and libraries:
+you could try ‘??mpg’
+
+The error message suggests you to try `?? mpg` instead. Note, the double question mark. This will search the entire R ecosystem currently available in your system including the libraries that are installed but not loaded.
+
+When running `?? mpg` on the console, we get this
+
+![Search mpg in all installed libraries](images/search_mpg.png)
+
+Now we see from the image above that the mpg is in the `ggplot2` library. Please note how do I know that it is in the ggplot2 library. Becasue it is written as `ggplot2::mpg` this indicates that the mpg object is in the ggplot2 library. 
+
+You can call the `mpg` object if you either loaded tidyverse pckage or the ggplot2 packahge using either `library(tidyverse)` or `library(ggolot2)` on the notebook or on the console. 
+
+If you do not want to load the library, yet want to use the mpg data set, you have to call it by `ggplot2::mpg`. Likewise, if you run `?ggplot2::mpg`, the data profile will be shown. 
+
+```{r}
+?ggplot2::mpg
+```
+
+When you execute the above, you will see under the Help tab, the details about the `mpg` data set. This is the same data set as the `mtcars` but with some enhancements. 
+
+## Basic Usage of dplyr verbs
+
+First, lets start with the `mpg` data set available in ggplot2 package.
+
+```{r}
+mpg %>% glimpse()
+```
+
+There are `r dim(mpg)[1]` rows and `r dim(mpg)[2]` columns or variables in the data set. This also confirms with the output produced when running `glimpse()`.
+
+## Filter rows with `filter()`
+
+### Filtering based on one condition
+
+Let us filter all the rows of the data where the vehicle is a front-wheel drive. The variable is `drv` for drivetrain. First, let us see a simple table showing the values in the data and their frequencies
+
+```{r}
+table(mpg$drv)
+```
+Alternatively, we can alternatively run
+
+```{r}
+mpg %>% 
+  select(drv) %>% 
+  table()
+```
+
+There are three types of vehicles, four-wheel drive (represented by `drv = 4`), front-wheel drive (`drv = f`) and rear-wheel drive (`drv = r`). 
+
+To select only the front-wheel drive vehicles, we use `filter()` function with the condition that the `drv == 'f'`. Notice that the variable name `drv` doesn't need to be wrapped with quotation, but the actual value of the variable must be put within quotation. Either single or double quotation would work.
+
+```{r}
+mpg %>% 
+  filter(drv == 'f')
+
+```
+
+### Filtering based on multiple conditions
+
+Suppose now that we want to filter vehicles that are front-wheel drive and has a 5 cylinders
+
+```{r}
+table(mpg$cyl)
+```
+
+
+```{r}
+mpg %>% 
+  filter(drv == 'f', cyl == 5)
+```
+
+How about the vehicles that are either front-wheel drive or with 5 cylinders?
+
+```{r}
+mpg %>% 
+  filter(drv == 'f' | cyl == 5)
+```
+
+How about either front wheel drive and city fuel efficiency of 20 or 24 miles per gallon?
+
+First try to filter vehicles whose city mileage is 20 or 24 mpg
+
+```{r}
+
+mpg %>% 
+  filter(cty == c(24, 20)) %>% 
+  select(cty) %>% 
+  table()
+
+```
+
+```{r}
+mpg %>% 
+  filter(drv == 'f' | year == c(1999, 2000) )
+```
+
+
+
+
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -49,7 +112,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./research-process.html" rel="next">
+<link href="./tidyverse.html" rel="next">
 <link href="./subsetting.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -160,21 +223,26 @@ div.csl-indent {
   <a href="./operators.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Operators in R</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tidy Data Analysis</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
+  <a href="./research-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Organizing your project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
+  <a href="./analytic-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analytic Process</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Applications</span></a>
+  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Applications</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -191,9 +259,13 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#arithmetic-operators" id="toc-arithmetic-operators" class="nav-link active" data-scroll-target="#arithmetic-operators"><span class="toc-section-number">7.1</span>  Arithmetic Operators</a></li>
-  <li><a href="#relational-operators" id="toc-relational-operators" class="nav-link" data-scroll-target="#relational-operators"><span class="toc-section-number">7.2</span>  Relational Operators</a></li>
-  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="toc-section-number">7.3</span>  Logical Operators</a></li>
+  <li><a href="#assignment-operators" id="toc-assignment-operators" class="nav-link active" data-scroll-target="#assignment-operators"><span class="toc-section-number">7.1</span>  Assignment Operators</a></li>
+  <li><a href="#arithmetic-operators" id="toc-arithmetic-operators" class="nav-link" data-scroll-target="#arithmetic-operators"><span class="toc-section-number">7.2</span>  Arithmetic Operators</a></li>
+  <li><a href="#relational-operators" id="toc-relational-operators" class="nav-link" data-scroll-target="#relational-operators"><span class="toc-section-number">7.3</span>  Relational Operators</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="toc-section-number">7.4</span>  Logical Operators</a></li>
+  <li><a href="#examples-of-logical-operators" id="toc-examples-of-logical-operators" class="nav-link" data-scroll-target="#examples-of-logical-operators"><span class="toc-section-number">7.5</span>  Examples of logical operators</a></li>
+  <li><a href="#element-wise-logical-and-example" id="toc-element-wise-logical-and-example" class="nav-link" data-scroll-target="#element-wise-logical-and-example"><span class="toc-section-number">7.6</span>  Element-wise Logical AND example</a></li>
+  <li><a href="#logical-and" id="toc-logical-and" class="nav-link" data-scroll-target="#logical-and"><span class="toc-section-number">7.7</span>  Logical AND</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -218,15 +290,339 @@ div.csl-indent {
 
 </header>
 
-<p>Arithmetic, Relational and Logical operators in R</p>
-<section id="arithmetic-operators" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="arithmetic-operators"><span class="header-section-number">7.1</span> Arithmetic Operators</h2>
+<p>Let us learn various operators in R.</p>
+<section id="assignment-operators" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="assignment-operators"><span class="header-section-number">7.1</span> Assignment Operators</h2>
+<p>So far we have been using <code>=</code> notation to assgin values to an object. For example <code>age = c(10, 11, 12)</code> indicates we are storing the age of three individuals to an object <code>age</code> with the assignment sign <code>=</code>. R has another way to assign object to its values.</p>
+<table class="table">
+<caption>Assignment Operators in R</caption>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>=</code></td>
+<td>Assign the value to the object on the left</td>
+<td><code>x = 10</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;-</code></td>
+<td>Assign the value to the object on the left</td>
+<td><code>x &lt;- 10</code></td>
+</tr>
+<tr class="odd">
+<td><code>-&gt;</code></td>
+<td>Assign the value to the object on the right</td>
+<td><code>10 -&gt; x</code></td>
+</tr>
+</tbody>
+</table>
+<p>We mostly use the <code>=</code> or the <code>&lt;-</code> operators to assign values to ab object. It is recommended to use <code>&lt;-</code> operator to avoid any confusion in cases such as the following.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> x <span class="sc">==</span> <span class="dv">3</span> <span class="co"># checking if the value of x is 3</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Much readable with <code>&lt;-</code> operator</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">==</span> <span class="dv">3</span> <span class="co"># checking if the value of x is 3</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
 </section>
-<section id="relational-operators" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="relational-operators"><span class="header-section-number">7.2</span> Relational Operators</h2>
+<section id="arithmetic-operators" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="arithmetic-operators"><span class="header-section-number">7.2</span> Arithmetic Operators</h2>
+<p>These are the operators for performing computation with numerical data type</p>
+<table class="table">
+<caption>Arithmetic Operators in R</caption>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Sample Code</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>Addition</td>
+<td><code>10 + 10</code></td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Subtraction</td>
+<td><code>10 - 8</code></td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>Multiplication</td>
+<td><code>5 * 10</code></td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>Division</td>
+<td><code>50 / 10</code></td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>^</td>
+<td>Exponent</td>
+<td><code>10 ^ 2</code></td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>%/%</td>
+<td>Integer division</td>
+<td><code>20 %/% 3</code></td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>%%</td>
+<td>Modulus (remainder)</td>
+<td><code>10 %% 3</code></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>%*%</td>
+<td>Matrix multiplication</td>
+<td>see below</td>
+<td>see below</td>
+</tr>
+</tbody>
+</table>
+<p>Let us define the two matrices as follows</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mat_a <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mat_b <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>mat_a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]   10   30
+[2,]   20   40</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mat_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    3
+[2,]    2    4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Element wise multiplication</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mat_a <span class="sc">*</span> mat_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]   10   90
+[2,]   40  160</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># True matrix multiplication</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mat_a <span class="sc">%*%</span> mat_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]   70  150
+[2,]  100  220</code></pre>
+</div>
+</div>
 </section>
-<section id="logical-operators" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">7.3</span> Logical Operators</h2>
+<section id="relational-operators" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="relational-operators"><span class="header-section-number">7.3</span> Relational Operators</h2>
+<p>Relational operators return boolean output.</p>
+<table class="table">
+<caption>Relational Operators in R</caption>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&gt;</td>
+<td>Greater than</td>
+<td><code>5 &gt; 2</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td>&lt;</td>
+<td>Less than</td>
+<td><code>5 &lt; 2</code></td>
+<td>FALSE</td>
+</tr>
+<tr class="odd">
+<td>&gt;=</td>
+<td>Greater than or equal to</td>
+<td><code>10 &gt;= 10</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><code>c(1, 10) &gt;= c(-2, 20)</code></td>
+<td>TRUE, FALSE</td>
+</tr>
+<tr class="odd">
+<td>&lt;=</td>
+<td>Less than or equal to</td>
+<td><code>100 &lt;= 100</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><code>c(1, 10) &lt;= c(-2, 20)</code></td>
+<td>FALSE, TRUE</td>
+</tr>
+<tr class="odd">
+<td>==</td>
+<td>Equal to</td>
+<td><code>10 == 10</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><code>'Male' == 'M'</code></td>
+<td>FALSE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><code>'Male' == ' Male'</code></td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><code>'Male' == 'male'</code></td>
+<td>FALSE</td>
+</tr>
+<tr class="odd">
+<td>!=</td>
+<td>Not equal to</td>
+<td><code>10 != 9</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><code>'Male' != 'male'</code></td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logical-operators" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">7.4</span> Logical Operators</h2>
+<p>Logical operators also return boolean values <code>TRUE</code> or <code>FALSE</code></p>
+<table class="table">
+<caption>Logical Operators in R</caption>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>!</td>
+<td>Logical NOT</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>&amp;</td>
+<td>Element-wise Logical AND</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>|</td>
+<td>Element-wise Logical OR</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>&amp;&amp;</td>
+<td>Logical AND</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>||</td>
+<td>Logical OR</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>For the <code>&amp;&amp;</code> and <code>||</code> operators, I will not discuss here. But if you are interested, read the documentation which reads.</p>
+<blockquote class="blockquote">
+<p>The “short-circuit” operators &amp;&amp; and || are often used as part of the condition in an if statement. Whereas &amp; and | apply element-wise to vectors, &amp;&amp; and || apply to vectors of length one, and only evaluate their second argument if necessary.</p>
+</blockquote>
+<p>The full R official documentation can be accessed <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html">here</a>.</p>
+</section>
+<section id="examples-of-logical-operators" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="examples-of-logical-operators"><span class="header-section-number">7.5</span> Examples of logical operators</h2>
+<p>To negate the condition, we prefix with the <code>!</code> sign. <code>!=</code> means not equal to. That is, we are negating the equality. Lets see some examples</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">3</span> <span class="co"># its TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(x <span class="sc">==</span> <span class="dv">3</span>) <span class="co"># when negated, it should be false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">!=</span> <span class="dv">3</span> <span class="co"># equivalent to the previous one</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="element-wise-logical-and-example" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="element-wise-logical-and-example"><span class="header-section-number">7.6</span> Element-wise Logical AND example</h2>
+</section>
+<section id="logical-and" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="logical-and"><span class="header-section-number">7.7</span> Logical AND</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">serial =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">32</span>), </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sex =</span> <span class="fu">c</span>(<span class="st">'M'</span>, <span class="st">'F'</span>, <span class="st">'F'</span>, <span class="st">'M'</span>, <span class="st">'M'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  serial age sex
+1      1  10   M
+2      2  11   F
+3      3  20   F
+4      4  30   M
+5      5  32   M</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age <span class="sc">==</span> <span class="dv">10</span> <span class="sc">&amp;</span> df<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'M'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+</div>
 </section>
 <section id="references" class="level1 unnumbered">
 <h1 class="unnumbered">References</h1>
@@ -378,8 +774,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./research-process.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Organizing your project</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tidyverse.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tidy Data Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

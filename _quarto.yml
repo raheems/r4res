@@ -17,6 +17,7 @@ book:
         - str-attr.qmd
         - subsetting.qmd
         - operators.qmd
+        - tidyverse.qmd
     - research-process.qmd
     - analytic-process.qmd
     - applications.qmd

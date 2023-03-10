@@ -116,6 +116,59 @@ my_mat[ , 2]
 ```
 
 
+
+## Subsetting List
+
+```{r}
+# Create the list
+
+my_list = list(
+  serial = 1:5,
+  age = c(10, 11, 20, 30, 32),
+  sex = c('M', 'F', 'F', 'M', 'm')
+)
+
+# prints the list
+my_list
+```
+
+List can be subsetted using the `$` operator too.
+
+```{r}
+my_list$age
+```
+
+Or alternatively `[` or the `[[` operator can be used depending on your preference and exactly what you want to extract.
+
+```{r}
+
+# extracts the first item of the list
+my_list[1]
+
+# extracts the elements of the first item of the list
+my_list[[1]]
+
+```
+You can also use the name of the vector within the list to extract the list item
+
+```{r}
+my_list['age']
+```
+
+To extract the second element of the named vector `age`
+
+```{r}
+my_list[['age']][2]
+```
+
+
+You can also use the `[[` operator on data frame to extract the items and the elements within the items of a data frame. This is because the data frame is a collection of atomic vectors and its data type is `list`.
+
+```{r}
+typeof(df)
+```
+
+
 ## Subsetting Data Frame
 
 
@@ -181,52 +234,59 @@ df[df$sex == 'M', c(2, 3)]
 ```
 
 
-## Subsetting List
-
-```{r}
-# prints the list
-my_list
-```
-
-List can be subsetted using the `$` operator too.
-
-```{r}
-my_list$age
-```
-
-Or alternatively `[` or the `[[` operator can be used depending on your preference and exactly what you want to extract.
-
-```{r}
-
-# extracts the first item of the list
-my_list[1]
-
-# extracts the elements of the first item of the list
-my_list[[1]]
-
-```
-You can also use the name of the vector within the list to extract the list item
-
-```{r}
-my_list['age']
-```
-
-To extract the second element of the named vector `age`
-
-```{r}
-my_list[['age']][2]
-```
-
-
-You can also use the `[[` operator on data frame to extract the items and the elements within the items of a data frame. This is because the data frame is a collection of atomic vectors and its data type is `list`.
-
-```{r}
-typeof(df)
-```
-
 ## Assigning values with Subsetting
 
 Subsetting can be used to assign new values. This is also known as 'setting' a value
+
+### Atomic Vector
+
+```{r}
+
+my_vec2 = my_vec
+
+# replace the value in the second position
+
+my_vec2[2] = 20.2
+
+my_vec
+my_vec2
+
+```
+
+### Matrix
+
+```{r}
+my_mat2 = my_mat
+
+my_mat2[1, 1] = 10
+my_mat2
+```
+
+### List
+
+```{r}
+my_list2 = my_list
+
+new_age = my_list$age + 10
+my_list2$age = new_age
+
+my_list
+my_list2
+
+```
+
+Adding a new element to the list object
+
+```{r}
+my_list$new_age = my_list$age + 20
+
+my_list
+```
+
+### Data frames
+
+Since data frames are lists, the same rule applies for subsetting and assigning new values and elements to the list (equivalently adding new columns to the data frame)
+
 
 
 ### Exercise

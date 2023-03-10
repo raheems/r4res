@@ -205,7 +205,7 @@
   {
     "objectID": "analytic-process.html",
     "href": "analytic-process.html",
-    "title": "4  Analytic Process",
+    "title": "10  Analytic Process",
     "section": "",
     "text": "In this chapter we outline and describe the analytic process. This is the heart of our book."
   },
@@ -444,8 +444,8 @@
     "objectID": "subsetting.html#subsetting-data-frame",
     "href": "subsetting.html#subsetting-data-frame",
     "title": "6  Subsetting",
-    "section": "6.3 Subsetting Data Frame",
-    "text": "6.3 Subsetting Data Frame\nData frames are created using the data.frame() function by supplying a list of columns. data.frames, as it is typically referred to are of list data type with one important distinction. List can have elements of unequal length. In data.frame, all the elements must have the same length to make the data.frame a true rectangular array.\n\nx = c(1, 2, 3)\nmy_list = list(\n  serial = 1:5,\n  age = c(10, 11, 20, 30, 32), \n  sex = c('M', 'F', 'F', 'M', 'M')\n)\ndf = data.frame(my_list)\n\ndf\n\n  serial age sex\n1      1  10   M\n2      2  11   F\n3      3  20   F\n4      4  30   M\n5      5  32   M\n\n\nIf you look at the data type for df using typeof(df), you will see its a list.\n\ntypeof(df)\n\n[1] \"list\"\n\n\nTo view the structure of df object\n\nstr(df)\n\n'data.frame':   5 obs. of  3 variables:\n $ serial: int  1 2 3 4 5\n $ age   : num  10 11 20 30 32\n $ sex   : chr  \"M\" \"F\" \"F\" \"M\" ...\n\n\nTo select the columns, we use $ operator to subset a column\n\ndf$age\n\n[1] 10 11 20 30 32\n\ndf$serial\n\n[1] 1 2 3 4 5\n\ndf$sex\n\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\n\nThe data type of the extracted column age is double. Likewise, the data type of sex is character.\n\n6.3.1 Selecting rows using conditions\nSelect all rows where the sex is male\n\ndf$sex\n\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\ndf$sex == 'M'\n\n[1]  TRUE FALSE FALSE  TRUE  TRUE\n\n# subset the males\ndf[df$sex == 'M', ]\n\n  serial age sex\n1      1  10   M\n4      4  30   M\n5      5  32   M\n\n\nIf you want to select only age and sex of the data frame where sex = M\n\ndf[df$sex == 'M', c('age', 'sex')]\n\n  age sex\n1  10   M\n4  30   M\n5  32   M\n\n\nAlternatively we could use the column position integers to select the columns\n\ndf[df$sex == 'M', c(2, 3)]\n\n  age sex\n1  10   M\n4  30   M\n5  32   M"
+    "section": "6.4 Subsetting Data Frame",
+    "text": "6.4 Subsetting Data Frame\nData frames are created using the data.frame() function by supplying a list of columns. data.frames, as it is typically referred to are of list data type with one important distinction. List can have elements of unequal length. In data.frame, all the elements must have the same length to make the data.frame a true rectangular array.\n\nx = c(1, 2, 3)\nmy_list = list(\n  serial = 1:5,\n  age = c(10, 11, 20, 30, 32), \n  sex = c('M', 'F', 'F', 'M', 'M')\n)\ndf = data.frame(my_list)\n\ndf\n\n  serial age sex\n1      1  10   M\n2      2  11   F\n3      3  20   F\n4      4  30   M\n5      5  32   M\n\n\nIf you look at the data type for df using typeof(df), you will see its a list.\n\ntypeof(df)\n\n[1] \"list\"\n\n\nTo view the structure of df object\n\nstr(df)\n\n'data.frame':   5 obs. of  3 variables:\n $ serial: int  1 2 3 4 5\n $ age   : num  10 11 20 30 32\n $ sex   : chr  \"M\" \"F\" \"F\" \"M\" ...\n\n\nTo select the columns, we use $ operator to subset a column\n\ndf$age\n\n[1] 10 11 20 30 32\n\ndf$serial\n\n[1] 1 2 3 4 5\n\ndf$sex\n\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\n\nThe data type of the extracted column age is double. Likewise, the data type of sex is character.\n\n6.4.1 Selecting rows using conditions\nSelect all rows where the sex is male\n\ndf$sex\n\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\ndf$sex == 'M'\n\n[1]  TRUE FALSE FALSE  TRUE  TRUE\n\n# subset the males\ndf[df$sex == 'M', ]\n\n  serial age sex\n1      1  10   M\n4      4  30   M\n5      5  32   M\n\n\nIf you want to select only age and sex of the data frame where sex = M\n\ndf[df$sex == 'M', c('age', 'sex')]\n\n  age sex\n1  10   M\n4  30   M\n5  32   M\n\n\nAlternatively we could use the column position integers to select the columns\n\ndf[df$sex == 'M', c(2, 3)]\n\n  age sex\n1  10   M\n4  30   M\n5  32   M"
   },
   {
     "objectID": "subsetting.html#attributes-of-data-frame",
@@ -584,15 +584,15 @@
     "objectID": "subsetting.html#subsetting-list",
     "href": "subsetting.html#subsetting-list",
     "title": "6  Subsetting",
-    "section": "6.4 Subsetting List",
-    "text": "6.4 Subsetting List\n\n# prints the list\nmy_list\n\n$serial\n[1] 1 2 3 4 5\n\n$age\n[1] 10 11 20 30 32\n\n$sex\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\n\nList can be subsetted using the $ operator too.\n\nmy_list$age\n\n[1] 10 11 20 30 32\n\n\nOr alternatively [ or the [[ operator can be used depending on your preference and exactly what you want to extract.\n\n# extracts the first item of the list\nmy_list[1]\n\n$serial\n[1] 1 2 3 4 5\n\n# extracts the elements of the first item of the list\nmy_list[[1]]\n\n[1] 1 2 3 4 5\n\n\nYou can also use the name of the vector within the list to extract the list item\n\nmy_list['age']\n\n$age\n[1] 10 11 20 30 32\n\n\nTo extract the second element of the named vector age\n\nmy_list[['age']][2]\n\n[1] 11\n\n\nYou can also use the [[ operator on data frame to extract the items and the elements within the items of a data frame. This is because the data frame is a collection of atomic vectors and its data type is list.\n\ntypeof(df)\n\n[1] \"list\""
+    "section": "6.3 Subsetting List",
+    "text": "6.3 Subsetting List\n\n# Create the list\n\nmy_list = list(\n  serial = 1:5,\n  age = c(10, 11, 20, 30, 32),\n  sex = c('M', 'F', 'F', 'M', 'm')\n)\n\n# prints the list\nmy_list\n\n$serial\n[1] 1 2 3 4 5\n\n$age\n[1] 10 11 20 30 32\n\n$sex\n[1] \"M\" \"F\" \"F\" \"M\" \"m\"\n\n\nList can be subsetted using the $ operator too.\n\nmy_list$age\n\n[1] 10 11 20 30 32\n\n\nOr alternatively [ or the [[ operator can be used depending on your preference and exactly what you want to extract.\n\n# extracts the first item of the list\nmy_list[1]\n\n$serial\n[1] 1 2 3 4 5\n\n# extracts the elements of the first item of the list\nmy_list[[1]]\n\n[1] 1 2 3 4 5\n\n\nYou can also use the name of the vector within the list to extract the list item\n\nmy_list['age']\n\n$age\n[1] 10 11 20 30 32\n\n\nTo extract the second element of the named vector age\n\nmy_list[['age']][2]\n\n[1] 11\n\n\nYou can also use the [[ operator on data frame to extract the items and the elements within the items of a data frame. This is because the data frame is a collection of atomic vectors and its data type is list.\n\ntypeof(df)\n\n[1] \"closure\""
   },
   {
     "objectID": "subsetting.html#assigning-values-with-subsetting",
     "href": "subsetting.html#assigning-values-with-subsetting",
     "title": "6  Subsetting",
     "section": "6.5 Assigning values with Subsetting",
-    "text": "6.5 Assigning values with Subsetting\nSubsetting can be used to assign new values. This is also known as ‘setting’ a value\n\n6.5.1 Exercise\n\nCreate a matrix object and explore its attributes. What difference do you see from the attributes of a data frame?\n\n\nx = matrix(1:10, ncol=2)\nx\nattributes(x)\n\n\nCreate a list object and explore its attributes.\nCreate a data frame object and explore its attributes."
+    "text": "6.5 Assigning values with Subsetting\nSubsetting can be used to assign new values. This is also known as ‘setting’ a value\n\n6.5.1 Atomic Vector\n\nmy_vec2 = my_vec\n\n# replace the value in the second position\n\nmy_vec2[2] = 20.2\n\nmy_vec\n\n[1] 10.1  2.2 32.3  5.4\n\nmy_vec2\n\n[1] 10.1 20.2 32.3  5.4\n\n\n\n\n6.5.2 Matrix\n\nmy_mat2 = my_mat\n\nmy_mat2[1, 1] = 10\nmy_mat2\n\n      [,1] [,2] [,3] [,4] [,5]\n [1,]   10   11   21   31   41\n [2,]    2   12   22   32   42\n [3,]    3   13   23   33   43\n [4,]    4   14   24   34   44\n [5,]    5   15   25   35   45\n [6,]    6   16   26   36   46\n [7,]    7   17   27   37   47\n [8,]    8   18   28   38   48\n [9,]    9   19   29   39   49\n[10,]   10   20   30   40   50\n\n\n\n\n6.5.3 List\n\nmy_list2 = my_list\n\nnew_age = my_list$age + 10\nmy_list2$age = new_age\n\nmy_list\n\n$serial\n[1] 1 2 3 4 5\n\n$age\n[1] 10 11 20 30 32\n\n$sex\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\nmy_list2\n\n$serial\n[1] 1 2 3 4 5\n\n$age\n[1] 20 21 30 40 42\n\n$sex\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\n\nAdding a new element to the list object\n\nmy_list$new_age = my_list$age + 20\n\nmy_list\n\n$serial\n[1] 1 2 3 4 5\n\n$age\n[1] 10 11 20 30 32\n\n$sex\n[1] \"M\" \"F\" \"F\" \"M\" \"M\"\n\n$new_age\n[1] 30 31 40 50 52\n\n\n\n\n6.5.4 Data frames\nSince data frames are lists, the same rule applies for subsetting and assigning new values and elements to the list (equivalently adding new columns to the data frame)\n\n\n6.5.5 Exercise\n\nCreate a matrix object and explore its attributes. What difference do you see from the attributes of a data frame?\n\n\nx = matrix(1:10, ncol=2)\nx\nattributes(x)\n\n\nCreate a list object and explore its attributes.\nCreate a data frame object and explore its attributes."
   },
   {
     "objectID": "operators.html",
@@ -640,21 +640,98 @@
     "objectID": "operators.html#arithmetic-operators",
     "href": "operators.html#arithmetic-operators",
     "title": "7  Operators in R",
-    "section": "7.1 Arithmetic Operators",
-    "text": "7.1 Arithmetic Operators"
+    "section": "7.2 Arithmetic Operators",
+    "text": "7.2 Arithmetic Operators\nThese are the operators for performing computation with numerical data type\n\nArithmetic Operators in R\n\n\nOperator\nDescription\nSample Code\nOutput\n\n\n\n\n+\nAddition\n10 + 10\n20\n\n\n-\nSubtraction\n10 - 8\n2\n\n\n*\nMultiplication\n5 * 10\n50\n\n\n/\nDivision\n50 / 10\n5\n\n\n^\nExponent\n10 ^ 2\n100\n\n\n%/%\nInteger division\n20 %/% 3\n6\n\n\n%%\nModulus (remainder)\n10 %% 3\n1\n\n\n%*%\nMatrix multiplication\nsee below\nsee below\n\n\n\nLet us define the two matrices as follows\n\nmat_a = matrix(c(10, 20, 30, 40), nrow = 2)\nmat_b = matrix(c(1, 2, 3, 4), nrow = 2)\n\nmat_a\n\n     [,1] [,2]\n[1,]   10   30\n[2,]   20   40\n\nmat_b\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n# Element wise multiplication\nmat_a * mat_b\n\n     [,1] [,2]\n[1,]   10   90\n[2,]   40  160\n\n# True matrix multiplication\nmat_a %*% mat_b\n\n     [,1] [,2]\n[1,]   70  150\n[2,]  100  220"
   },
   {
     "objectID": "operators.html#relational-operators",
     "href": "operators.html#relational-operators",
     "title": "7  Operators in R",
-    "section": "7.2 Relational Operators",
-    "text": "7.2 Relational Operators"
+    "section": "7.3 Relational Operators",
+    "text": "7.3 Relational Operators\nRelational operators return boolean output.\n\nRelational Operators in R\n\n\nOperator\nDescription\nExample\nOutput\n\n\n\n\n>\nGreater than\n5 > 2\nTRUE\n\n\n<\nLess than\n5 < 2\nFALSE\n\n\n>=\nGreater than or equal to\n10 >= 10\nTRUE\n\n\n\n\nc(1, 10) >= c(-2, 20)\nTRUE, FALSE\n\n\n<=\nLess than or equal to\n100 <= 100\nTRUE\n\n\n\n\nc(1, 10) <= c(-2, 20)\nFALSE, TRUE\n\n\n==\nEqual to\n10 == 10\nTRUE\n\n\n\n\n'Male' == 'M'\nFALSE\n\n\n\n\n'Male' == ' Male'\nFALSE\n\n\n\n\n'Male' == 'male'\nFALSE\n\n\n!=\nNot equal to\n10 != 9\nTRUE\n\n\n\n\n'Male' != 'male'\nTRUE"
   },
   {
     "objectID": "operators.html#logical-operators",
     "href": "operators.html#logical-operators",
     "title": "7  Operators in R",
-    "section": "7.3 Logical Operators",
-    "text": "7.3 Logical Operators"
+    "section": "7.4 Logical Operators",
+    "text": "7.4 Logical Operators\nLogical operators also return boolean values TRUE or FALSE\n\nLogical Operators in R\n\n\nOperator\nDescription\nExample\nOutput\n\n\n\n\n!\nLogical NOT\n\n\n\n\n&\nElement-wise Logical AND\n\n\n\n\n|\nElement-wise Logical OR\n\n\n\n\n&&\nLogical AND\n\n\n\n\n||\nLogical OR\n\n\n\n\n\nFor the && and || operators, I will not discuss here. But if you are interested, read the documentation which reads.\n\nThe “short-circuit” operators && and || are often used as part of the condition in an if statement. Whereas & and | apply element-wise to vectors, && and || apply to vectors of length one, and only evaluate their second argument if necessary.\n\nThe full R official documentation can be accessed here."
+  },
+  {
+    "objectID": "operators.html#assignment-operators",
+    "href": "operators.html#assignment-operators",
+    "title": "7  Operators in R",
+    "section": "7.1 Assignment Operators",
+    "text": "7.1 Assignment Operators\nSo far we have been using = notation to assgin values to an object. For example age = c(10, 11, 12) indicates we are storing the age of three individuals to an object age with the assignment sign =. R has another way to assign object to its values.\n\nAssignment Operators in R\n\n\nOperator\nDescription\nExample\n\n\n\n\n=\nAssign the value to the object on the left\nx = 10\n\n\n<-\nAssign the value to the object on the left\nx <- 10\n\n\n->\nAssign the value to the object on the right\n10 -> x\n\n\n\nWe mostly use the = or the <- operators to assign values to ab object. It is recommended to use <- operator to avoid any confusion in cases such as the following.\n\nx = 5\nx = x == 3 # checking if the value of x is 3\nx\n\n[1] FALSE\n\n\nMuch readable with <- operator\n\nx = 5\nx <- x == 3 # checking if the value of x is 3\nx\n\n[1] FALSE"
+  },
+  {
+    "objectID": "operators.html#examples-of-logical-operators",
+    "href": "operators.html#examples-of-logical-operators",
+    "title": "7  Operators in R",
+    "section": "7.5 Examples of logical operators",
+    "text": "7.5 Examples of logical operators\nTo negate the condition, we prefix with the ! sign. != means not equal to. That is, we are negating the equality. Lets see some examples\n\nx = 3\nx == 3 # its TRUE\n\n[1] TRUE\n\n!(x == 3) # when negated, it should be false\n\n[1] FALSE\n\nx != 3 # equivalent to the previous one\n\n[1] FALSE"
+  },
+  {
+    "objectID": "operators.html#element-wise-logical-and-example",
+    "href": "operators.html#element-wise-logical-and-example",
+    "title": "7  Operators in R",
+    "section": "7.6 Element-wise Logical AND example",
+    "text": "7.6 Element-wise Logical AND example"
+  },
+  {
+    "objectID": "operators.html#logical-and",
+    "href": "operators.html#logical-and",
+    "title": "7  Operators in R",
+    "section": "7.7 Logical AND",
+    "text": "7.7 Logical AND\n\ndf = data.frame(\n    serial = 1:5,\n  age = c(10, 11, 20, 30, 32), \n  sex = c('M', 'F', 'F', 'M', 'M')\n)\n\ndf\n\n  serial age sex\n1      1  10   M\n2      2  11   F\n3      3  20   F\n4      4  30   M\n5      5  32   M\n\ndf$age == 10 & df$sex == 'M'\n\n[1]  TRUE FALSE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "tidyverse.html",
+    "href": "tidyverse.html",
+    "title": "8  Tidy Data Analysis",
+    "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "tidyverse.html#data-wrangling",
+    "href": "tidyverse.html#data-wrangling",
+    "title": "8  Data analysis with tidyverse",
+    "section": "8.1 Data Wrangling",
+    "text": "8.1 Data Wrangling"
+  },
+  {
+    "objectID": "tidyverse.html#data-transformation",
+    "href": "tidyverse.html#data-transformation",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.2 Data transformation",
+    "text": "8.2 Data transformation\ndplyr verbs\n\ndplyr verbs for data wrangling\n\n\n\n\n\n\nVerb\nWhat it does\n\n\n\n\nfilter()\nsubsetting rows/observations in a data frame\n\n\nselect()\nselects subset of columns by their names\n\n\nmutate()\ncreates new columns/variables off of existing columns/variables\n\n\narrange()\nreorders rows by column/variable\n\n\nsummarize()\ncreates summary statistics\n\n\ngroup_by()\nsplits data by by group for processing/summarizing/manipulating"
+  },
+  {
+    "objectID": "tidyverse.html#whats-in-tidyverse",
+    "href": "tidyverse.html#whats-in-tidyverse",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.1 What’s in tidyverse",
+    "text": "8.1 What’s in tidyverse\ntidyverse is a collection of R packages for data science.  You can install tidyverse with\n\ninstall.packages(\"tidyverse\")\n\nor use the Rstudio visual interface.\nOnce installed, you can load it like any other R packages\n\nlibrary(tidyverse)\n\nThe list of packages in this collection along with that they do is summarized below\n\nList of Packages in tidyverse\n\n\n\n\n\n\nPackage\nWhat it does\n\n\n\n\ndplyr\nthe flagship package which provides grammar of data manipulation with a consistet set of verbs\n\n\nggplot2\nfor creating beautiful graphics based on Grammar of Graphics\n\n\ntidyr\nfor tyding your data set\n\n\nreadr\nreading rectangular data\n\n\nforcats\nfor working with factor data types\n\n\nstringr\nmakes working with strings/characters easier\n\n\ntibble\na modern data-frame evolved from the base data.frame\n\n\npurr\nenhances functional programming in R"
+  },
+  {
+    "objectID": "tidyverse.html#data",
+    "href": "tidyverse.html#data",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.3 Data",
+    "text": "8.3 Data\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nmpg %>% glimpse()\n\nRows: 234\nColumns: 11\n$ manufacturer <chr> \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"…\n$ model        <chr> \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4 quattro\", \"…\n$ displ        <dbl> 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…\n$ year         <int> 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…\n$ cyl          <int> 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …\n$ trans        <chr> \"auto(l5)\", \"manual(m5)\", \"manual(m6)\", \"auto(av)\", \"auto…\n$ drv          <chr> \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"4\", \"4\", \"4\", \"4\", \"4…\n$ cty          <int> 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…\n$ hwy          <int> 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…\n$ fl           <chr> \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p…\n$ class        <chr> \"compact\", \"compact\", \"compact\", \"compact\", \"compact\", \"c…\n\n\nNow, if you haven’t loaded tidyverse library on the console, or interactively on the Rmd file, then ? mpg will show an error > ?mpg No documentation for ‘mpg’ in specified packages and libraries: you could try ‘??mpg’\nThe error message suggests you to try ?? mpg instead. Note, the double question mark. This will search the entire R ecosystem currently available in your system including the libraries that are installed but not loaded.\nWhen running ?? mpg on the console, we get this\n\n\n\nSearch mpg in all installed libraries\n\n\nNow we see from the image above that the mpg is in the ggplot2 library. Please note how do I know that it is in the ggplot2 library. Becasue it is written as ggplot2::mpg this indicates that the mpg object is in the ggplot2 library.\nYou can call the mpg object if you either loaded tidyverse pckage or the ggplot2 packahge using either library(tidyverse) or library(ggolot2) on the notebook or on the console.\nIf you do not want to load the library, yet want to use the mpg data set, you have to call it by ggplot2::mpg. Likewise, if you run ?ggplot2::mpg, the data profile will be shown.\n\n?ggplot2::mpg\n\nWhen you execute the above, you will see under the Help tab, the details about the mpg data set. This is the same data set as the mtcars but with some enhancements."
+  },
+  {
+    "objectID": "tidyverse.html#basic-usage-of-dplyr-verbs",
+    "href": "tidyverse.html#basic-usage-of-dplyr-verbs",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.4 Basic Usage of dplyr verbs",
+    "text": "8.4 Basic Usage of dplyr verbs\nFirst, lets start with the mpg data set available in ggplot2 package.\n\nmpg %>% glimpse()\n\nRows: 234\nColumns: 11\n$ manufacturer <chr> \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"…\n$ model        <chr> \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4 quattro\", \"…\n$ displ        <dbl> 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…\n$ year         <int> 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…\n$ cyl          <int> 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …\n$ trans        <chr> \"auto(l5)\", \"manual(m5)\", \"manual(m6)\", \"auto(av)\", \"auto…\n$ drv          <chr> \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"4\", \"4\", \"4\", \"4\", \"4…\n$ cty          <int> 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…\n$ hwy          <int> 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…\n$ fl           <chr> \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p…\n$ class        <chr> \"compact\", \"compact\", \"compact\", \"compact\", \"compact\", \"c…\n\n\nThere are 234 rows and 11 columns or variables in the data set. This also confirms with the output produced when running glimpse()."
+  },
+  {
+    "objectID": "tidyverse.html#filter-rows-with-filter",
+    "href": "tidyverse.html#filter-rows-with-filter",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.5 Filter rows with filter()",
+    "text": "8.5 Filter rows with filter()\n\n8.5.1 Filtering based on one condition\nLet us filter all the rows of the data where the vehicle is a front-wheel drive. The variable is drv for drivetrain. First, let us see a simple table showing the values in the data and their frequencies\n\ntable(mpg$drv)\n\n\n  4   f   r \n103 106  25 \n\n\nAlternatively, we can alternatively run\n\nmpg %>% \n  select(drv) %>% \n  table()\n\ndrv\n  4   f   r \n103 106  25 \n\n\nThere are three types of vehicles, four-wheel drive (represented by drv = 4), front-wheel drive (drv = f) and rear-wheel drive (drv = r).\nTo select only the front-wheel drive vehicles, we use filter() function with the condition that the drv == 'f'. Notice that the variable name drv doesn’t need to be wrapped with quotation, but the actual value of the variable must be put within quotation. Either single or double quotation would work.\n\nmpg %>% \n  filter(drv == 'f')\n\n# A tibble: 106 × 11\n   manufacturer model  displ  year   cyl trans     drv     cty   hwy fl    class\n   <chr>        <chr>  <dbl> <int> <int> <chr>     <chr> <int> <int> <chr> <chr>\n 1 audi         a4       1.8  1999     4 auto(l5)  f        18    29 p     comp…\n 2 audi         a4       1.8  1999     4 manual(m… f        21    29 p     comp…\n 3 audi         a4       2    2008     4 manual(m… f        20    31 p     comp…\n 4 audi         a4       2    2008     4 auto(av)  f        21    30 p     comp…\n 5 audi         a4       2.8  1999     6 auto(l5)  f        16    26 p     comp…\n 6 audi         a4       2.8  1999     6 manual(m… f        18    26 p     comp…\n 7 audi         a4       3.1  2008     6 auto(av)  f        18    27 p     comp…\n 8 chevrolet    malibu   2.4  1999     4 auto(l4)  f        19    27 r     mids…\n 9 chevrolet    malibu   2.4  2008     4 auto(l4)  f        22    30 r     mids…\n10 chevrolet    malibu   3.1  1999     6 auto(l4)  f        18    26 r     mids…\n# … with 96 more rows\n\n\n\n\n8.5.2 Filtering based on multiple conditions\nSuppose now that we want to filter vehicles that are front-wheel drive and has a 5 cylinders\n\ntable(mpg$cyl)\n\n\n 4  5  6  8 \n81  4 79 70 \n\n\n\nmpg %>% \n  filter(drv == 'f', cyl == 5)\n\n# A tibble: 4 × 11\n  manufacturer model      displ  year   cyl trans  drv     cty   hwy fl    class\n  <chr>        <chr>      <dbl> <int> <int> <chr>  <chr> <int> <int> <chr> <chr>\n1 volkswagen   jetta        2.5  2008     5 auto(… f        21    29 r     comp…\n2 volkswagen   jetta        2.5  2008     5 manua… f        21    29 r     comp…\n3 volkswagen   new beetle   2.5  2008     5 manua… f        20    28 r     subc…\n4 volkswagen   new beetle   2.5  2008     5 auto(… f        20    29 r     subc…\n\n\nHow about the vehicles that are either front-wheel drive or with 5 cylinders?\n\nmpg %>% \n  filter(drv == 'f' | cyl == 5)\n\n# A tibble: 106 × 11\n   manufacturer model  displ  year   cyl trans     drv     cty   hwy fl    class\n   <chr>        <chr>  <dbl> <int> <int> <chr>     <chr> <int> <int> <chr> <chr>\n 1 audi         a4       1.8  1999     4 auto(l5)  f        18    29 p     comp…\n 2 audi         a4       1.8  1999     4 manual(m… f        21    29 p     comp…\n 3 audi         a4       2    2008     4 manual(m… f        20    31 p     comp…\n 4 audi         a4       2    2008     4 auto(av)  f        21    30 p     comp…\n 5 audi         a4       2.8  1999     6 auto(l5)  f        16    26 p     comp…\n 6 audi         a4       2.8  1999     6 manual(m… f        18    26 p     comp…\n 7 audi         a4       3.1  2008     6 auto(av)  f        18    27 p     comp…\n 8 chevrolet    malibu   2.4  1999     4 auto(l4)  f        19    27 r     mids…\n 9 chevrolet    malibu   2.4  2008     4 auto(l4)  f        22    30 r     mids…\n10 chevrolet    malibu   3.1  1999     6 auto(l4)  f        18    26 r     mids…\n# … with 96 more rows\n\n\nHow about either front wheel drive and city fuel efficiency of 20 or 24 miles per gallon?\nFirst try to filter vehicles whose city mileage is 20 or 24 mpg\n\nmpg %>% \n  filter(cty == c(24, 20)) %>% \n  select(cty) %>% \n  table()\n\ncty\n20 24 \n 6  3 \n\n\n\nmpg %>% \n  filter(drv == 'f' | year == c(1999, 2000) )\n\n# A tibble: 134 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n 9 audi         a4 quattro   2.8  1999     6 manu… 4        17    25 p     comp…\n10 chevrolet    corvette     5.7  1999     8 auto… r        15    23 p     2sea…\n# … with 124 more rows"
   }
 ]
