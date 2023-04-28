@@ -20,7 +20,7 @@ Here show some advanced uses of statistics from different domains.
 
 - Shape of data
 - Examples of various continuous distributions
-- Visualization of continious data 
+- Visualization of continuous data 
 - Visualizing discrete and categorical data
   
 ## Describing data distribution graphically
