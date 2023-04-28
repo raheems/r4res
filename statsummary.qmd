@@ -1,0 +1,35 @@
+# Statistical Summary
+
+Here we create statistical summary from the data.
+
+- Grammar of tables
+
+There are some packages that are great at creating summary tables. 
+
+- gtsummary
+
+
+![](https://www.danieldsjoberg.com/gtsummary/reference/figures/logo.png)
+
+
+- arsenal
+
+![](https://mayoverse.github.io/arsenal/reference/figures/logo.png){width=35%}
+
+
+```{r}
+library(tidyverse)
+library(gtsummary)
+
+mpg %>% glimpse()
+mpg %>% 
+  select(cyl, cty) %>% 
+  tbl_summary()
+```
+
+
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

@@ -1,0 +1,128 @@
+# Planned Outline
+
+Here show some advanced uses of statistics from different domains.
+
+- COMFORT I study from NEJM
+- COMFORT II study from NEJM
+
+
+## Advanced statistical usecases
+
+- TableOne summary statistics 
+  - Univariate/One-variable case
+  - Bivariate / Two-variable case
+- Use of logistic regression 
+  - Odds ratio
+- Use of multivariable linear regression
+  - Interpretation of coefficients
+
+## Understanding data distribution 
+
+- Shape of data
+- Examples of various continuous distributions
+- Visualization of continious data 
+- Visualizing discrete and categorical data
+  
+## Describing data distribution graphically
+
+- Visualizing categorical data
+  - Bar plot
+- Visualizing numerical data
+  - Dot plot / point plot
+  - Histogram
+  - Density plot
+  - Scatterplot for bivariate numerical data
+
+## Describing data distribution numerically
+
+- Measures of center
+  - Also known as measures of location
+  - also known as measures of central tendency
+- Understanding variation in data
+  - Concept of dispersion (the idea of deviation from the center)
+  - Measures of dispersion
+    - Range
+    - Variance
+    - Standard deviation
+-   Creating data summary with `boxplot`
+- Measures of relative standing
+  - Z-score
+
+
+## Understanding relationship between two or more variables
+  - Correlation between two numerical variables
+  - Linear regression to assess relationship of one outcome variable (aka. dependent variable) with one or more predictor (aka independent) variables
+  
+## Foundations of Probability*
+
+- Interpretation of probability
+- Calculation of probability
+- Probability of complex events (union, intersection, complements)
+- Conditional probability
+
+## Random variable and its probability distribution
+
+- What is a random variable?
+- Probability distribution of discrete random variable
+  - Examples such as
+    - Binomial distribution
+    - Geometric distribution
+    - Poisson distribution 
+- Probability distribution of continuous random variable
+  - Examples such as 
+    - Normal distribution
+    - Gamma distribution
+    - t-distribution
+    - Chi-square distribution
+
+## Making decision from data (Statistical Inference)
+- Concepts 
+  - Sample and Population
+  - Statistic (a quantity calculated from sample)
+  - Parameter (a quantity calculated from the entire population)
+- How do statisticians make decision by studying on a fraction of the data? 
+- A five-step process for making decision (statistical inference)
+
+## Sampling Distribution 
+
+- Distribution of a statistic (aka. sampling distribution)
+- Distribution of sample mean (simulation study)
+- Distribution of sample proportion (simulation study)
+- Central Limit Theorem (CLT)
+- How sampling distribution supports learning from data
+
+## Estimation of a Population Proportion
+- Estimation of population proportion
+- Margin of Error
+- Confidence Interval for a population proportion
+- Sample size calculation*
+
+
+## Hypothesis testing for population proportion
+- Hypothesis testing
+  - Hypothesis and making a conclusion after the procedure
+  - Errors in hypothesis testing
+  - Steps to carrying out a hypothesis test
+- Hypothesis testing (answering question about population proportion)
+  - test for a single population proportion
+  - testing the difference between two population proportions
+
+## Hypothesis test for population mean
+- Test for a single population mean
+- Test for the difference between two population means
+
+## Making decision from categorical data
+- Chi-square test for univariate categorical data
+- Test for independence and test for homogeneity in a contingency table
+
+## Comparing Risk in two Populations
+- Risk difference
+- Relative Risk
+- Odds ratio
+
+
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

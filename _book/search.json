@@ -73,8 +73,8 @@
     "objectID": "tidyverse.html#filter-rows-with-filter",
     "href": "tidyverse.html#filter-rows-with-filter",
     "title": "8  Tidy Data Analysis",
-    "section": "8.5 Filter rows with filter()",
-    "text": "8.5 Filter rows with filter()\n\n8.5.1 Filtering based on one condition\nLet us filter all the rows of the data where the vehicle is a front-wheel drive. The variable is drv for drivetrain. First, let us see a simple table showing the values in the data and their frequencies\n\ntable(mpg$drv)\n\n\n  4   f   r \n103 106  25 \n\n\nAlternatively, we can alternatively run\n\nmpg %>% \n  select(drv) %>% \n  table()\n\ndrv\n  4   f   r \n103 106  25 \n\n\nThere are three types of vehicles, four-wheel drive (represented by drv = 4), front-wheel drive (drv = f) and rear-wheel drive (drv = r).\nTo select only the front-wheel drive vehicles, we use filter() function with the condition that the drv == 'f'. Notice that the variable name drv doesn’t need to be wrapped with quotation, but the actual value of the variable must be put within quotation. Either single or double quotation would work.\n\nmpg %>% \n  filter(drv == 'f')\n\n# A tibble: 106 × 11\n   manufacturer model  displ  year   cyl trans     drv     cty   hwy fl    class\n   <chr>        <chr>  <dbl> <int> <int> <chr>     <chr> <int> <int> <chr> <chr>\n 1 audi         a4       1.8  1999     4 auto(l5)  f        18    29 p     comp…\n 2 audi         a4       1.8  1999     4 manual(m… f        21    29 p     comp…\n 3 audi         a4       2    2008     4 manual(m… f        20    31 p     comp…\n 4 audi         a4       2    2008     4 auto(av)  f        21    30 p     comp…\n 5 audi         a4       2.8  1999     6 auto(l5)  f        16    26 p     comp…\n 6 audi         a4       2.8  1999     6 manual(m… f        18    26 p     comp…\n 7 audi         a4       3.1  2008     6 auto(av)  f        18    27 p     comp…\n 8 chevrolet    malibu   2.4  1999     4 auto(l4)  f        19    27 r     mids…\n 9 chevrolet    malibu   2.4  2008     4 auto(l4)  f        22    30 r     mids…\n10 chevrolet    malibu   3.1  1999     6 auto(l4)  f        18    26 r     mids…\n# … with 96 more rows\n\n\n\n\n8.5.2 Filtering based on multiple conditions\nSuppose now that we want to filter vehicles that are front-wheel drive and has a 5 cylinders\n\ntable(mpg$cyl)\n\n\n 4  5  6  8 \n81  4 79 70 \n\n\n\nmpg %>% \n  filter(drv == 'f', cyl == 5)\n\n# A tibble: 4 × 11\n  manufacturer model      displ  year   cyl trans  drv     cty   hwy fl    class\n  <chr>        <chr>      <dbl> <int> <int> <chr>  <chr> <int> <int> <chr> <chr>\n1 volkswagen   jetta        2.5  2008     5 auto(… f        21    29 r     comp…\n2 volkswagen   jetta        2.5  2008     5 manua… f        21    29 r     comp…\n3 volkswagen   new beetle   2.5  2008     5 manua… f        20    28 r     subc…\n4 volkswagen   new beetle   2.5  2008     5 auto(… f        20    29 r     subc…\n\n\nHow about the vehicles that are either front-wheel drive or with 5 cylinders?\n\nmpg %>% \n  filter(drv == 'f' | cyl == 5)\n\n# A tibble: 106 × 11\n   manufacturer model  displ  year   cyl trans     drv     cty   hwy fl    class\n   <chr>        <chr>  <dbl> <int> <int> <chr>     <chr> <int> <int> <chr> <chr>\n 1 audi         a4       1.8  1999     4 auto(l5)  f        18    29 p     comp…\n 2 audi         a4       1.8  1999     4 manual(m… f        21    29 p     comp…\n 3 audi         a4       2    2008     4 manual(m… f        20    31 p     comp…\n 4 audi         a4       2    2008     4 auto(av)  f        21    30 p     comp…\n 5 audi         a4       2.8  1999     6 auto(l5)  f        16    26 p     comp…\n 6 audi         a4       2.8  1999     6 manual(m… f        18    26 p     comp…\n 7 audi         a4       3.1  2008     6 auto(av)  f        18    27 p     comp…\n 8 chevrolet    malibu   2.4  1999     4 auto(l4)  f        19    27 r     mids…\n 9 chevrolet    malibu   2.4  2008     4 auto(l4)  f        22    30 r     mids…\n10 chevrolet    malibu   3.1  1999     6 auto(l4)  f        18    26 r     mids…\n# … with 96 more rows\n\n\nHow about either front wheel drive and city fuel efficiency of 20 or 24 miles per gallon?\nFirst try to filter vehicles whose city mileage is 20 or 24 mpg\n\nmpg %>% \n  filter(cty == c(24, 20)) %>% \n  select(cty) %>% \n  table()\n\ncty\n20 24 \n 6  3"
+    "section": "8.6 Filter rows with filter()",
+    "text": "8.6 Filter rows with filter()\n\n8.6.1 Filtering based on one condition\nLet us filter all the rows of the data where the vehicle is a front-wheel drive. The variable is drv for drivetrain. First, let us see a simple table showing the values in the data and their frequencies\n\ntable(mpg$drv)\n\n\n  4   f   r \n103 106  25 \n\n\nAlternatively, we can alternatively run\n\nmpg %>% \n  select(drv) %>% \n  table()\n\ndrv\n  4   f   r \n103 106  25 \n\n\nThere are three types of vehicles, four-wheel drive (represented by drv = 4), front-wheel drive (drv = f) and rear-wheel drive (drv = r).\nTo select only the front-wheel drive vehicles, we use filter() function with the condition that the drv == 'f'. Notice that the variable name drv doesn’t need to be wrapped with quotation, but the actual value of the variable must be put within quotation. Either single or double quotation would work.\n\nmpg %>% \n  filter(drv == 'f')\n\n# A tibble: 106 × 11\n   manufacturer model  displ  year   cyl trans     drv     cty   hwy fl    class\n   <chr>        <chr>  <dbl> <int> <int> <chr>     <chr> <int> <int> <chr> <chr>\n 1 audi         a4       1.8  1999     4 auto(l5)  f        18    29 p     comp…\n 2 audi         a4       1.8  1999     4 manual(m… f        21    29 p     comp…\n 3 audi         a4       2    2008     4 manual(m… f        20    31 p     comp…\n 4 audi         a4       2    2008     4 auto(av)  f        21    30 p     comp…\n 5 audi         a4       2.8  1999     6 auto(l5)  f        16    26 p     comp…\n 6 audi         a4       2.8  1999     6 manual(m… f        18    26 p     comp…\n 7 audi         a4       3.1  2008     6 auto(av)  f        18    27 p     comp…\n 8 chevrolet    malibu   2.4  1999     4 auto(l4)  f        19    27 r     mids…\n 9 chevrolet    malibu   2.4  2008     4 auto(l4)  f        22    30 r     mids…\n10 chevrolet    malibu   3.1  1999     6 auto(l4)  f        18    26 r     mids…\n# … with 96 more rows\n\n\n\n\n8.6.2 Filtering based on multiple conditions\nSuppose now that we want to filter vehicles that are front-wheel drive and has a 5 cylinders\n\ntable(mpg$cyl)\n\n\n 4  5  6  8 \n81  4 79 70 \n\n\n\nmpg %>% \n  filter(drv == 'f', cyl == 5)\n\n# A tibble: 4 × 11\n  manufacturer model      displ  year   cyl trans  drv     cty   hwy fl    class\n  <chr>        <chr>      <dbl> <int> <int> <chr>  <chr> <int> <int> <chr> <chr>\n1 volkswagen   jetta        2.5  2008     5 auto(… f        21    29 r     comp…\n2 volkswagen   jetta        2.5  2008     5 manua… f        21    29 r     comp…\n3 volkswagen   new beetle   2.5  2008     5 manua… f        20    28 r     subc…\n4 volkswagen   new beetle   2.5  2008     5 auto(… f        20    29 r     subc…\n\n\nHow about the vehicles that are either front-wheel drive or with 5 cylinders?\n\nmpg %>% \n  filter(drv == 'f' | cyl == 5)\n\n# A tibble: 106 × 11\n   manufacturer model  displ  year   cyl trans     drv     cty   hwy fl    class\n   <chr>        <chr>  <dbl> <int> <int> <chr>     <chr> <int> <int> <chr> <chr>\n 1 audi         a4       1.8  1999     4 auto(l5)  f        18    29 p     comp…\n 2 audi         a4       1.8  1999     4 manual(m… f        21    29 p     comp…\n 3 audi         a4       2    2008     4 manual(m… f        20    31 p     comp…\n 4 audi         a4       2    2008     4 auto(av)  f        21    30 p     comp…\n 5 audi         a4       2.8  1999     6 auto(l5)  f        16    26 p     comp…\n 6 audi         a4       2.8  1999     6 manual(m… f        18    26 p     comp…\n 7 audi         a4       3.1  2008     6 auto(av)  f        18    27 p     comp…\n 8 chevrolet    malibu   2.4  1999     4 auto(l4)  f        19    27 r     mids…\n 9 chevrolet    malibu   2.4  2008     4 auto(l4)  f        22    30 r     mids…\n10 chevrolet    malibu   3.1  1999     6 auto(l4)  f        18    26 r     mids…\n# … with 96 more rows\n\n\nHow about either front wheel drive and city fuel efficiency of 20 or 24 miles per gallon?\nFirst try to filter vehicles whose city mileage is 20 or 24 mpg. Then we will combine this wit the condition that the vehicle is a front-wheel drive.\n\nmpg %>% \n  filter(cty == c(24, 20)) %>% \n  select(cty) %>% \n  table()\n\ncty\n20 24 \n 6  3 \n\n\nTo combine these two conditions, note that they are in an OR relationship, not an AND relationship. Either is the keyword here. In mathematics and statistics, it means either or. Which also means if one condition is satisifed, the other, or both are satisfied.\nLets implement it.\n\nmpg %>% \n  filter(drv == 'f' | cty == c(24, 20))  # OR operator '|' is used\n\n# A tibble: 110 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n 9 chevrolet    malibu       2.4  1999     4 auto… f        19    27 r     mids…\n10 chevrolet    malibu       2.4  2008     4 auto… f        22    30 r     mids…\n# … with 100 more rows\n\n\nTo verify that we’ve got the rows we wanted, run a frequency table\n\nmpg %>% \n  filter(drv == 'f' | cty == c(24, 20)) %>% \n  select(drv) %>% \n  table() # got some 4-wheel and mostly front-wheel drive vehicles\n\ndrv\n  4   f \n  4 106 \n\nmpg %>% \n  filter(drv == 'f' | cty == c(24, 20)) %>% \n  select(cty) %>% \n  table() # got 20 mpg, 24 mpg as well as other!! \n\ncty\n11 15 16 17 18 19 20 21 22 23 24 25 26 28 29 33 35 \n 1  2 10 10 20 14  9 22  4  3  5  2  3  2  1  1  1 \n\n\nNotice that, we got vehicles that are front-wheel drive and some that are all-wheel drive. Likewise, we got vehicles whose city mpg is not only 20 mpg or 24 mpg but also other. Why is that? Can you explain?"
   },
   {
     "objectID": "introduction.html",
@@ -366,16 +366,16 @@
   {
     "objectID": "research-process.html#research-process",
     "href": "research-process.html#research-process",
-    "title": "9  Organizing your project",
-    "section": "9.1 Research process",
-    "text": "9.1 Research process\nIn a nutshell, most quantitative social and medical research has the following steps–\n\nIdea/research question\nLiterature review\nStudy design\nData collection and data management\nStatistical analysis\nReport/manuscript writing\nPublication\n\n\nset.seed(19)\nx = rnorm(100)\nhist(x)"
+    "title": "11  Organizing your project",
+    "section": "11.1 Research process",
+    "text": "11.1 Research process\nIn a nutshell, most quantitative social and medical research has the following steps–\n\nIdea/research question\nLiterature review\nStudy design\nData collection and data management\nStatistical analysis\nReport/manuscript writing\nPublication\n\n\nset.seed(19)\nx = rnorm(100)\nhist(x)"
   },
   {
     "objectID": "research-process.html#analytic-process",
     "href": "research-process.html#analytic-process",
-    "title": "9  Organizing your project",
-    "section": "9.2 Analytic process",
-    "text": "9.2 Analytic process"
+    "title": "11  Organizing your project",
+    "section": "11.2 Analytic process",
+    "text": "11.2 Analytic process"
   },
   {
     "objectID": "analytic-process.html",
@@ -397,5 +397,285 @@
     "title": "11  Applications",
     "section": "11.2 Social science example",
     "text": "11.2 Social science example"
+  },
+  {
+    "objectID": "tidyverse.html#which-function",
+    "href": "tidyverse.html#which-function",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.6 Which function",
+    "text": "8.6 Which function\n\nmpg %>% \n  slice(\n    which(cyl == 6)  \n  )\n\n# A tibble: 79 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n 1 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 2 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 3 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 4 audi         a4 quattro   2.8  1999     6 auto… 4        15    25 p     comp…\n 5 audi         a4 quattro   2.8  1999     6 manu… 4        17    25 p     comp…\n 6 audi         a4 quattro   3.1  2008     6 auto… 4        17    25 p     comp…\n 7 audi         a4 quattro   3.1  2008     6 manu… 4        15    25 p     comp…\n 8 audi         a6 quattro   2.8  1999     6 auto… 4        15    24 p     mids…\n 9 audi         a6 quattro   3.1  2008     6 auto… 4        17    25 p     mids…\n10 chevrolet    malibu       3.1  1999     6 auto… f        18    26 r     mids…\n# … with 69 more rows\n\n\n\nwhich(mpg$cyl == 5)\n\n[1] 218 219 226 227\n\nmpg %>% slice_head() # selects the first row\n\n# A tibble: 1 × 11\n  manufacturer model displ  year   cyl trans    drv     cty   hwy fl    class  \n  <chr>        <chr> <dbl> <int> <int> <chr>    <chr> <int> <int> <chr> <chr>  \n1 audi         a4      1.8  1999     4 auto(l5) f        18    29 p     compact\n\nmpg %>% slice_tail() # selects the last row\n\n# A tibble: 1 × 11\n  manufacturer model  displ  year   cyl trans    drv     cty   hwy fl    class  \n  <chr>        <chr>  <dbl> <int> <int> <chr>    <chr> <int> <int> <chr> <chr>  \n1 volkswagen   passat   3.6  2008     6 auto(s6) f        17    26 p     midsize\n\nmpg %>% slice_min(order_by = cty)\n\n# A tibble: 5 × 11\n  manufacturer model       displ  year   cyl trans drv     cty   hwy fl    class\n  <chr>        <chr>       <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n1 dodge        dakota pic…   4.7  2008     8 auto… 4         9    12 e     pick…\n2 dodge        durango 4wd   4.7  2008     8 auto… 4         9    12 e     suv  \n3 dodge        ram 1500 p…   4.7  2008     8 auto… 4         9    12 e     pick…\n4 dodge        ram 1500 p…   4.7  2008     8 manu… 4         9    12 e     pick…\n5 jeep         grand cher…   4.7  2008     8 auto… 4         9    12 e     suv  \n\nmpg %>% slice_max(order_by = cty)\n\n# A tibble: 1 × 11\n  manufacturer model      displ  year   cyl trans  drv     cty   hwy fl    class\n  <chr>        <chr>      <dbl> <int> <int> <chr>  <chr> <int> <int> <chr> <chr>\n1 volkswagen   new beetle   1.9  1999     4 manua… f        35    44 d     subc…\n\nmpg %>% slice_sample(n = 10)\n\n# A tibble: 10 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n 1 dodge        caravan 2…   3.3  2008     6 auto… f        11    17 e     mini…\n 2 chevrolet    corvette     5.7  1999     8 manu… r        16    26 p     2sea…\n 3 honda        civic        1.6  1999     4 manu… f        23    29 p     subc…\n 4 nissan       altima       2.4  1999     4 auto… f        19    27 r     comp…\n 5 ford         mustang      3.8  1999     6 manu… r        18    26 r     subc…\n 6 mercury      mountaine…   4    2008     6 auto… 4        13    19 r     suv  \n 7 hyundai      tiburon      2    1999     4 manu… f        19    29 r     subc…\n 8 mercury      mountaine…   5    1999     8 auto… 4        13    17 r     suv  \n 9 dodge        ram 1500 …   5.2  1999     8 manu… 4        11    16 r     pick…\n10 ford         f150 pick…   4.6  1999     8 auto… 4        13    16 r     pick…"
+  },
+  {
+    "objectID": "tidyverse.html#other-useful-functions",
+    "href": "tidyverse.html#other-useful-functions",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.7 Other useful functions",
+    "text": "8.7 Other useful functions\n\n8.7.1 Which function\n\nmpg %>% \n  slice(\n    which(cyl == 6)  \n  )\n\n# A tibble: 79 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n 1 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 2 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 3 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 4 audi         a4 quattro   2.8  1999     6 auto… 4        15    25 p     comp…\n 5 audi         a4 quattro   2.8  1999     6 manu… 4        17    25 p     comp…\n 6 audi         a4 quattro   3.1  2008     6 auto… 4        17    25 p     comp…\n 7 audi         a4 quattro   3.1  2008     6 manu… 4        15    25 p     comp…\n 8 audi         a6 quattro   2.8  1999     6 auto… 4        15    24 p     mids…\n 9 audi         a6 quattro   3.1  2008     6 auto… 4        17    25 p     mids…\n10 chevrolet    malibu       3.1  1999     6 auto… f        18    26 r     mids…\n# … with 69 more rows\n\n\n\nwhich(mpg$cyl == 5)\n\n[1] 218 219 226 227\n\nmpg %>% slice_head() # selects the first row\n\n# A tibble: 1 × 11\n  manufacturer model displ  year   cyl trans    drv     cty   hwy fl    class  \n  <chr>        <chr> <dbl> <int> <int> <chr>    <chr> <int> <int> <chr> <chr>  \n1 audi         a4      1.8  1999     4 auto(l5) f        18    29 p     compact\n\nmpg %>% slice_tail() # selects the last row\n\n# A tibble: 1 × 11\n  manufacturer model  displ  year   cyl trans    drv     cty   hwy fl    class  \n  <chr>        <chr>  <dbl> <int> <int> <chr>    <chr> <int> <int> <chr> <chr>  \n1 volkswagen   passat   3.6  2008     6 auto(s6) f        17    26 p     midsize\n\nmpg %>% slice_min(order_by = cty)\n\n# A tibble: 5 × 11\n  manufacturer model       displ  year   cyl trans drv     cty   hwy fl    class\n  <chr>        <chr>       <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n1 dodge        dakota pic…   4.7  2008     8 auto… 4         9    12 e     pick…\n2 dodge        durango 4wd   4.7  2008     8 auto… 4         9    12 e     suv  \n3 dodge        ram 1500 p…   4.7  2008     8 auto… 4         9    12 e     pick…\n4 dodge        ram 1500 p…   4.7  2008     8 manu… 4         9    12 e     pick…\n5 jeep         grand cher…   4.7  2008     8 auto… 4         9    12 e     suv  \n\nmpg %>% slice_max(order_by = cty)\n\n# A tibble: 1 × 11\n  manufacturer model      displ  year   cyl trans  drv     cty   hwy fl    class\n  <chr>        <chr>      <dbl> <int> <int> <chr>  <chr> <int> <int> <chr> <chr>\n1 volkswagen   new beetle   1.9  1999     4 manua… f        35    44 d     subc…\n\nmpg %>% slice_sample(n = 10)\n\n# A tibble: 10 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n 1 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 2 toyota       land crui…   5.7  2008     8 auto… 4        13    18 r     suv  \n 3 toyota       toyota ta…   4    2008     6 manu… 4        15    18 r     pick…\n 4 volkswagen   gti          2    2008     4 manu… f        21    29 p     comp…\n 5 dodge        dakota pi…   4.7  2008     8 auto… 4         9    12 e     pick…\n 6 chevrolet    malibu       3.6  2008     6 auto… f        17    26 r     mids…\n 7 lincoln      navigator…   5.4  2008     8 auto… r        12    18 r     suv  \n 8 land rover   range rov…   4.2  2008     8 auto… 4        12    18 r     suv  \n 9 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n10 chevrolet    corvette     5.7  1999     8 manu… r        16    26 p     2sea…"
+  },
+  {
+    "objectID": "tidyverse.html#selecting-columns-using-select",
+    "href": "tidyverse.html#selecting-columns-using-select",
+    "title": "8  Tidy Data Analysis",
+    "section": "8.5 Selecting columns using select()",
+    "text": "8.5 Selecting columns using select()\nAs the name suggests, we select or subset columns using select(). To select model, year and drive train from the mpg data set, use select(model, year, drv). No need to wrap the column names in quotations.\n\nmpg %>% \n  select(model, year, drv) %>% \n  glimpse()\n\nRows: 234\nColumns: 3\n$ model <chr> \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4 quattro\", \"a4 quat…\n$ year  <int> 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 2008, 2008…\n$ drv   <chr> \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"4\", \"4\", \"4\", \"4\", \"4\", \"4\",…\n\n\nLet me show you how you would do this using base R tools."
+  },
+  {
+    "objectID": "readwrite.html",
+    "href": "readwrite.html",
+    "title": "9  Read-Write Files",
+    "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "readwrite.html#reading-csv-files",
+    "href": "readwrite.html#reading-csv-files",
+    "title": "9  Read-Wrie Files",
+    "section": "9.1 Reading CSV files",
+    "text": "9.1 Reading CSV files"
+  },
+  {
+    "objectID": "readwrite.html#reading-a-csv-file",
+    "href": "readwrite.html#reading-a-csv-file",
+    "title": "9  Read-Wrie Files",
+    "section": "9.1 Reading a csv file",
+    "text": "9.1 Reading a csv file\nUse the read_csv() function in the readr package (which is included in tidyverse). It will automatically detect column data type and read them as such.\nThe following data was retried from Federal Reserve Bank of New York on the Labor market for recent college graduates. The data is freely available to download.\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n# https://www.newyorkfed.org/research/college-labor-market/index#/outcomes-by-major\nlabormarket = read_csv(\"data/labor-market-recent-college-grads.csv\")\n\nRows: 74 Columns: 6\n\n\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): Major\ndbl (3): Unemployment Rate, Underemployment Rate, Share with Graduate Degree\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nlabormarket %>% glimpse()\n\nRows: 74\nColumns: 6\n$ Major                        <chr> \"Agriculture\", \"Animal and Plant Sciences…\n$ `Unemployment Rate`          <dbl> 2.4, 4.4, 5.1, 2.1, 4.4, 5.8, 6.5, 8.4, 4…\n$ `Underemployment Rate`       <dbl> 52.1, 52.5, 50.2, 29.1, 53.7, 52.7, 47.7,…\n$ `Median Wage Early Career`   <dbl> 45000, 42000, 45000, 50000, 45000, 47000,…\n$ `Median Wage Mid-Career`     <dbl> 70000, 67000, 68000, 85000, 66000, 75000,…\n$ `Share with Graduate Degree` <dbl> 21.0, 34.7, 32.5, 38.7, 49.7, 24.2, 27.0,…"
+  },
+  {
+    "objectID": "readwrite.html#reading-excel-file",
+    "href": "readwrite.html#reading-excel-file",
+    "title": "9  Read-Write Files",
+    "section": "9.3 Reading Excel file",
+    "text": "9.3 Reading Excel file\n\n# Need readxl library \n# install.packages('readxl')\n\nlibrary(readxl)\n\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\")\n\nNew names:\n• `` -> `...2`\n• `` -> `...3`\n\n\nWhat happened?\nI read the first sheet on the Excel file. Please open the excel file and see for yourself.\n\n\n\nFirst worksheet of the labor market data\n\n\nWith the read_xlsx() function, we can specify the exact worksheet we want to read from. For now, we want to read from the t1_majors sheet. Let modify the query and run it now.\n\nlibrary(readxl)\n\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\", sheet = 't1_majors')\n\nNew names:\n• `` -> `...2`\n• `` -> `...3`\n• `` -> `...4`\n• `` -> `...5`\n• `` -> `...6`\n\nlabor %>% glimpse()\n\nRows: 85\nColumns: 6\n$ `FEDERAL RESERVE BANK of NEW YORK` <chr> NA, NA, NA, NA, \"Chart and Table Da…\n$ ...2                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Un…\n$ ...3                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Un…\n$ ...4                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Me…\n$ ...5                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Me…\n$ ...6                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Sh…\n\n\nBut this is not exactly what we wanted! More work needed here.\n\n# Default name_reair parameter\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\", sheet = 't1_majors', range = 'a14:f88')\nlabor %>% glimpse()\n\nRows: 74\nColumns: 6\n$ Major                        <chr> \"Agriculture\", \"Animal and Plant Sciences…\n$ `Unemployment Rate`          <dbl> 2.352, 4.430, 5.136, 2.068, 4.390, 5.796,…\n$ `Underemployment Rate`       <dbl> 52.093, 52.457, 50.227, 29.123, 53.671, 5…\n$ `Median Wage Early Career`   <dbl> 45000, 42000, 45000, 50000, 45000, 47000,…\n$ `Median Wage Mid-Career`     <dbl> 70000, 67000, 68000, 85000, 66000, 75000,…\n$ `Share with Graduate Degree` <dbl> 20.958, 34.717, 32.461, 38.740, 49.747, 2…\n\n\nNotice how the names of the columns are created. This is not very useful when we are coding! We want the names to be read without sapces in them. Fortunately, there is a way to do this by setting the .name_repair = 'universal'\n\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\", sheet = 't1_majors', range = 'a14:f88',\n                  .name_repair = \"universal\")\n\nNew names:\n• `Unemployment Rate` -> `Unemployment.Rate`\n• `Underemployment Rate` -> `Underemployment.Rate`\n• `Median Wage Early Career` -> `Median.Wage.Early.Career`\n• `Median Wage Mid-Career` -> `Median.Wage.Mid.Career`\n• `Share with Graduate Degree` -> `Share.with.Graduate.Degree`\n\nlabor %>% glimpse()\n\nRows: 74\nColumns: 6\n$ Major                      <chr> \"Agriculture\", \"Animal and Plant Sciences\",…\n$ Unemployment.Rate          <dbl> 2.352, 4.430, 5.136, 2.068, 4.390, 5.796, 6…\n$ Underemployment.Rate       <dbl> 52.093, 52.457, 50.227, 29.123, 53.671, 52.…\n$ Median.Wage.Early.Career   <dbl> 45000, 42000, 45000, 50000, 45000, 47000, 4…\n$ Median.Wage.Mid.Career     <dbl> 70000, 67000, 68000, 85000, 66000, 75000, 7…\n$ Share.with.Graduate.Degree <dbl> 20.958, 34.717, 32.461, 38.740, 49.747, 24.…\n\n\nRenaming the columns\n\nlabor %>% \n  rename(\n    unem_rate = Unemployment.Rate,\n    underem_rate = Underemployment.Rate\n  ) %>% \n  glimpse()\n\nRows: 74\nColumns: 6\n$ Major                      <chr> \"Agriculture\", \"Animal and Plant Sciences\",…\n$ unem_rate                  <dbl> 2.352, 4.430, 5.136, 2.068, 4.390, 5.796, 6…\n$ underem_rate               <dbl> 52.093, 52.457, 50.227, 29.123, 53.671, 52.…\n$ Median.Wage.Early.Career   <dbl> 45000, 42000, 45000, 50000, 45000, 47000, 4…\n$ Median.Wage.Mid.Career     <dbl> 70000, 67000, 68000, 85000, 66000, 75000, 7…\n$ Share.with.Graduate.Degree <dbl> 20.958, 34.717, 32.461, 38.740, 49.747, 24.…"
+  },
+  {
+    "objectID": "readwrite.html#reading-csv-file",
+    "href": "readwrite.html#reading-csv-file",
+    "title": "9  Read-Write Files",
+    "section": "9.1 Reading CSV file",
+    "text": "9.1 Reading CSV file\nCSV stands for comma separated values. This is NOT Excel file although most of us probably think it is!\nUse the read_csv() function in the readr package (which is included in tidyverse). It will automatically detect column data type and read them as such.\nThe following data was retried from Federal Reserve Bank of New York on the Labor market for recent college graduates. The data is freely available to download, and was accessed on 10 March 2023.\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n# https://www.newyorkfed.org/research/college-labor-market/index#/outcomes-by-major\nlabormarket = read_csv(\"data/labor-market-recent-college-grads.csv\")\n\nRows: 74 Columns: 6\n\n\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): Major\ndbl (3): Unemployment Rate, Underemployment Rate, Share with Graduate Degree\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nlabormarket %>% glimpse()\n\nRows: 74\nColumns: 6\n$ Major                        <chr> \"Agriculture\", \"Animal and Plant Sciences…\n$ `Unemployment Rate`          <dbl> 2.4, 4.4, 5.1, 2.1, 4.4, 5.8, 6.5, 8.4, 4…\n$ `Underemployment Rate`       <dbl> 52.1, 52.5, 50.2, 29.1, 53.7, 52.7, 47.7,…\n$ `Median Wage Early Career`   <dbl> 45000, 42000, 45000, 50000, 45000, 47000,…\n$ `Median Wage Mid-Career`     <dbl> 70000, 67000, 68000, 85000, 66000, 75000,…\n$ `Share with Graduate Degree` <dbl> 21.0, 34.7, 32.5, 38.7, 49.7, 24.2, 27.0,…"
+  },
+  {
+    "objectID": "statsummary.html",
+    "href": "statsummary.html",
+    "title": "10  Statistical Summary",
+    "section": "",
+    "text": "Here we create statistical summary from the data.\n\nGrammar of tables\n\nThere are some packages that are great at creating summary tables.\n\ngtsummary\n\n\n\narsenal\n\n\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nlibrary(gtsummary)\n\n#BlackLivesMatter\n\nmpg %>% glimpse()\n\nRows: 234\nColumns: 11\n$ manufacturer <chr> \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"audi\", \"…\n$ model        <chr> \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4\", \"a4 quattro\", \"…\n$ displ        <dbl> 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…\n$ year         <int> 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…\n$ cyl          <int> 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …\n$ trans        <chr> \"auto(l5)\", \"manual(m5)\", \"manual(m6)\", \"auto(av)\", \"auto…\n$ drv          <chr> \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"f\", \"4\", \"4\", \"4\", \"4\", \"4…\n$ cty          <int> 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…\n$ hwy          <int> 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…\n$ fl           <chr> \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p\", \"p…\n$ class        <chr> \"compact\", \"compact\", \"compact\", \"compact\", \"compact\", \"c…\n\nmpg %>% \n  select(cyl, cty) %>% \n  tbl_summary()\n\n\n\n\n\n  \n  \n    \n      Characteristic\n      N = 2341\n    \n  \n  \n    cyl\n\n    4\n81 (35%)\n    5\n4 (1.7%)\n    6\n79 (34%)\n    8\n70 (30%)\n    cty\n17 (14, 19)\n  \n  \n  \n    \n      1 n (%); Median (IQR)\n    \n  \n\n\n\n\n\nReferences"
+  },
+  {
+    "objectID": "statsummary.html#reading-csv-file",
+    "href": "statsummary.html#reading-csv-file",
+    "title": "10  Statistical Summary",
+    "section": "10.1 Reading CSV file",
+    "text": "10.1 Reading CSV file\nCSV stands for comma separated values. This is NOT Excel file although most of us probably think it is!\nUse the read_csv() function in the readr package (which is included in tidyverse). It will automatically detect column data type and read them as such.\nThe following data was retried from Federal Reserve Bank of New York on the Labor market for recent college graduates. The data is freely available to download, and was accessed on 10 March 2023.\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n# https://www.newyorkfed.org/research/college-labor-market/index#/outcomes-by-major\nlabormarket = read_csv(\"data/labor-market-recent-college-grads.csv\")\n\nRows: 74 Columns: 6\n\n\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): Major\ndbl (3): Unemployment Rate, Underemployment Rate, Share with Graduate Degree\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nlabormarket %>% glimpse()\n\nRows: 74\nColumns: 6\n$ Major                        <chr> \"Agriculture\", \"Animal and Plant Sciences…\n$ `Unemployment Rate`          <dbl> 2.4, 4.4, 5.1, 2.1, 4.4, 5.8, 6.5, 8.4, 4…\n$ `Underemployment Rate`       <dbl> 52.1, 52.5, 50.2, 29.1, 53.7, 52.7, 47.7,…\n$ `Median Wage Early Career`   <dbl> 45000, 42000, 45000, 50000, 45000, 47000,…\n$ `Median Wage Mid-Career`     <dbl> 70000, 67000, 68000, 85000, 66000, 75000,…\n$ `Share with Graduate Degree` <dbl> 21.0, 34.7, 32.5, 38.7, 49.7, 24.2, 27.0,…"
+  },
+  {
+    "objectID": "statsummary.html#reading-excel-file",
+    "href": "statsummary.html#reading-excel-file",
+    "title": "10  Statistical Summary",
+    "section": "10.2 Reading Excel file",
+    "text": "10.2 Reading Excel file\n\n# Need readxl library \n# install.packages('readxl')\n\nlibrary(readxl)\n\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\")\n\nNew names:\n• `` -> `...2`\n• `` -> `...3`\n\n\nWhat happened?\nI read the first sheet on the Excel file. Please open the excel file and see for yourself.\n\n\n\nFirst worksheet of the labor market data\n\n\nWith the read_xlsx() function, we can specify the exact worksheet we want to read from. For now, we want to read from the t1_majors sheet. Let modify the query and run it now.\n\nlibrary(readxl)\n\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\", sheet = 't1_majors')\n\nNew names:\n• `` -> `...2`\n• `` -> `...3`\n• `` -> `...4`\n• `` -> `...5`\n• `` -> `...6`\n\nlabor %>% glimpse()\n\nRows: 85\nColumns: 6\n$ `FEDERAL RESERVE BANK of NEW YORK` <chr> NA, NA, NA, NA, \"Chart and Table Da…\n$ ...2                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Un…\n$ ...3                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Un…\n$ ...4                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Me…\n$ ...5                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Me…\n$ ...6                               <chr> NA, NA, NA, NA, NA, NA, NA, NA, \"Sh…\n\n\nBut this is not exactly what we wanted! More work needed here.\n\n# Default name_reair parameter\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\", sheet = 't1_majors', range = 'a14:f88')\nlabor %>% glimpse()\n\nRows: 74\nColumns: 6\n$ Major                        <chr> \"Agriculture\", \"Animal and Plant Sciences…\n$ `Unemployment Rate`          <dbl> 2.352, 4.430, 5.136, 2.068, 4.390, 5.796,…\n$ `Underemployment Rate`       <dbl> 52.093, 52.457, 50.227, 29.123, 53.671, 5…\n$ `Median Wage Early Career`   <dbl> 45000, 42000, 45000, 50000, 45000, 47000,…\n$ `Median Wage Mid-Career`     <dbl> 70000, 67000, 68000, 85000, 66000, 75000,…\n$ `Share with Graduate Degree` <dbl> 20.958, 34.717, 32.461, 38.740, 49.747, 2…\n\n\nNotice how the names of the columns are created. This is not very useful when we are coding! We want the names to be read without sapces in them. Fortunately, there is a way to do this by setting the .name_repair = 'universal'\n\nlabor = read_xlsx(\"data/labor-market-for-recent-college-grads-original.xlsx\", sheet = 't1_majors', range = 'a14:f88',\n                  .name_repair = \"universal\")\n\nNew names:\n• `Unemployment Rate` -> `Unemployment.Rate`\n• `Underemployment Rate` -> `Underemployment.Rate`\n• `Median Wage Early Career` -> `Median.Wage.Early.Career`\n• `Median Wage Mid-Career` -> `Median.Wage.Mid.Career`\n• `Share with Graduate Degree` -> `Share.with.Graduate.Degree`\n\nlabor %>% glimpse()\n\nRows: 74\nColumns: 6\n$ Major                      <chr> \"Agriculture\", \"Animal and Plant Sciences\",…\n$ Unemployment.Rate          <dbl> 2.352, 4.430, 5.136, 2.068, 4.390, 5.796, 6…\n$ Underemployment.Rate       <dbl> 52.093, 52.457, 50.227, 29.123, 53.671, 52.…\n$ Median.Wage.Early.Career   <dbl> 45000, 42000, 45000, 50000, 45000, 47000, 4…\n$ Median.Wage.Mid.Career     <dbl> 70000, 67000, 68000, 85000, 66000, 75000, 7…\n$ Share.with.Graduate.Degree <dbl> 20.958, 34.717, 32.461, 38.740, 49.747, 24.…\n\n\nRenaming the columns\n\nlabor %>% \n  rename(\n    unem_rate = Unemployment.Rate,\n    underem_rate = Underemployment.Rate\n  ) %>% \n  glimpse()\n\nRows: 74\nColumns: 6\n$ Major                      <chr> \"Agriculture\", \"Animal and Plant Sciences\",…\n$ unem_rate                  <dbl> 2.352, 4.430, 5.136, 2.068, 4.390, 5.796, 6…\n$ underem_rate               <dbl> 52.093, 52.457, 50.227, 29.123, 53.671, 52.…\n$ Median.Wage.Early.Career   <dbl> 45000, 42000, 45000, 50000, 45000, 47000, 4…\n$ Median.Wage.Mid.Career     <dbl> 70000, 67000, 68000, 85000, 66000, 75000, 7…\n$ Share.with.Graduate.Degree <dbl> 20.958, 34.717, 32.461, 38.740, 49.747, 24.…"
+  },
+  {
+    "objectID": "readwrite.html#reading-spss-file",
+    "href": "readwrite.html#reading-spss-file",
+    "title": "9  Read-Write Files",
+    "section": "9.3 Reading SPSS file",
+    "text": "9.3 Reading SPSS file\nThe haven package allowes you to read data from other formats. Currently, the haven package reads data from SPSS, SAS and Stata formats.\nFor more and most up to date information about the package visit https://haven.tidyverse.org/\n\nlibrary(haven)"
+  },
+  {
+    "objectID": "readwrite.html#practical-example-using-consumer-finances-data",
+    "href": "readwrite.html#practical-example-using-consumer-finances-data",
+    "title": "9  Read-Write Files",
+    "section": "9.4 Practical Example using COnsumer Finances data",
+    "text": "9.4 Practical Example using COnsumer Finances data\nThe data have been collected from the US Federal Reserve System website located at this url\n\n9.4.1 Survey of Consumer Finances (SCF)\nThe 2019 Survey of Consumer Finances (SCF) is the most recent survey conducted. Below are links to the bulletin article, interactive chartbook, historical bulletin tables, full public dataset, extract dataset, replicate weight files, and documentation.\n\n\n9.4.2 Data dictionary\nThe data dictionary is located at this url\n\ndf_sas = read_sas('data/profits.sas7bdat')\ndf_sas\n\n# A tibble: 163 × 3\n   PROFITS   QTR  YEAR\n     <dbl> <dbl> <dbl>\n 1    29.8     1  1959\n 2    32.5     2  1959\n 3    29.2     3  1959\n 4    28.6     4  1959\n 5    31.5     1  1960\n 6    29.2     2  1960\n 7    27.9     3  1960\n 8    26.9     4  1960\n 9    26.2     1  1961\n10    27.7     2  1961\n# … with 153 more rows\n\n\n\ndf_stata = read_dta('data/scfp2019.dta')\n\ndf_stata\n\n# A tibble: 28,885 × 351\n     yy1    y1   wgt hhsex   age agecl  educ  edcl married  kids    lf lifecl\n   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl> <dbl> <dbl>  <dbl>\n 1     1    11 6120.     2    75     6    12     4       2     0     1      5\n 2     1    12 4712.     2    75     6    12     4       2     0     1      5\n 3     1    13 5145.     2    75     6    12     4       2     0     1      5\n 4     1    14 5298.     2    75     6    12     4       2     0     1      5\n 5     1    15 4762.     2    75     6    12     4       2     0     1      5\n 6     2    21 3790.     1    50     3     8     2       1     3     1      3\n 7     2    22 3799.     1    50     3     8     2       1     3     1      3\n 8     2    23 3799.     1    50     3     8     2       1     3     1      3\n 9     2    24 3788.     1    50     3     8     2       1     3     1      3\n10     2    25 3793.     1    50     3     8     2       1     3     1      3\n# … with 28,875 more rows, and 339 more variables: famstruct <dbl>,\n#   racecl <dbl>, racecl4 <dbl>, race <dbl>, occat1 <dbl>, occat2 <dbl>,\n#   indcat <dbl>, foodhome <dbl>, foodaway <dbl>, fooddelv <dbl>, rent <dbl>,\n#   income <dbl>, wageinc <dbl>, bussefarminc <dbl>, intdivinc <dbl>,\n#   kginc <dbl>, ssretinc <dbl>, transfothinc <dbl>, penacctwd <dbl>,\n#   norminc <dbl>, wsaved <dbl>, saved <dbl>, savres1 <dbl>, savres2 <dbl>,\n#   savres3 <dbl>, savres4 <dbl>, savres5 <dbl>, savres6 <dbl>, …"
+  },
+  {
+    "objectID": "readwrite.html#reading-other-statistical-data-sets",
+    "href": "readwrite.html#reading-other-statistical-data-sets",
+    "title": "9  Read-Write Files",
+    "section": "9.4 Reading other statistical data sets",
+    "text": "9.4 Reading other statistical data sets\nThe haven package allowes you to read data from other formats. Currently, the haven package reads data from SPSS, SAS and Stata formats.\nFor more and most up to date information about the package visit https://haven.tidyverse.org/\n\n9.4.1 Reading SPSS file\nThe data have been downloaded from https://lo.unisa.edu.au/mod/book/view.php?id=646443&chapterid=106604\n\n2016 Health and Society student health survey data (SPSS format, 36 KB) HLTH1025_2016.sav\n2016 Health and Society student health survey data (Excel format, 93 KB): HLTH1025_2016.xlsx\nSPSS Health and Society student health survey data_Year (SPSS format, 4 KB): HLTH1025_2016_yr.sav\n\n\nlibrary(haven)\n\ndf_spss_2016 = read_sav('data/spss/HLTH1025_2016.sav')\n\ndf_spss_2016 %>% glimpse()\n\nRows: 306\nColumns: 59\n$ IDnumber      <dbl> 20160186, 20160011, 20160081, 20160155, 20160182, 201600…\n$ age           <dbl> 19, 17, 18, 18, 19, 17, 19, 17, 20, 20, 18, 22, 19, 19, …\n$ sex           <dbl> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…\n$ workstat      <dbl> 3, 0, 3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 3,…\n$ increg        <dbl> 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1,…\n$ incmnth       <dbl> 0, 0, 300, 0, 600, 0, 0, 0, 1500, 400, 0, 433, 1200, 0, …\n$ incwk         <dbl> 0.00000, 0.00000, 69.23077, 0.00000, 138.46154, 0.00000,…\n$ housing       <dbl> 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 3, 3, 2, 2, 4, 5, 2, 2,…\n$ living        <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 2, 2, 1, 1, 2, 2, 1, 1,…\n$ homepay       <dbl> 1, 1, 1, 1, 4, 4, 99, 1, 4, 1, 1, 4, 4, 4, 1, 4, 1, 4, 2…\n$ homecost      <dbl> 0, 0, 0, 50, 1200, 600, 0, 0, 303, 0, 0, 179, 360, 1128,…\n$ homecostwk    <dbl> 0.00000, 0.00000, 0.00000, 11.53846, 276.92308, 138.4615…\n$ mobile        <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ mobilepay     <dbl> 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0,…\n$ mobilecost    <dbl> 30, 0, 0, 82, 0, 0, 50, 30, 40, 0, 0, 0, 29, 52, 60, 90,…\n$ mobilecostwk  <dbl> 6.923077, 0.000000, 0.000000, 18.923077, 0.000000, 0.000…\n$ transport     <dbl> 50, 0, 20, 60, 10, 14, 30, 20, 60, 8, 20, 5, 90, 3, 30, …\n$ food          <dbl> 20, 0, 70, 50, 60, 15, 50, 20, 200, 40, 10, 20, 100, 50,…\n$ entertain     <dbl> 20, 0, 0, 0, 20, 0, 0, 20, 0, 50, 0, 20, 50, 0, 50, 30, …\n$ privhlth      <dbl> 1, 0, 1, 97, 0, 1, 97, 97, 1, 1, 0, 1, 0, 1, 97, 1, 1, 0…\n$ fs_illness    <dbl> 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0,…\n$ fs_accident   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ fs_death      <dbl> 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0,…\n$ fs_mtlillness <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,…\n$ fs_disability <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ fs_divsep     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ fs_nogetjob   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0,…\n$ fs_lossofjob  <dbl> 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,…\n$ fs_alcdrug    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ fs_witviol    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ fs_absvcrim   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ fs_police     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ fs_gambling   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ famstress     <dbl> 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0,…\n$ drivelic      <dbl> 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1,…\n$ mvacc         <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,…\n$ mvaccinj      <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ smokeyn       <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ smokereg      <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ smokestat     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ suffact       <dbl> 1, 0, 0, 2, 0, 1, 1, 0, 0, 0, 0, 0, 2, 2, 1, 1, 0, 0, 1,…\n$ veg           <dbl> 4.0, 3.0, 1.0, 3.0, 3.0, 3.0, 2.0, 4.0, 0.0, 1.0, 2.0, 1…\n$ fruit         <dbl> 2.0, 2.0, 3.0, 1.0, 0.5, 2.0, 1.0, 2.0, 2.0, 2.0, 1.0, 0…\n$ medication    <dbl> 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1,…\n$ sf1           <dbl> 4, 3, 1, 3, 4, 3, 3, 3, 3, 4, 3, 3, 3, 3, 5, 3, 3, 3, 3,…\n$ height        <dbl> 163.0, 164.0, 153.0, 150.0, 158.0, 150.0, 150.0, 158.0, …\n$ weight        <dbl> 9999.0, 9999.0, 35.0, 40.0, 40.0, 41.0, 41.0, 42.0, 43.0…\n$ asthma        <dbl> 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ cancer        <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ cvcondition   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ arthritis     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ osteop        <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ diabetes      <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ mtlstress     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ anxiety       <dbl> 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ depress       <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ mtlother      <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ mntlcond      <dbl> 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…\n$ mntlcurr      <dbl> 99, 1, 99, 0, 0, 0, 0, 0, 99, 0, 0, 1, 0, 0, 0, 0, 0, 1,…\n\n\n\n\n9.4.2 Reading Stata files\nThe data have been collected from the US Federal Reserve System website located at this url\nThe 2019 Survey of Consumer Finances (SCF) is the most recent survey conducted. Below are links to the bulletin article, interactive chartbook, historical bulletin tables, full public dataset, extract dataset, replicate weight files, and documentation.\nPlease visit the page to learn more about the data and the survey.\n\ndf_stata = read_dta('data/scfp2019.dta')\n\ndf_stata\n\n# A tibble: 28,885 × 351\n     yy1    y1   wgt hhsex   age agecl  educ  edcl married  kids    lf lifecl\n   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl> <dbl> <dbl>  <dbl>\n 1     1    11 6120.     2    75     6    12     4       2     0     1      5\n 2     1    12 4712.     2    75     6    12     4       2     0     1      5\n 3     1    13 5145.     2    75     6    12     4       2     0     1      5\n 4     1    14 5298.     2    75     6    12     4       2     0     1      5\n 5     1    15 4762.     2    75     6    12     4       2     0     1      5\n 6     2    21 3790.     1    50     3     8     2       1     3     1      3\n 7     2    22 3799.     1    50     3     8     2       1     3     1      3\n 8     2    23 3799.     1    50     3     8     2       1     3     1      3\n 9     2    24 3788.     1    50     3     8     2       1     3     1      3\n10     2    25 3793.     1    50     3     8     2       1     3     1      3\n# … with 28,875 more rows, and 339 more variables: famstruct <dbl>,\n#   racecl <dbl>, racecl4 <dbl>, race <dbl>, occat1 <dbl>, occat2 <dbl>,\n#   indcat <dbl>, foodhome <dbl>, foodaway <dbl>, fooddelv <dbl>, rent <dbl>,\n#   income <dbl>, wageinc <dbl>, bussefarminc <dbl>, intdivinc <dbl>,\n#   kginc <dbl>, ssretinc <dbl>, transfothinc <dbl>, penacctwd <dbl>,\n#   norminc <dbl>, wsaved <dbl>, saved <dbl>, savres1 <dbl>, savres2 <dbl>,\n#   savres3 <dbl>, savres4 <dbl>, savres5 <dbl>, savres6 <dbl>, …\n\n\n\n\n9.4.3 Reading SAS files\nPrinciples of Econometrics, 5th Edition provides many downloadable SAS data sets from their website.\n\ndf_sas = read_sas('data/profits.sas7bdat')\ndf_sas\n\n# A tibble: 163 × 3\n   PROFITS   QTR  YEAR\n     <dbl> <dbl> <dbl>\n 1    29.8     1  1959\n 2    32.5     2  1959\n 3    29.2     3  1959\n 4    28.6     4  1959\n 5    31.5     1  1960\n 6    29.2     2  1960\n 7    27.9     3  1960\n 8    26.9     4  1960\n 9    26.2     1  1961\n10    27.7     2  1961\n# … with 153 more rows"
+  },
+  {
+    "objectID": "readwrite.html#writing-csv-file",
+    "href": "readwrite.html#writing-csv-file",
+    "title": "9  Read-Write Files",
+    "section": "9.2 Writing CSV file",
+    "text": "9.2 Writing CSV file\n\nlabormarket %>% \n  select(Major, `Unemployment Rate`) %>% \n  write_csv('data/tmp_output_test.csv')"
+  },
+  {
+    "objectID": "part2.html",
+    "href": "part2.html",
+    "title": "Part II: Statistics",
+    "section": "",
+    "text": "In this section we introduce core statistics topics essential for research and statistical analysis of research data."
+  },
+  {
+    "objectID": "usecases.html",
+    "href": "usecases.html",
+    "title": "11  Planned Outline",
+    "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "usecases.html#planned-outline",
+    "href": "usecases.html#planned-outline",
+    "title": "11  Glimpse of Advanced Statistics",
+    "section": "11.1 Planned Outline",
+    "text": "11.1 Planned Outline"
+  },
+  {
+    "objectID": "usecases.html#advanced-statistical-use-cases",
+    "href": "usecases.html#advanced-statistical-use-cases",
+    "title": "11  Planned Outline",
+    "section": "11.1 Advanced Statistical Use Cases",
+    "text": "11.1 Advanced Statistical Use Cases\n\nTopic 1\nTopic 2"
+  },
+  {
+    "objectID": "usecases.html#understanding-data-distribution",
+    "href": "usecases.html#understanding-data-distribution",
+    "title": "11  Planned Outline",
+    "section": "11.2 Understanding Data Distribution",
+    "text": "11.2 Understanding Data Distribution\n\nShape of data\nMeasures of center\nMeasures of variance\n\nSubtopic\n\nSub sub topic"
+  },
+  {
+    "objectID": "outline.html",
+    "href": "outline.html",
+    "title": "11  Planned Outline",
+    "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "outline.html#advanced-statistical-use-cases",
+    "href": "outline.html#advanced-statistical-use-cases",
+    "title": "11  Planned Outline",
+    "section": "11.1 Advanced Statistical Use Cases",
+    "text": "11.1 Advanced Statistical Use Cases\n\nTableOne summary statistics\n\nUnivariate/One-variable case\nBivariate / Two-variable case\n\nUse of logistic regression\n\nOdds ratio\n\nUse of multivariable linear regression\n\nInterpretation of coefficients"
+  },
+  {
+    "objectID": "outline.html#understanding-data-distribution",
+    "href": "outline.html#understanding-data-distribution",
+    "title": "11  Planned Outline",
+    "section": "11.2 Understanding data distribution",
+    "text": "11.2 Understanding data distribution\n\nShape of data\nExamples of various continuous distributions\nVisualization of continious data\nVisualizing discrete and categorical data"
+  },
+  {
+    "objectID": "outline.html#describing-data-distribution-graphically",
+    "href": "outline.html#describing-data-distribution-graphically",
+    "title": "11  Planned Outline",
+    "section": "11.3 Describing data distribution graphically",
+    "text": "11.3 Describing data distribution graphically\n\nVisualizing categorical data\n\nBar plot\n\nVisualizing numerical data\n\nDot plot / point plot\nHistogram\nDensity plot\nScatterplot for bivariate numerical data"
+  },
+  {
+    "objectID": "outline.html#advanced-statistical-usecases",
+    "href": "outline.html#advanced-statistical-usecases",
+    "title": "11  Planned Outline",
+    "section": "11.1 Advanced statistical usecases",
+    "text": "11.1 Advanced statistical usecases\n\nTableOne summary statistics\n\nUnivariate/One-variable case\nBivariate / Two-variable case\n\nUse of logistic regression\n\nOdds ratio\n\nUse of multivariable linear regression\n\nInterpretation of coefficients"
+  },
+  {
+    "objectID": "outline.html#describing-data-distribution-numerically",
+    "href": "outline.html#describing-data-distribution-numerically",
+    "title": "11  Planned Outline",
+    "section": "11.4 Describing data distribution numerically",
+    "text": "11.4 Describing data distribution numerically\n\nMeasures of center\n\nAlso known as measures of location\nalso known as measures of central tendency\n\nUnderstanding variation in data\n\nConcept of dispersion (the idea of deviation from the center)\nMeasures of dispersion\n\nRange\nVariance\nStandard deviation\n\n\nCreating data summary with boxplot\nMeasures of relative standing\n\nZ-score"
+  },
+  {
+    "objectID": "outline.html#understanding-relationship-between-two-or-more-variables",
+    "href": "outline.html#understanding-relationship-between-two-or-more-variables",
+    "title": "11  Planned Outline",
+    "section": "11.5 Understanding relationship between two or more variables",
+    "text": "11.5 Understanding relationship between two or more variables\n\nCorrelation between two numerical variables\nLinear regression to assess relationship of one outcome variable (aka. dependent variable) with one or more predictor (aka independent) variables"
+  },
+  {
+    "objectID": "outline.html#foundations-of-probability",
+    "href": "outline.html#foundations-of-probability",
+    "title": "11  Planned Outline",
+    "section": "11.6 Foundations of Probability*",
+    "text": "11.6 Foundations of Probability*\n\nInterpretation of probability\nCalculation of probability\nProbability of complex events (union, intersection, complements)\nConditional probability"
+  },
+  {
+    "objectID": "outline.html#random-variable-and-its-probability-distribution",
+    "href": "outline.html#random-variable-and-its-probability-distribution",
+    "title": "11  Planned Outline",
+    "section": "11.7 Random variable and its probability distribution",
+    "text": "11.7 Random variable and its probability distribution\n\nWhat is a random variable?\nProbability distribution of discrete random variable\n\nExamples such as\n\nBinomial distribution\nGeometric distribution\nPoisson distribution\n\n\nProbability distribution of continuous random variable\n\nExamples such as\n\nNormal distribution\nGamma distribution\nt-distribution\nChi-square distribution"
+  },
+  {
+    "objectID": "outline.html#making-decision-from-data-statistical-inference",
+    "href": "outline.html#making-decision-from-data-statistical-inference",
+    "title": "11  Planned Outline",
+    "section": "11.8 Making decision from data (Statistical Inference)",
+    "text": "11.8 Making decision from data (Statistical Inference)\n\nConcepts\n\nSample and Population\nStatistic (a quantity calculated from sample)\nParameter (a quantity calculated from the entire population)\n\nHow do statisticians make decision by studying on a fraction of the data?\nA five-step process for making decision (statistical inference)"
+  },
+  {
+    "objectID": "outline.html#sampling-distribution",
+    "href": "outline.html#sampling-distribution",
+    "title": "11  Planned Outline",
+    "section": "11.9 Sampling Distribution",
+    "text": "11.9 Sampling Distribution\n\nDistribution of a statistic (aka. sampling distribution)\nDistribution of sample mean (simulation study)\nDistribution of sample proportion (simulation study)\nCentral Limit Theorem (CLT)\nHow sampling distribution supports learning from data"
+  },
+  {
+    "objectID": "outline.html#estimation-of-test-of-hypothesis-about-population-proportion",
+    "href": "outline.html#estimation-of-test-of-hypothesis-about-population-proportion",
+    "title": "11  Planned Outline",
+    "section": "11.10 Estimation of Test of Hypothesis about Population Proportion",
+    "text": "11.10 Estimation of Test of Hypothesis about Population Proportion\n\nEstimation of population proportion\nMargin of Error\nConfidence Interval for a population proportion\nSample size calculation*"
+  },
+  {
+    "objectID": "outline.html#section",
+    "href": "outline.html#section",
+    "title": "11  Planned Outline",
+    "section": "11.14 ",
+    "text": "11.14"
+  },
+  {
+    "objectID": "outline.html#estimation-and-test-of-hypothesis-about-population-proportion",
+    "href": "outline.html#estimation-and-test-of-hypothesis-about-population-proportion",
+    "title": "11  Planned Outline",
+    "section": "11.10 Estimation and Test of Hypothesis about Population Proportion",
+    "text": "11.10 Estimation and Test of Hypothesis about Population Proportion\n\nEstimation of population proportion\n\nMargin of Error\nConfidence Interval for a population proportion\nSample size calculation*"
+  },
+  {
+    "objectID": "outline.html#hypothesis-testing-for-population-proportion",
+    "href": "outline.html#hypothesis-testing-for-population-proportion",
+    "title": "11  Planned Outline",
+    "section": "11.11 Hypothesis testing for population proportion",
+    "text": "11.11 Hypothesis testing for population proportion\n\nHypothesis testing\n\nHypothesis and making a conclusion after the procedure\nErrors in hypothesis testing\nSteps to carrying out a hypothesis test\n\nHypothesis testing (answering question about population proportion)\n\ntest for a single population proportion\ntesting the difference between two population proportions"
+  },
+  {
+    "objectID": "outline.html#estimation-of-a-population-proportion",
+    "href": "outline.html#estimation-of-a-population-proportion",
+    "title": "11  Planned Outline",
+    "section": "11.10 Estimation of a Population Proportion",
+    "text": "11.10 Estimation of a Population Proportion\n\nEstimation of population proportion\nMargin of Error\nConfidence Interval for a population proportion\nSample size calculation*"
+  },
+  {
+    "objectID": "outline.html#hypothesis-test-for-population-mean",
+    "href": "outline.html#hypothesis-test-for-population-mean",
+    "title": "11  Planned Outline",
+    "section": "11.12 Hypothesis test for population mean",
+    "text": "11.12 Hypothesis test for population mean\n\nTest for a single population mean\nTest for the difference between two population means"
+  },
+  {
+    "objectID": "outline.html#section-1",
+    "href": "outline.html#section-1",
+    "title": "11  Planned Outline",
+    "section": "11.14 ",
+    "text": "11.14"
+  },
+  {
+    "objectID": "outline.html#making-decision-from-categorical-data",
+    "href": "outline.html#making-decision-from-categorical-data",
+    "title": "11  Planned Outline",
+    "section": "11.13 Making decision from categorical data",
+    "text": "11.13 Making decision from categorical data\n\nChi-square test for univariate categorical data\nTest for independence and test for homogeneity in a contingency table"
+  },
+  {
+    "objectID": "outline.html#comparing-risk-in-two-populations",
+    "href": "outline.html#comparing-risk-in-two-populations",
+    "title": "11  Planned Outline",
+    "section": "11.14 Comparing Risk in two Populations",
+    "text": "11.14 Comparing Risk in two Populations\n\nRisk difference\nRelative Risk\nOdds ratio"
   }
 ]

@@ -18,9 +18,14 @@ book:
         - subsetting.qmd
         - operators.qmd
         - tidyverse.qmd
-    - research-process.qmd
-    - analytic-process.qmd
-    - applications.qmd
+        - readwrite.qmd
+        - statsummary.qmd
+    - part: part2.qmd
+      chapters:
+        - outline.qmd
+        - research-process.qmd
+        - analytic-process.qmd
+        - applications.qmd
     - references.qmd
 
 bibliography: references.bib

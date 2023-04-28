@@ -1,0 +1,152 @@
+# Read-Write Files
+
+
+## Reading CSV file
+
+CSV stands for comma separated values. This is NOT Excel file although most of us probably think it is!
+
+Use the read_csv() function in the readr package (which is included in tidyverse). It will automatically detect column data type and read them as such.
+
+The following data was retried from [Federal Reserve Bank of New York](https://www.newyorkfed.org/research/college-labor-market/index#/outcomes-by-major) on the Labor market for recent college graduates. The data is freely available to download, and was accessed on 10 March 2023.
+
+```{r}
+
+library(tidyverse)
+
+# https://www.newyorkfed.org/research/college-labor-market/index#/outcomes-by-major
+labormarket = read_csv("data/labor-market-recent-college-grads.csv")
+
+labormarket %>% glimpse()
+```
+
+## Writing CSV file
+
+```{r}
+
+labormarket %>% 
+  select(Major, `Unemployment Rate`) %>% 
+  write_csv('data/tmp_output_test.csv')
+
+```
+
+
+## Reading Excel file
+
+```{r}
+
+# Need readxl library 
+# install.packages('readxl')
+
+library(readxl)
+
+labor = read_xlsx("data/labor-market-for-recent-college-grads-original.xlsx")
+
+```
+What happened? 
+
+I read the first sheet on the Excel file. Please open the excel file and see for yourself. 
+
+
+![First worksheet of the labor market data](images/labor-data-xlsx-workbook.png)
+
+With the `read_xlsx()` function, we can specify the exact worksheet we want to read from. For now, we want to read from the `t1_majors` sheet. Let modify the query and run it now.
+
+```{r}
+
+library(readxl)
+
+labor = read_xlsx("data/labor-market-for-recent-college-grads-original.xlsx", sheet = 't1_majors')
+labor %>% glimpse()
+
+```
+
+But this is not exactly what we wanted! More work needed here. 
+
+```{r}
+
+# Default name_reair parameter
+labor = read_xlsx("data/labor-market-for-recent-college-grads-original.xlsx", sheet = 't1_majors', range = 'a14:f88')
+labor %>% glimpse()
+
+```
+
+Notice how the names of the columns are created. This is not very useful when we are coding! We want the names to be read without sapces in them. Fortunately, there is a way to do this by setting the `.name_repair = 'universal'`
+
+```{r}
+
+labor = read_xlsx("data/labor-market-for-recent-college-grads-original.xlsx", sheet = 't1_majors', range = 'a14:f88',
+                  .name_repair = "universal")
+labor %>% glimpse()
+```
+
+Renaming the columns
+
+```{r}
+
+labor %>% 
+  rename(
+    unem_rate = Unemployment.Rate,
+    underem_rate = Underemployment.Rate
+  ) %>% 
+  glimpse()
+
+```
+
+## Reading other statistical data sets
+
+
+The haven package allowes you to read data from other formats. Currently, the haven package reads data from SPSS, SAS and Stata formats. 
+
+For more and most up to date information about the package visit https://haven.tidyverse.org/ 
+
+### Reading SPSS file
+
+The data have been downloaded from https://lo.unisa.edu.au/mod/book/view.php?id=646443&chapterid=106604
+
+- 2016 Health and Society student health survey data (SPSS format, 36 KB) `HLTH1025_2016.sav`
+- 2016 Health and Society student health survey data (Excel format, 93 KB): `HLTH1025_2016.xlsx`
+- SPSS Health and Society student health survey data_Year (SPSS format, 4 KB): `HLTH1025_2016_yr.sav`
+
+
+```{r}
+library(haven)
+
+df_spss_2016 = read_sav('data/spss/HLTH1025_2016.sav')
+
+df_spss_2016 %>% glimpse()
+
+
+```
+
+### Reading Stata files
+
+The data have been collected from the US Federal Reserve System website located at [this url](https://www.federalreserve.gov/econres/scfindex.htm )
+
+The 2019 Survey of Consumer Finances (SCF) is the most recent survey conducted. Below are links to the bulletin article, interactive chartbook, historical bulletin tables, full public dataset, extract dataset, replicate weight files, and documentation.
+
+Please visit the page to learn more about the data and the survey.
+
+
+
+```{r}
+
+df_stata = read_dta('data/scfp2019.dta')
+
+df_stata
+```
+
+### Reading SAS files
+
+Principles of Econometrics, 5th Edition provides many downloadable SAS data sets from their [website.](http://www.principlesofeconometrics.com/sas.htm) 
+
+```{r}
+
+df_sas = read_sas('data/profits.sas7bdat')
+df_sas
+```
+
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

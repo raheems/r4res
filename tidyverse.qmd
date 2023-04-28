@@ -93,6 +93,22 @@ mpg %>% glimpse()
 
 There are `r dim(mpg)[1]` rows and `r dim(mpg)[2]` columns or variables in the data set. This also confirms with the output produced when running `glimpse()`.
 
+
+## Selecting columns using `select()`
+
+As the name suggests, we select or subset columns using `select()`. To select `model`, `year` and drive train from the `mpg` data set, use `select(model, year, drv)`. No need to wrap the column names in quotations. 
+
+```{r}
+
+mpg %>% 
+  select(model, year, drv) %>% 
+  glimpse()
+
+```
+Let me show you how you would do this using base R tools.
+
+
+
 ## Filter rows with `filter()`
 
 ### Filtering based on one condition
@@ -143,7 +159,7 @@ mpg %>%
 
 How about either front wheel drive and city fuel efficiency of 20 or 24 miles per gallon?
 
-First try to filter vehicles whose city mileage is 20 or 24 mpg
+First try to filter vehicles whose city mileage is 20 or 24 mpg. Then we will combine this wit the condition that the vehicle is a front-wheel drive.
 
 ```{r}
 
@@ -153,8 +169,59 @@ mpg %>%
   table()
 
 ```
+To combine these two conditions, note that they are in an `OR` relationship, not an `AND` relationship. __Either__ is the keyword here. In mathematics and statistics, it means __either or__. Which also means if one condition is satisifed, the other, or both are satisfied.
+
+Lets implement it.
+
+```{r}
+mpg %>% 
+  filter(drv == 'f' | cty == c(24, 20))  # OR operator '|' is used
+  
+```
+To verify that we've got the rows we wanted, run a frequency table
+
+```{r}
+mpg %>% 
+  filter(drv == 'f' | cty == c(24, 20)) %>% 
+  select(drv) %>% 
+  table() # got some 4-wheel and mostly front-wheel drive vehicles
 
 
+mpg %>% 
+  filter(drv == 'f' | cty == c(24, 20)) %>% 
+  select(cty) %>% 
+  table() # got 20 mpg, 24 mpg as well as other!! 
+
+```
+Notice that, we got vehicles that are front-wheel drive and some that are all-wheel drive. Likewise, we got vehicles whose city mpg is not only 20 mpg or 24 mpg but also other. Why is that? Can you explain?
+
+## Other useful functions
+
+### Which function
+
+```{r}
+
+mpg %>% 
+  slice(
+    which(cyl == 6)  
+  )
+  
+
+```
+
+
+```{r}
+
+which(mpg$cyl == 5)
+
+mpg %>% slice_head() # selects the first row
+mpg %>% slice_tail() # selects the last row
+mpg %>% slice_min(order_by = cty)
+mpg %>% slice_max(order_by = cty)
+mpg %>% slice_sample(n = 10)
+
+
+```
 
 
 
